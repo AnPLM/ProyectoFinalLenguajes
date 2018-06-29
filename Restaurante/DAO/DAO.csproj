@@ -38,6 +38,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DAOListaPedido.cs" />
     <Compile Include="DaoOrden.cs" />
     <Compile Include="DaoPedido.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
