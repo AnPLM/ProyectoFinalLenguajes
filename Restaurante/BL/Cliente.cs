@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using TO;
+using DAO;
+
 namespace BL
 {
     public class Cliente
@@ -16,7 +18,8 @@ namespace BL
         public Cliente()
         {
         }
-        public Cliente(String nombre, String correo, String nombreUsuario, String contrasenna, Boolean habilitado, String direccion)
+        public Cliente(String nombre, String correo, String nombreUsuario, 
+            String contrasenna, Boolean habilitado, String direccion)
         {
             this.Nombre = nombre;
             this.Correo = correo;
@@ -25,16 +28,25 @@ namespace BL
             this.Habilitado = habilitado;
             this.Direccion = direccion;
         }
-
-        
-
         public void agregarCliente() {
-            
+            DAOCliente daoCliente = new DAOCliente();
+            daoCliente.insertarCliente(new TOCliente(this.Nombre, this.Correo,
+                this.NombreUsuario, this.Contrasenna, this.Habilitado, this.Direccion));
         }
-        public void modificarCliente() { }
-        public void seleccionarCliente() { }
-        public void habilitarCliente() { }
-        public void deshabilitarCliente() { }
+        public void habilitarCliente(String nombreUsuario) {
+            this.NombreUsuario = nombreUsuario;
+            DAOCliente daoCliente = new DAOCliente();
+            TOCliente toCliente = new TOCliente();
+            toCliente.NombreUsuario = this.NombreUsuario;
+            daoCliente.habilitarCliente(toCliente);
+        }
+        public void deshabilitarCliente(String nombreUsuario) {
+            this.NombreUsuario = nombreUsuario;
+            DAOCliente daoCliente = new DAOCliente();
+            TOCliente toCliente = new TOCliente();
+            toCliente.NombreUsuario = this.NombreUsuario;
+            daoCliente.deshabilitarCliente(toCliente);
+        }
 
     }
 }
