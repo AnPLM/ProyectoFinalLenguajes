@@ -11,11 +11,11 @@ namespace BL
         public String Descripcion { get; set; }
         public Double Precio { get; set; }
         public String Fotografia { get; set; }
-        public Boolean Habilitado { get; set; }
+        public int Habilitado { get; set; }
 
         public Plato() { }
 
-        public Plato(String nombre, String descripcion, Double precio, String fotografia, Boolean habilitado)
+        public Plato(String nombre, String descripcion, Double precio, String fotografia, int habilitado)
         {
             this.Nombre = nombre;
             this.Descripcion = descripcion;
