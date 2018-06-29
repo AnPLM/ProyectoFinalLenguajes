@@ -1,5 +1,6 @@
 ﻿Public Class TOPlato
 
+    Public Property Identificador As Integer
     Public Property Nombre As String
     Public Property Descripcion As String
     Public Property Precio As Double
@@ -10,7 +11,8 @@
 
     End Sub
 
-    Sub New(nombre As String, descripcion As String, precio As Double, fotografia As String, habilitado As Integer)
+    Sub New(identificador As Integer, nombre As String, descripcion As String, precio As Double, fotografia As String, habilitado As Integer)
+        Me.Identificador = identificador
         Me.Nombre = nombre
         Me.Descripcion = descripcion
         Me.Precio = precio
