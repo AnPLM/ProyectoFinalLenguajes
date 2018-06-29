@@ -78,6 +78,7 @@
     </Compile>
     <Compile Include="Orden.vb" />
     <Compile Include="TOCliente.vb" />
+    <Compile Include="TOListaPedidos.vb" />
     <Compile Include="TOPlato.vb" />
     <Compile Include="TOUsuario.vb" />
   </ItemGroup>
