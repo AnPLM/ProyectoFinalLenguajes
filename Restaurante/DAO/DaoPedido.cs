@@ -5,7 +5,7 @@ using System.Text;
 
 namespace DAO
 {
-    class Pedido
+    class DaoPedido
     {
     }
 }
