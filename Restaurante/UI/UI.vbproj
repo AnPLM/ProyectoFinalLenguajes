@@ -139,6 +139,7 @@
     <Import Include="System.Web.UI.HtmlControls" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Estilos\EstilosPlatos.css" />
     <Content Include="OrdenForm.aspx" />
     <Content Include="PruebaLogin.aspx" />
     <Content Include="RegistroCliente.aspx" />
