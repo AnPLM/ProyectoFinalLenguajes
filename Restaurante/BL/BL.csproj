@@ -39,6 +39,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BLListaCliente.cs" />
+    <Compile Include="BLOrden.cs" />
     <Compile Include="Cliente.cs" />
     <Compile Include="Plato.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

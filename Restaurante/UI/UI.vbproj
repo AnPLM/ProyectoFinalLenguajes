@@ -139,6 +139,7 @@
     <Import Include="System.Web.UI.HtmlControls" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="OrdenForm.aspx" />
     <Content Include="PruebaLogin.aspx" />
     <Content Include="scripts\ai.0.15.0-build58334.js" />
     <Content Include="scripts\ai.0.15.0-build58334.min.js" />
@@ -171,6 +172,13 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="OrdenForm.aspx.designer.vb">
+      <DependentUpon>OrdenForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="OrdenForm.aspx.vb">
+      <DependentUpon>OrdenForm.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="PruebaLogin.aspx.designer.vb">
       <DependentUpon>PruebaLogin.aspx</DependentUpon>
