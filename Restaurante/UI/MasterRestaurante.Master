@@ -1,25 +1,42 @@
-﻿<%@ Master Language="VB" AutoEventWireup="false" CodeBehind="MasterRestaurante.master.vb" Inherits="UI.MasterRestaurante" %>
+﻿
+<%@ Master Language="VB" AutoEventWireup="false" CodeBehind="MasterRestaurante.master.vb" Inherits="UI.MasterRestaurante" %>
 
 <!DOCTYPE html>
-
-<html xmlns="http://www.w3.org/1999/xhtml">
+    <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
-    <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <asp:ContentPlaceHolder ID="head" runat="server">
-    </asp:ContentPlaceHolder>
+    <asp:ContentPlaceHolder ID="encabezado" runat="server">
+</asp:ContentPlaceHolder>
 </head>
 <body >
+    <div class="container">
+        <div class="row">
+        <div class="col">
     <div class="page-header">
-        <div style="background-color:firebrick !important" class="jumbotron text-center">
-            <div style="background-color:goldenrod "><h1 class="display-1">Restaurante Renombrar</h1></div>
-            <p style="background-color:indianred">Su mejor opcion</p>
-            
-</div>
+        <div style="background-color:firebrick !important" class="jumbotron text-center col">
+            <div style="background-color:coral" class="col">
+                <p style="font-size:8vw"; class="alert-danger">Restaurante Renombrar</p>
+
+            </div>
+            <p style=" font-size:3vw;  background-color:indianred">Su mejor opcion</p>
         </div>
+            </div>
+            </div>
+</div>
+ </div>
+           
+                <div class="col">
+    <asp:ContentPlaceHolder ID="cuerpo" runat="server">
+        </asp:ContentPlaceHolder>
+                    </div>
+    <asp:ContentPlaceHolder ID="pie" runat="server">
+        </asp:ContentPlaceHolder>
 </body>
 </html>
+
+
