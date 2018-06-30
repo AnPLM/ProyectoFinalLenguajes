@@ -14,11 +14,29 @@ Option Explicit On
 Partial Public Class MasterRestaurante
     
     '''<summary>
-    '''head control.
+    '''encabezado control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents head As Global.System.Web.UI.WebControls.ContentPlaceHolder
+    Protected WithEvents encabezado As Global.System.Web.UI.WebControls.ContentPlaceHolder
+    
+    '''<summary>
+    '''cuerpo control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents cuerpo As Global.System.Web.UI.WebControls.ContentPlaceHolder
+    
+    '''<summary>
+    '''pie control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents pie As Global.System.Web.UI.WebControls.ContentPlaceHolder
 End Class
