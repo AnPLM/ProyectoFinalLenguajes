@@ -110,7 +110,36 @@ namespace DAO
             return o;
         }
 
-        public void /*LinkedList<Orden>*/ listaOrdenes() { /*return new LinkedList<Orden> list;*/ }
+        public LinkedList<TOOrden> listaOrdenes() {
+            string query = "select * from Orden";
+            string conn = Properties.Settings.Default.Conn;
+            SqlCommand command = new SqlCommand(query, new SqlConnection(conn));
+            LinkedList<TOOrden> list = new LinkedList<TOOrden>();
+            TOOrden o;
+            SqlDataReader data;
+            try
+            {
+                if (command.Connection.State == ConnectionState.Closed) { command.Connection.Open(); }
+                data = command.ExecuteReader();
+                if (data.HasRows) {
+                    while (data.Read())
+                    {
+                        string nombre = data.GetValue(0).ToString();
+                        DateTime fecha = DateTime.Parse(data.GetValue(1).ToString());
+                        string stado = data.GetValue(2).ToString();
+                        int identificador = Int32.Parse(data.GetValue(3).ToString());
+                        o = new TOOrden(nombre, fecha, stado, identificador);
+                        list.AddLast(o);
+                    }
+                }
+                if (command.Connection.State == ConnectionState.Open) { command.Connection.Close(); }
+            } catch (Exception e) {
+                throw e;
+            } finally {
+                if (command.Connection.State == ConnectionState.Open) { command.Connection.Close(); }
+                }
+            return list;
+        }
     }
 }
     
