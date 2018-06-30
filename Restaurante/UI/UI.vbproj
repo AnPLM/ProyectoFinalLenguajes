@@ -139,10 +139,12 @@
     <Import Include="System.Web.UI.HtmlControls" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="OrdenForm.aspx" />
     <Content Include="PruebaLogin.aspx" />
     <Content Include="RegistroCliente.aspx" />
     <Content Include="scripts\ai.0.15.0-build58334.js" />
     <Content Include="scripts\ai.0.15.0-build58334.min.js" />
+    <Content Include="UIAdministrarPlatos.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -172,6 +174,13 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="OrdenForm.aspx.designer.vb">
+      <DependentUpon>OrdenForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="OrdenForm.aspx.vb">
+      <DependentUpon>OrdenForm.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
     <Compile Include="PruebaLogin.aspx.designer.vb">
       <DependentUpon>PruebaLogin.aspx</DependentUpon>
     </Compile>
@@ -184,6 +193,13 @@
     </Compile>
     <Compile Include="RegistroCliente.aspx.vb">
       <DependentUpon>RegistroCliente.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="UIAdministrarPlatos.aspx.designer.vb">
+      <DependentUpon>UIAdministrarPlatos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UIAdministrarPlatos.aspx.vb">
+      <DependentUpon>UIAdministrarPlatos.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
   </ItemGroup>

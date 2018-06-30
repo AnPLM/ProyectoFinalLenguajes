@@ -13,14 +13,14 @@
     <asp:ContentPlaceHolder ID="encabezado" runat="server">
 </asp:ContentPlaceHolder>
 </head>
-<body >
+<body>
     <div class="container">
         <div class="row">
         <div class="col">
     <div class="page-header">
         <div style="background-color:firebrick !important" class="jumbotron text-center col">
             <div style="background-color:coral" class="col">
-                <p style="font-size:8vw"; class="alert-danger">Restaurante Renombrar</p>
+                <p style="font-size:5vw"; class="alert-danger">Restaurante Renombrar</p>
 
             </div>
             <p style=" font-size:3vw;  background-color:indianred">Su mejor opcion</p>
