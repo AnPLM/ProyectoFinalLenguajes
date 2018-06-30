@@ -14,21 +14,22 @@
 </asp:ContentPlaceHolder>
 </head>
 <body>
-    <div class="container">
-        <div class="row">
-        <div class="col">
-    <div class="page-header">
-        <div style="background-color:firebrick !important" class="jumbotron text-center col">
-            <div style="background-color:coral" class="col">
-                <p style="font-size:5vw"; class="alert-danger">Restaurante Renombrar</p>
+    <!--div class="container"-->
+        <!--div class="row"-->
+            <!--div class="col"-->
+                <!--div class="page-header"-->
+                    <div style="background-image: url(https://i.pinimg.com/originals/22/46/32/2246327f756cf757e53fe37a2ab4a3a0.jpg);
+background-repeat: no-repeat; background-size:100% 100%;" class="jumbotron text-center col">
+                        <p style="text-align: right; font-size:5vw; color:#C0392B; font-family: Homer Simpson, cursive; font-weight: bold; background-color: rgba(0, 0, 0, 0.1);" class="alert-danger">Two Glasses</p>
+                        <div class="col">
+                
 
-            </div>
-            <p style=" font-size:3vw;  background-color:indianred">Su mejor opcion</p>
+                        </div>
         </div>
-            </div>
-            </div>
-</div>
- </div>
+    <!--/div-->
+        <!--/div>
+        <!--/div-->
+    <!--/!--div-->
            
                 <div class="col">
     <asp:ContentPlaceHolder ID="cuerpo" runat="server">

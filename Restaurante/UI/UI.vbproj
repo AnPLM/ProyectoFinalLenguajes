@@ -188,20 +188,6 @@
       <DependentUpon>PruebaLogin.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
-    <Compile Include="RegistroCliente.aspx.designer.vb">
-      <DependentUpon>RegistroCliente.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="RegistroCliente.aspx.vb">
-      <DependentUpon>RegistroCliente.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
-    </Compile>
-    <Compile Include="UIAdministrarPlatos.aspx.designer.vb">
-      <DependentUpon>UIAdministrarPlatos.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="UIAdministrarPlatos.aspx.vb">
-      <DependentUpon>UIAdministrarPlatos.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="My Project\Resources.resx">
