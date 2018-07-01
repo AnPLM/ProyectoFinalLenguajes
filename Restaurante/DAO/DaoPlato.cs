@@ -66,9 +66,9 @@ namespace DAO
 
         public void eleminarPlato(TOPlato plato)
         {
-            String consulta = "DELETE FROM PLATO WHERE Identificador = @id";
+            String consulta = "DELETE FROM PLATO WHERE Nombre = @nom";
             SqlCommand sentencia = new SqlCommand(consulta, conexion);
-            sentencia.Parameters.AddWithValue("@id", plato.Identificador);
+            sentencia.Parameters.AddWithValue("@nom", plato.Nombre);
             abrirConexion();
             sentencia.ExecuteNonQuery();
             cerrarConexion();
