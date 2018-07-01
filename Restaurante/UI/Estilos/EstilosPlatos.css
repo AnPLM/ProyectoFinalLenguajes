@@ -5,6 +5,8 @@
 
 .margin-up-panel {
     margin-top: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
 }
 
 .margin-botton-panel {
@@ -15,15 +17,14 @@
     margin-left: 20px;
 }
 
+.margin-right {
+    margin-right: 20px;
+}
+
 .text-center{
     text-align: center;
 }
 
- .elementotransparente {
-     opacity: 0.4;
-     -moz-opacity: 0.4;
-     filter: alpha(opacity=40);
-  }
 
  .img-opa {
     opacity: 0.2;
