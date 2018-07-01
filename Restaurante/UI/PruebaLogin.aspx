@@ -2,8 +2,6 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="encabezado" runat="server">
 </asp:Content>
 
-
-
 <asp:Content ID="Content2" ContentPlaceHolderID="cuerpo" runat="server">
     <form class="form-group-lg" action="">
     <div class=" panel panel-default col-md-4 col-md-offset-4" style="background-color:firebrick">
@@ -13,7 +11,7 @@
          </div>
          <div class="form-group">
              <label style="font-size:2vw" for="contrasenna">Contraseña:</label>
-             <input type="password" class="form-control" id="pwd" required/>
+             <input type="password" class="form-control" id="pwd" required=""/>
          </div>
         
              <button type="submit" class="btn btn-default  btn-responsive center-block">Ingresar</button>
