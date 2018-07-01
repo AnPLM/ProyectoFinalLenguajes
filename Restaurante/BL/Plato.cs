@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using DAO;
 using TO;
+using System.Collections;
 
 namespace BL
 {
@@ -37,6 +38,11 @@ namespace BL
         public void modificarPlato() { }
 
         public void eliminarPlato() { }
+
+        public ArrayList listarPlatos() {
+            DaoPlato daoPlato = new DaoPlato();
+            return daoPlato.listarPlatos();
+        }
 
         public void buscarPlato() {
             TOPlato plato = new TOPlato(this.Nombre);

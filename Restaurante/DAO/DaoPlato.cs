@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -85,6 +86,25 @@ namespace DAO
             abrirConexion();
             sentencia.ExecuteNonQuery();
             cerrarConexion();
+        }
+
+        public ArrayList listarPlatos()
+        {
+            ArrayList lista = new ArrayList();
+            DataTable tabla = new DataTable();
+            String conuslta = "Select * From Plato";
+            SqlCommand sentencia = new SqlCommand(conuslta, conexion);
+            SqlDataAdapter adapter = new SqlDataAdapter();
+            adapter.SelectCommand = sentencia;
+            adapter.Fill(tabla);
+            int contador = 1;
+            foreach (DataRow row in tabla.Rows)
+            {
+                lista.Add(new TOPlato(contador, row["Nombre"].ToString(), row["Descripcion"].ToString(),
+                    double.Parse(row["Precio"].ToString()), row["Fotografia"].ToString(), Int32.Parse(row["Habilitado"].ToString())));
+                contador++;
+            }
+            return lista; 
         }
 
         public void abrirConexion()

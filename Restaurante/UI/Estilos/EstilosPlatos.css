@@ -19,4 +19,15 @@
     text-align: center;
 }
 
+ .elementotransparente {
+     opacity: 0.4;
+     -moz-opacity: 0.4;
+     filter: alpha(opacity=40);
+  }
+
+ .img-opa {
+    opacity: 0.2;
+    filter: alpha(opacity=50); /* For IE8 and earlier */
+}
+
 
