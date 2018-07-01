@@ -141,7 +141,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AdministrarMenu.aspx" />
-    <Content Include="AdministrarPlatos.aspx" />
     <Content Include="Estilos\EstilosPlatos.css" />
     <Content Include="OrdenesUI.aspx" />
     <Content Include="PruebaLogin.aspx" />
@@ -156,13 +155,6 @@
     </Compile>
     <Compile Include="AdministrarMenu.aspx.vb">
       <DependentUpon>AdministrarMenu.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
-    </Compile>
-    <Compile Include="AdministrarPlatos.aspx.designer.vb">
-      <DependentUpon>AdministrarPlatos.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="AdministrarPlatos.aspx.vb">
-      <DependentUpon>AdministrarPlatos.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="MasterRestaurante.Master.designer.vb">
