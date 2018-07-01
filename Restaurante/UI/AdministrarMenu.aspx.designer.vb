@@ -11,7 +11,7 @@ Option Strict On
 Option Explicit On
 
 
-Partial Public Class AdministrarPlatos
+Partial Public Class AdministrarMenu
     
     '''<summary>
     '''form1 control.

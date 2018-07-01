@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using DAO;
+using TO;
 
 namespace BL
 {
@@ -26,12 +28,24 @@ namespace BL
             this.Habilitado = habilitado;
         }
 
-        public void agregarPlato() { }
+        public void agregarPlato() {
+            DaoPlato daoPlato = new DaoPlato();
+            TOPlato toPlato = new TOPlato(this.Nombre, this.Descripcion, this.Precio, this.Fotografia, this.Habilitado);
+            daoPlato.insertarPlato(toPlato);
+        }
 
         public void modificarPlato() { }
 
         public void eliminarPlato() { }
 
-        public void buscarPlato() { }
+        public void buscarPlato() {
+            TOPlato plato = new TOPlato(this.Nombre);
+            DaoPlato daoPlato = new DaoPlato();
+            plato = daoPlato.buscarPlato(plato);
+            this.Descripcion = plato.Descripcion;
+            this.Precio = plato.Precio;
+            this.Fotografia = plato.Fotografia;
+            this.Habilitado = plato.Habilitado;
+        }
     }
 }

@@ -20,5 +20,16 @@
         Me.Habilitado = habilitado
     End Sub
 
+    Sub New(nombre As String, descripcion As String, precio As Double, fotografia As String, habilitado As Integer)
+        Me.Nombre = nombre
+        Me.Descripcion = descripcion
+        Me.Precio = precio
+        Me.Fotografia = fotografia
+        Me.Habilitado = habilitado
+    End Sub
+    Sub New(nombre As String)
+        Me.Nombre = nombre
+    End Sub
+
 
 End Class

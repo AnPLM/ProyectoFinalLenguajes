@@ -1,17 +1,8 @@
-﻿<%@ Page Language="vb" AutoEventWireup="false" CodeBehind="AdministrarPlatos.aspx.vb" Inherits="UI.AdministrarPlatos" %>
-
-<!DOCTYPE html>
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title>Administrar Platos</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="Estilos/EstilosPlatos.css" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-</head>
-<body>
-    <form id="form1" runat="server" class="form-group-lg">
+﻿<%@ Page Title="" Language="vb" AutoEventWireup="false" MasterPageFile="~/MasterRestaurante.Master" CodeBehind="AdministrarMenu.aspx.vb" Inherits="UI.AdministrarMenu" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="encabezado" runat="server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="cuerpo" runat="server">
+        <form id="form1" runat="server" class="form-group-lg">
  
     <div class=" panel panel-default col-sm-12" style="background-color:firebrick">
         
@@ -49,5 +40,9 @@
        </div>
     </div>       
     </form>
-</body>
-</html>
+</asp:Content>
+<asp:Content ID="Content3" ContentPlaceHolderID="pie" runat="server">
+</asp:Content>
+
+
+

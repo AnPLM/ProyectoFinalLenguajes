@@ -140,16 +140,31 @@
     <Import Include="System.Web.UI.HtmlControls" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AdministrarMenu.aspx" />
+    <Content Include="AdministrarPlatos.aspx" />
     <Content Include="Estilos\EstilosPlatos.css" />
     <Content Include="OrdenForm.aspx" />
     <Content Include="PruebaLogin.aspx" />
     <Content Include="RegistroCliente.aspx" />
     <Content Include="scripts\ai.0.15.0-build58334.js" />
     <Content Include="scripts\ai.0.15.0-build58334.min.js" />
-    <Content Include="UIAdministrarPlatos.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdministrarMenu.aspx.designer.vb">
+      <DependentUpon>AdministrarMenu.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdministrarMenu.aspx.vb">
+      <DependentUpon>AdministrarMenu.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="AdministrarPlatos.aspx.designer.vb">
+      <DependentUpon>AdministrarPlatos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdministrarPlatos.aspx.vb">
+      <DependentUpon>AdministrarPlatos.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
     <Compile Include="MasterRestaurante.Master.designer.vb">
       <DependentUpon>MasterRestaurante.Master</DependentUpon>
     </Compile>
