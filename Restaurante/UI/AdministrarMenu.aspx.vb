@@ -6,20 +6,26 @@ Public Class AdministrarMenu
         Dim plato As New Plato()
         GridView1.DataSource = plato.listarPlatos()
         GridView1.DataBind()
+        listView.DataSource = plato.listarPlatos()
+        listView.DataBind()
     End Sub
 
     Protected Sub btnBuscar_Click(sender As Object, e As EventArgs) Handles btnBuscar.Click
         Dim plato As New Plato
         plato.Nombre = txtNombre.Text
+        plato.eliminar()
         plato.buscarPlato()
         Session("Nombre") = plato.Nombre
         Session("Descripcion") = plato.Descripcion
         Session("Precio") = plato.Precio
         Label1.Text = plato.Nombre + " " + plato.Descripcion + " " + plato.Precio.ToString()
+
     End Sub
 
     Protected Sub btnEliminar_Click(sender As Object, e As EventArgs) Handles btnEliminar.Click
-
+        Dim plato As New Plato
+        plato.Nombre = txtNombre.Text
+        plato.eliminarPlato()
     End Sub
 
 
@@ -37,4 +43,10 @@ Public Class AdministrarMenu
         End If
         plato.agregarPlato()
     End Sub
+
+
+    Protected Sub btnEditar_Click(sender As Object, e As EventArgs) Handles btnEditar.Click
+
+    End Sub
+
 End Class
