@@ -142,7 +142,7 @@
   <ItemGroup>
     <Content Include="AdministrarMenu.aspx" />
     <Content Include="Estilos\EstilosPlatos.css" />
-    <Content Include="OrdenForm.aspx" />
+    <Content Include="OrdenesUI.aspx" />
     <Content Include="PruebaLogin.aspx" />
     <Content Include="RegistroCliente.aspx" />
     <Content Include="scripts\ai.0.15.0-build58334.js" />
@@ -183,11 +183,11 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="OrdenForm.aspx.designer.vb">
-      <DependentUpon>OrdenForm.aspx</DependentUpon>
+    <Compile Include="OrdenesUI.aspx.designer.vb">
+      <DependentUpon>OrdenesUI.aspx</DependentUpon>
     </Compile>
-    <Compile Include="OrdenForm.aspx.vb">
-      <DependentUpon>OrdenForm.aspx</DependentUpon>
+    <Compile Include="OrdenesUI.aspx.vb">
+      <DependentUpon>OrdenesUI.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="PruebaLogin.aspx.designer.vb">
