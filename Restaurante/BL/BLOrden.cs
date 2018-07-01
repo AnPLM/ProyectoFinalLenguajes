@@ -7,7 +7,7 @@ using TO;
 
 namespace BL
 {
-    class BLOrden
+    public class BLOrden
     {
         public string nombreUsuario { get; set; }
         public DateTime Fecha { get; set; }
@@ -25,7 +25,6 @@ namespace BL
             this.Estado = estado;
             this.Identificador = identificador;
             dao = new DaoOrden();
-
         }
 
         public void insertar() {
