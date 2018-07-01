@@ -34,7 +34,7 @@
             </div>
          </div>
              <div class="container col-sm-8 margin-up-panel margin-botton-panel margin-left"  style="background-color:#f7f7f7">
-                 <h1 class="margin-up-panel text-center">Lista Platos</h1>
+                 <h1 class="margin-up-panel text-center">Lista de Platos</h1>
                  <asp:GridView ID="GridView1" runat="server" CssClass="table table-bordered bs-table"></asp:GridView>
                  <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
              </div>
