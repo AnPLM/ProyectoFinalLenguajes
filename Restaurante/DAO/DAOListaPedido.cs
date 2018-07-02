@@ -42,11 +42,11 @@ namespace DAO
             comando.ExecuteNonQuery();
                
             }
-            catch (SqlException e)
+            catch (SqlException)
             {
                 throw new Exception("¡Error en la base de datos!");
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 throw;
             }
@@ -57,7 +57,7 @@ namespace DAO
                     conexion.Close();
                 }
             }
-        } 
+        }
 
         public void eliminarPlato(String nombre_usuario, int identificador_plato)
         {
@@ -79,11 +79,11 @@ namespace DAO
                     conexion.Close();
                 }
             }
-            catch (SqlException e)
+            catch (SqlException)
             {
                 throw new Exception("¡Error en la base de datos!");
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 throw;
             }
@@ -114,11 +114,11 @@ namespace DAO
                     conexion.Close();
                 }
             }
-            catch (SqlException e)
+            catch (SqlException)
             {
                 throw new Exception("¡Error en la base de datos!");
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 throw;
             }
@@ -158,11 +158,11 @@ namespace DAO
 
                 return listaPedidos;
             }
-            catch (SqlException e)
+            catch (SqlException)
             {
                 throw new Exception("¡Error en la base de datos!");
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 throw;
             }
@@ -204,11 +204,11 @@ namespace DAO
 
                 return listaPedidos;
             }
-            catch (SqlException e)
+            catch (SqlException)
             {
                 throw new Exception("¡Error en la base de datos!");
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 throw;
             }
@@ -250,11 +250,11 @@ namespace DAO
 
                 return listaPedidos;
             }
-            catch (SqlException e)
+            catch (SqlException)
             {
                 throw new Exception("¡Error en la base de datos!");
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 throw;
             }

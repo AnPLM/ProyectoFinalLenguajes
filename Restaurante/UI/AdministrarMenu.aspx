@@ -7,36 +7,38 @@
     <div class=" panel panel-default col-sm-12" style="background-color:firebrick">
         
         <div class="row">
-        <div class="container col-sm-3 margin-up-panel margin-botton-panel margin-left" style="background-color:#f7f7f7">
-            <h1 class="margin-up-panel text-center">Registrar Plato</h1>
+        <div class="container col-sm-3 margin-up-panel margin-botton-panel margin-left" style="background-color:#f7f7f7;opacity: 0,8;">
+            <h1 class="margin-up-panel text-center"  style="opacity: 0,9">Registrar Plato</h1>
             <div class="margin-up-panel form-group">
                 <asp:TextBox ID="txtNombre" type="text" class="form-control" placeholder="Nombre" runat="server" required=""></asp:TextBox>
             </div>
             <div class="margin-up-panel form-group">
-                <asp:TextBox ID="txtDescripcion" type="text" class="form-control" placeholder="Descripción" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtDescripcion" class="form-control" placeholder="Descripción" runat="server"></asp:TextBox>
             </div>
             <div class="margin-up-panel form-group">
-                <asp:TextBox ID="txtPrecio" type="text" class="form-control" placeholder="Precio" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtPrecio" class="form-control" placeholder="Precio" runat="server"></asp:TextBox>
             </div>
             <div class="margin-up-panel">
                 <input type="file" name="fotografia" class="form-control-file" id="fotografia"/>
             </div>
             <div class="margin-up-panel">
                 <p style="font-size:1.5vw; color:black">Habilitar</p>
-                
                 <asp:CheckBox type="checkbox" ID="checkHabilitado" runat="server"  class="margin-left" />
             <div class="margin-up-panel text-center">
                 <asp:Button type="submit" class="btn btn-success btn-responsive margin-botton-panel" ID="btnRegistrar" runat="server" Text="Registrar" />
                 <asp:Button type="submit" class="btn btn-success btn-responsive margin-botton-panel" OnClientClick="myFunction()" ID="btnBuscar" runat="server" Text="Buscar" />
-                <asp:Button type="submit" class="btn btn-danger btn-responsive margin-botton-panel" ID="btnEliminar" runat="server" Text="Eliminar" />
-                   
+                <asp:Button type="submit" class="btn btn-success btn-responsive margin-botton-panel" ID="btnEditar" runat="server" Text="Editar" />
+                <asp:Button type="submit" class="btn btn-danger btn-responsive margin-botton-panel" ID="btnEliminar" runat="server" Text="Eliminar" />   
             </div>  
             </div>
          </div>
              <div class="container col-sm-8 margin-up-panel margin-botton-panel margin-left"  style="background-color:#f7f7f7">
                  <h1 class="margin-up-panel text-center">Lista Platos</h1>
-                 <asp:GridView ID="GridView1" runat="server" CssClass="table table-bordered bs-table"></asp:GridView>
+                 <asp:GridView ID="GridView1" runat="server" CssClass="table table-bordered bs-table">
+                     <HeaderStyle BackColor="#212321" Font-Bold="True" ForeColor="White" />
+                 </asp:GridView>
                  <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
+                 <asp:ListView ID="listView" runat="server"></asp:ListView>
              </div>
             
        </div>

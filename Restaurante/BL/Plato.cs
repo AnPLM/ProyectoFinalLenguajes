@@ -34,10 +34,20 @@ namespace BL
             TOPlato toPlato = new TOPlato(this.Nombre, this.Descripcion, this.Precio, this.Fotografia, this.Habilitado);
             daoPlato.insertarPlato(toPlato);
         }
+        public void eliminar()
+        {
+            TOPlato plato = new TOPlato(this.Nombre);
+            DaoPlato daoPlato = new DaoPlato();
+            daoPlato.eleminarPlato(plato);
+        }
 
         public void modificarPlato() { }
 
-        public void eliminarPlato() { }
+        public void eliminarPlato() {
+            TOPlato plato = new TOPlato(this.Nombre);
+            DaoPlato daoPlato = new DaoPlato();
+            daoPlato.eleminarPlato(plato);
+        }
 
         public ArrayList listarPlatos() {
             DaoPlato daoPlato = new DaoPlato();
