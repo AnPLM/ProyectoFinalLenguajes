@@ -144,6 +144,7 @@
     <Content Include="Estilos\EstilosPlatos.css" />
     <Content Include="OrdenesUI.aspx" />
     <Content Include="PruebaLogin.aspx" />
+    <Content Include="RegistrarCliente.aspx" />
     <Content Include="RegistroCliente.aspx" />
     <Content Include="scripts\ai.0.15.0-build58334.js" />
     <Content Include="scripts\ai.0.15.0-build58334.min.js" />
@@ -195,6 +196,13 @@
     </Compile>
     <Compile Include="PruebaLogin.aspx.vb">
       <DependentUpon>PruebaLogin.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="RegistrarCliente.aspx.designer.vb">
+      <DependentUpon>RegistrarCliente.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RegistrarCliente.aspx.vb">
+      <DependentUpon>RegistrarCliente.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
   </ItemGroup>

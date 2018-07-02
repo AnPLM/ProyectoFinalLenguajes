@@ -55,7 +55,7 @@ namespace DAO
         public void habilitarCliente(TOCliente toCliente) {
             try
             {
-                SqlCommand command = new SqlCommand("update Cliente set Habilitado=1 where Nombre_Usuario=@nomUsuar", connection);
+                SqlCommand command = new SqlCommand("update Cliente set Habilitado='1' where Nombre_Usuario=@nomUsuar", connection);
                 command.Parameters.AddWithValue("@nomUsuar", toCliente.NombreUsuario);
 
                 if (connection.State != ConnectionState.Open)
@@ -78,7 +78,7 @@ namespace DAO
         public void deshabilitarCliente(TOCliente toCliente) {
             try
             {
-                SqlCommand command = new SqlCommand("update Cliente set Habilitado=0 where Nombre_Usuario=@nomUsuar", connection);
+                SqlCommand command = new SqlCommand("update Cliente set Habilitado='0' where Nombre_Usuario=@nomUsuar", connection);
                 command.Parameters.AddWithValue("@nomUsuar", toCliente.NombreUsuario);
 
                 if (connection.State != ConnectionState.Open)
