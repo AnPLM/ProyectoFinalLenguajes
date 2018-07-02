@@ -49,9 +49,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BLListaCliente.cs" />
+    <Compile Include="BLListaPedido.cs" />
     <Compile Include="BLOrden.cs" />
     <Compile Include="Cliente.cs" />
+    <Compile Include="ManejadorListaPedido.cs" />
     <Compile Include="ManejadorOrdenes.cs" />
     <Compile Include="Plato.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -8,7 +8,7 @@ using System.Data.SqlClient;
 
 namespace BL
 {
-    public class BLListaCliente
+    public class BLListaPedido
     {
 
         DAOListaPedido daoLista = new DAOListaPedido();
@@ -16,13 +16,13 @@ namespace BL
         public String Nombre_Usuario { get; set; }
         public int Identificador_Plato { get; set; }
 
-        public BLListaCliente(String nombre_usuario, int identificador_plato)
+        public BLListaPedido(String nombre_usuario, int identificador_plato)
         {
             Nombre_Usuario = nombre_usuario;
             Identificador_Plato = identificador_plato;
         }
 
-        public BLListaCliente()
+        public BLListaPedido()
         { }
 
         public void insertar(String nombre_usuario, String identificador_plato)
