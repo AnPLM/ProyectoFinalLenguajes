@@ -42,7 +42,7 @@
             </div>
             <div class="margin-up-panel text-center">
                 <br />
-                <asp:Button type="submit" class="btn btn-success btn-responsive margin-botton-panel" ID="btnRegistrar" runat="server" Text="Registrar" />
+                <asp:Button type="submit" class="btn btn-success btn-responsive margin-botton-panel" ID="btnRegistrar" runat="server" Text="Registrar" CausesValidation="False" />
                 <asp:Button ID="Button1" runat="server" Text="Habilitar Cliente" CssClass="auto-style1" Width="164px" CausesValidation="False" />
                 <br />
                 <br />

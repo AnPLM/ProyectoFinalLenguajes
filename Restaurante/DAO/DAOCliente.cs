@@ -52,6 +52,38 @@ namespace DAO
                 }
             }          
         }
+
+        public void actualizarDatosCliente(TOCliente clienteTO)
+        {
+            try {
+                SqlCommand command = new SqlCommand("update Cliente set Nombre=@nom, " +
+                    "Contrasenna=@contr, Direccion=@dir where Nombre_Usuario=@usuar", connection);
+                command.Parameters.AddWithValue("@nom", clienteTO.Nombre);
+                command.Parameters.AddWithValue("@contr", clienteTO.Contrasenna);
+                command.Parameters.AddWithValue("@dir", clienteTO.Direccion);
+                command.Parameters.AddWithValue("@usuar", clienteTO.NombreUsuario);
+
+                if (connection.State != ConnectionState.Open)
+                {
+                    connection.Open();
+                }
+
+                command.ExecuteNonQuery();
+            }
+            catch(Exception)
+            {
+                throw new Exception("Ocurrió un error al actualizar los datos");
+            }
+            finally
+            {
+                if (connection.State != ConnectionState.Closed)
+                {
+                    connection.Close();
+                }
+            }
+
+        }
+
         public void habilitarCliente(TOCliente toCliente) {
             try
             {
@@ -66,7 +98,7 @@ namespace DAO
             }
             catch (Exception)
             {
-                throw new Exception("Ocurrió un error");
+                throw new Exception("Ocurrió un error al habilitar el cliente");
             } finally
             {
                 if (connection.State != ConnectionState.Closed)
@@ -89,7 +121,7 @@ namespace DAO
             }
             catch (Exception)
             {
-                throw new Exception("Ocurrió un error");
+                throw new Exception("Ocurrió un error al deshabilitar el cliente");
             }
             finally
             {

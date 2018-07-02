@@ -48,5 +48,22 @@ namespace BL
             daoCliente.deshabilitarCliente(toCliente);
         }
 
+        public void actualizarDatosCliente(String nombreUsuario, String direccion, String nombre, 
+            String contrasenna)
+        {
+            this.NombreUsuario = nombreUsuario;
+            this.Nombre = nombre;
+            this.Contrasenna = contrasenna;
+            this.Direccion = direccion;
+
+            TOCliente clienteTo = new TOCliente();
+            clienteTo.Nombre = this.Nombre;
+            clienteTo.NombreUsuario = this.NombreUsuario;
+            clienteTo.Direccion = this.Direccion;
+            clienteTo.Contrasenna = this.Contrasenna;
+
+            DAOCliente daoCliente = new DAOCliente();
+            daoCliente.actualizarDatosCliente(clienteTo);
+        }
     }
 }

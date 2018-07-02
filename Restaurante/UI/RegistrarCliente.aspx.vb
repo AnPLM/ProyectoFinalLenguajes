@@ -3,7 +3,7 @@ Public Class RegistrarCliente
     Inherits System.Web.UI.Page
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-
+        txtCorreo.Enabled = False
     End Sub
 
     Protected Sub btnRegistrar_Click(sender As Object, e As EventArgs) Handles btnRegistrar.Click
@@ -13,9 +13,10 @@ Public Class RegistrarCliente
         Dim direccion As String = txtDireccion.Text.Trim()
         Dim contrasenna As String = txtContrasenna.Text.Trim()
 
-        Dim cliente As New Cliente(nombreCompleto, correo, nombreUsuario, contrasenna, True, direccion)
-
-        cliente.agregarCliente()
+        'Dim cliente As New Cliente(nombreCompleto, correo, nombreUsuario, contrasenna, True, direccion)
+        Dim cliente As New Cliente()
+        'cliente.agregarCliente()
+        cliente.actualizarDatosCliente(nombreUsuario, direccion, nombreCompleto, contrasenna)
     End Sub
 
     Protected Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
