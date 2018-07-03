@@ -8,7 +8,7 @@ using System.Data.SqlClient;
 
 namespace BL
 {
-    public class BLListaCliente
+    public class BLListaPedido
     {
 
         DAOListaPedido daoLista = new DAOListaPedido();
@@ -16,16 +16,16 @@ namespace BL
         public String Nombre_Usuario { get; set; }
         public int Identificador_Plato { get; set; }
 
-        public BLListaCliente(String nombre_usuario, int identificador_plato)
+        public BLListaPedido(String nombre_usuario, int identificador_plato)
         {
             Nombre_Usuario = nombre_usuario;
             Identificador_Plato = identificador_plato;
         }
 
-        public BLListaCliente()
+        public BLListaPedido()
         { }
 
-        public void insertar(String nombre_usuario, String identificador_plato)
+        public void insertarListaPedido(String nombre_usuario, String identificador_plato)
         {
             try
             {
@@ -37,7 +37,7 @@ namespace BL
             }
         }
 
-        public void eliminarPlato(String nombre_usuario, String identificador_plato)
+        public void eliminarPlatoListaPedidos(String nombre_usuario, String identificador_plato)
         {
             try
             {
@@ -49,7 +49,7 @@ namespace BL
             }
         }
 
-        public void eliminarPedidoUsuario(String nombre_usuario, String identificador_plato)
+        public void eliminarListaPedidoUsuario(String nombre_usuario)
         {
             try
             {
@@ -61,7 +61,7 @@ namespace BL
             }
         }
 
-        public List<TOListaPedidos> obtenerPedidos()
+        public List<TOListaPedidos> obtenerListaPedidos()
         {
             try
             {
@@ -73,7 +73,7 @@ namespace BL
             }
         }
 
-        public List<TOListaPedidos> obtenerPedidosPorUsuario(String nombre_usuario)
+        public List<TOListaPedidos> obtenerListaPedidosPorUsuario(String nombre_usuario)
         {
             try
             {
@@ -85,7 +85,7 @@ namespace BL
             }
         }
 
-        public List<TOListaPedidos> obtenerPedidosPorPlato(String identificador_plato)
+        public List<TOListaPedidos> obtenerListaPedidosPorPlato(String identificador_plato)
         {
             try
             {

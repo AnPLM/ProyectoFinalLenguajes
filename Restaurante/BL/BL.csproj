@@ -49,12 +49,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BLListaCliente.cs" />
+    <Compile Include="BLListaPedido.cs" />
     <Compile Include="BLOrden.cs" />
     <Compile Include="Cliente.cs" />
+    <Compile Include="ManejadorListaPedido.cs" />
     <Compile Include="ManejadorOrdenes.cs" />
     <Compile Include="Plato.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
     <Compile Include="Usuario.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -66,9 +72,6 @@
       <Project>{eaff508e-575e-4bef-8b86-3175d52d4222}</Project>
       <Name>TO</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
