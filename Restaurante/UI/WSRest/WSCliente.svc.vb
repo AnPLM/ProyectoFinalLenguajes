@@ -16,4 +16,8 @@ Public Class WSCliente
     Public Function obtenerPedidosPorUsuario(nombre_usuario As String) As List(Of BLListaPedido) Implements IWSCliente.obtenerPedidosPorUsuario
         Return listaPedidoBL.obtenerListaPedidosPorUsuario(nombre_usuario) 'Si manda conflicto convervar esta'
     End Function
+
+    Public Function platosActivos() As List(Of Plato) Implements IWSCliente.platosActivos
+        Throw New NotImplementedException()
+    End Function
 End Class
