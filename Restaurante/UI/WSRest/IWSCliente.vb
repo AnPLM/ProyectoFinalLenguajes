@@ -15,4 +15,8 @@ Public Interface IWSCliente
     Sub registrarCliente(nombre As String, nombreUsuario As String, correo As String, direccion As String,
                          contrasenna As String)
 
+    <OperationContract()>
+    <WebGet()>
+    Function platosActivos() As List(Of Plato)
+
 End Interface
