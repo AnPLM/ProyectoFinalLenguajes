@@ -145,6 +145,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AdministrarMenu.aspx" />
+    <Content Include="Cliente\Cliente.js" />
+    <Content Include="Cliente\ClienteMenu.html" />
     <Content Include="Estilos\EstilosPlatos.css" />
     <Content Include="OrdenesUI.aspx" />
     <Content Include="PruebaLogin.aspx" />
