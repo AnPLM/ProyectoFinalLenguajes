@@ -8,6 +8,10 @@ Public Class WSCliente
 
     Dim listaPedidoBL As New ManejadorListaPedido
 
+    Public Sub registrarCliente(nombre As String, nombreUsuario As String, correo As String, direccion As String, contrasenna As String) Implements IWSCliente.registrarCliente
+        Dim cliente As New Cliente(nombre, correo, nombreUsuario, contrasenna, True, direccion)
+        cliente.agregarCliente()
+    End Sub
 
     Public Function obtenerPedidosPorUsuario(nombre_usuario As String) As List(Of BLListaPedido) Implements IWSCliente.obtenerPedidosPorUsuario
         Return listaPedidoBL.obtenerPedidosPorUsuario(nombre_usuario)
