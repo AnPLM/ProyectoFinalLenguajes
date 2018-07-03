@@ -17,8 +17,9 @@ namespace DAO
 
         public void insertarPlato(TOPlato plato)
         {
-            String consulta = "INSERT INTO PLATO(Nombre, Descripcion, Precio, Fotografia, Habilitado) VALUES (@nom, @des, @pre, @fot, @hab)";
+            String consulta = "INSERT INTO PLATO(Codigo, Nombre, Descripcion, Precio, Fotografia, Habilitado) VALUES (@cod, @nom, @des, @pre, @fot, @hab)";
             SqlCommand sentencia = new SqlCommand(consulta, conexion);
+            sentencia.Parameters.AddWithValue("@cod", plato.Codigo);
             sentencia.Parameters.AddWithValue("@nom", plato.Nombre);
             sentencia.Parameters.AddWithValue("@des", plato.Descripcion);
             sentencia.Parameters.AddWithValue("@pre", plato.Precio);
@@ -36,7 +37,7 @@ namespace DAO
             SqlCommand sentencia = new SqlCommand(consulta, conexion);
             sentencia.Parameters.AddWithValue("@nom", plato.Nombre);
 
-            int identificador = 0;
+            String codigo = "";
             String nombre = "" ;
             String descripcion = "";
             Double precio = 0;
@@ -52,7 +53,7 @@ namespace DAO
             {
                 while (lector.Read())
                 {
-                    identificador = Int32.Parse(lector.GetValue(0).ToString());
+                    codigo = lector.GetValue(0).ToString();
                     nombre = lector.GetValue(1).ToString();
                     descripcion = lector.GetValue(2).ToString();
                     precio = Double.Parse(lector.GetValue(3).ToString());
@@ -61,14 +62,14 @@ namespace DAO
                 }
             }
             cerrarConexion();
-            return new TOPlato(identificador ,nombre, descripcion, precio, fotografia, habilitado);
+            return new TOPlato(codigo ,nombre, descripcion, precio, fotografia, habilitado);
         }
 
         public void eleminarPlato(TOPlato plato)
         {
-            String consulta = "DELETE FROM PLATO WHERE Nombre = @nom";
+            String consulta = "DELETE FROM PLATO WHERE Codigo = @cod";
             SqlCommand sentencia = new SqlCommand(consulta, conexion);
-            sentencia.Parameters.AddWithValue("@nom", plato.Nombre);
+            sentencia.Parameters.AddWithValue("@cod", plato.Codigo);
             abrirConexion();
             sentencia.ExecuteNonQuery();
             cerrarConexion();
@@ -76,13 +77,52 @@ namespace DAO
 
         public void modificarPlato(TOPlato plato)
         {
-            String consulta = "UPDATE Plato set Nombre = @nom, Descripcion = @des, Precio = @pre, Fotografia = @fot, Habilitado = @hab ";
-            SqlCommand sentencia = new SqlCommand(consulta, conexion);
-            sentencia.Parameters.AddWithValue("@nom", plato.Nombre);
-            sentencia.Parameters.AddWithValue("@des", plato.Descripcion);
-            sentencia.Parameters.AddWithValue("@pre", plato.Precio);
-            sentencia.Parameters.AddWithValue("@fot", plato.Fotografia);
+            String consulta;
+            SqlCommand sentencia = new SqlCommand();
+            if (plato.Nombre != null)
+            {
+                consulta = "UPDATE Plato set Nombre = @nom WHERE Codigo = @cod";
+                sentencia = new SqlCommand(consulta, conexion);
+                sentencia.Parameters.AddWithValue("@nom", plato.Nombre);
+                sentencia.Parameters.AddWithValue("@cod", plato.Codigo);
+                abrirConexion();
+                sentencia.ExecuteNonQuery();
+                cerrarConexion();
+            }
+            if (plato.Descripcion != null)
+            {
+                consulta = "UPDATE Plato set Descripcion = @des WHERE Codigo = @cod";
+                sentencia = new SqlCommand(consulta, conexion);
+                sentencia.Parameters.AddWithValue("@des", plato.Descripcion);
+                sentencia.Parameters.AddWithValue("@cod", plato.Codigo);
+                abrirConexion();
+                sentencia.ExecuteNonQuery();
+                cerrarConexion();
+            }
+            if (plato.Precio != 0)
+            {
+                consulta = "UPDATE Plato set Precio = @pre WHERE Codigo = @cod";
+                sentencia = new SqlCommand(consulta, conexion);
+                sentencia.Parameters.AddWithValue("@cod", plato.Codigo);
+                sentencia.Parameters.AddWithValue("@pre", plato.Precio);
+                abrirConexion();
+                sentencia.ExecuteNonQuery();
+                cerrarConexion();
+            }
+            if (plato.Fotografia != null)
+            {
+                consulta = "UPDATE Plato set Fotografia = @fot WHERE Codigo = @cod";
+                sentencia = new SqlCommand(consulta, conexion);
+                sentencia.Parameters.AddWithValue("@fot", plato.Fotografia);
+                sentencia.Parameters.AddWithValue("@cod", plato.Codigo);
+                abrirConexion();
+                sentencia.ExecuteNonQuery();
+                cerrarConexion();
+            }
+            consulta = "UPDATE Plato set Habilitado = @hab WHERE Codigo = @cod";
+            sentencia = new SqlCommand(consulta, conexion);
             sentencia.Parameters.AddWithValue("@hab", plato.Habilitado);
+            sentencia.Parameters.AddWithValue("@cod", plato.Codigo);
             abrirConexion();
             sentencia.ExecuteNonQuery();
             cerrarConexion();
@@ -100,7 +140,7 @@ namespace DAO
             int contador = 1;
             foreach (DataRow row in tabla.Rows)
             {
-                lista.Add(new TOPlato(contador, row["Nombre"].ToString(), row["Descripcion"].ToString(),
+                lista.Add(new TOPlato(row["Codigo"].ToString(), row["Nombre"].ToString(), row["Descripcion"].ToString(),
                     double.Parse(row["Precio"].ToString()), row["Fotografia"].ToString(), Int32.Parse(row["Habilitado"].ToString())));
                 contador++;
             }

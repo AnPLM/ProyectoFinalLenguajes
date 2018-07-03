@@ -23,6 +23,24 @@ Partial Public Class AdministrarMenu
     Protected WithEvents form1 As Global.System.Web.UI.HtmlControls.HtmlForm
     
     '''<summary>
+    '''txtCodigo control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtCodigo As Global.System.Web.UI.WebControls.TextBox
+    
+    '''<summary>
+    '''requiereCodigo control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents requiereCodigo As Global.System.Web.UI.WebControls.RequiredFieldValidator
+    
+    '''<summary>
     '''txtNombre control.
     '''</summary>
     '''<remarks>
@@ -48,6 +66,24 @@ Partial Public Class AdministrarMenu
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtPrecio As Global.System.Web.UI.WebControls.TextBox
+    
+    '''<summary>
+    '''expresionRegularPrecio control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents expresionRegularPrecio As Global.System.Web.UI.WebControls.RegularExpressionValidator
+    
+    '''<summary>
+    '''fotografia control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents fotografia As Global.System.Web.UI.WebControls.FileUpload
     
     '''<summary>
     '''checkHabilitado control.
@@ -95,29 +131,11 @@ Partial Public Class AdministrarMenu
     Protected WithEvents btnEliminar As Global.System.Web.UI.WebControls.Button
     
     '''<summary>
-    '''GridView1 control.
+    '''btnElminar control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents GridView1 As Global.System.Web.UI.WebControls.GridView
-    
-    '''<summary>
-    '''Label1 control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents Label1 As Global.System.Web.UI.WebControls.Label
-    
-    '''<summary>
-    '''listView control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents listView As Global.System.Web.UI.WebControls.ListView
+    Protected WithEvents btnElminar As Global.System.Web.UI.WebControls.Button
 End Class

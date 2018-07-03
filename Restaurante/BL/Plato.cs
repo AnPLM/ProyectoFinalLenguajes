@@ -10,7 +10,7 @@ namespace BL
 {
     public class Plato
     {
-        public int Identificador { get; set; }
+        public String Codigo { get; set; }
         public String Nombre { get; set; }
         public String Descripcion { get; set; }
         public Double Precio { get; set; }
@@ -19,9 +19,9 @@ namespace BL
 
         public Plato() { }
 
-        public Plato(int identificador, String nombre, String descripcion, Double precio, String fotografia, int habilitado)
+        public Plato(String codigo, String nombre, String descripcion, Double precio, String fotografia, int habilitado)
         {
-            this.Identificador = identificador;
+            this.Codigo = codigo;
             this.Nombre = nombre;
             this.Descripcion = descripcion;
             this.Precio = precio;
@@ -31,7 +31,7 @@ namespace BL
 
         public void agregarPlato() {
             DaoPlato daoPlato = new DaoPlato();
-            TOPlato toPlato = new TOPlato(this.Nombre, this.Descripcion, this.Precio, this.Fotografia, this.Habilitado);
+            TOPlato toPlato = new TOPlato(this.Codigo, this.Nombre, this.Descripcion, this.Precio, this.Fotografia, this.Habilitado);
             daoPlato.insertarPlato(toPlato);
         }
         public void eliminar()
@@ -41,7 +41,11 @@ namespace BL
             daoPlato.eleminarPlato(plato);
         }
 
-        public void modificarPlato() { }
+        public void modificarPlato() {
+            TOPlato toPlato = new TOPlato(this.Nombre, this.Descripcion, this.Precio, this.Fotografia, this.Habilitado);
+            DaoPlato daoPlato = new DaoPlato();
+            daoPlato.modificarPlato(toPlato);
+        }
 
         public void eliminarPlato() {
             TOPlato plato = new TOPlato(this.Nombre);
@@ -51,7 +55,12 @@ namespace BL
 
         public ArrayList listarPlatos() {
             DaoPlato daoPlato = new DaoPlato();
-            return daoPlato.listarPlatos();
+            ArrayList listaPlatos = new ArrayList();
+            foreach (TOPlato plato in daoPlato.listarPlatos())
+            {
+                listaPlatos.Add(new Plato(plato.Codigo, plato.Nombre, plato.Descripcion, plato.Precio, plato.Fotografia, plato.Habilitado));
+            }
+            return listaPlatos;
         }
 
         public void buscarPlato() {
