@@ -14,6 +14,6 @@ Public Class WSCliente
     End Sub
 
     Public Function obtenerPedidosPorUsuario(nombre_usuario As String) As List(Of BLListaPedido) Implements IWSCliente.obtenerPedidosPorUsuario
-        Return listaPedidoBL.obtenerPedidosPorUsuario(nombre_usuario)
+        Return listaPedidoBL.obtenerListaPedidosPorUsuario(nombre_usuario) 'Si manda conflicto convervar esta'
     End Function
 End Class
