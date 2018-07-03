@@ -72,5 +72,11 @@ namespace BL
             this.Fotografia = plato.Fotografia;
             this.Habilitado = plato.Habilitado;
         }
+
+        public ArrayList listarPlatosCliente()
+        {
+            DaoPlato daoPlato = new DaoPlato();
+            return daoPlato.listarPlatosCliente();
+        }
     }
 }

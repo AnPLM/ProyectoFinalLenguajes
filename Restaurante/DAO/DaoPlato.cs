@@ -147,6 +147,25 @@ namespace DAO
             return lista; 
         }
 
+        public ArrayList listarPlatosCliente()
+        {
+            ArrayList lista = new ArrayList();
+            DataTable tabla = new DataTable();
+            String conuslta = "SELECT * FROM Plato WHERE HABILITADO = 1";
+            SqlCommand sentencia = new SqlCommand(conuslta, conexion);
+            SqlDataAdapter adapter = new SqlDataAdapter();
+            adapter.SelectCommand = sentencia;
+            adapter.Fill(tabla);
+            int contador = 1;
+            foreach (DataRow row in tabla.Rows)
+            {
+                lista.Add(new TOPlato(row["Codigo"].ToString(), row["Nombre"].ToString(), row["Descripcion"].ToString(),
+                    double.Parse(row["Precio"].ToString()), row["Fotografia"].ToString(), Int32.Parse(row["Habilitado"].ToString())));
+                contador++;
+            }
+            return lista;
+        }
+
         public void abrirConexion()
         {
             if (conexion.State == ConnectionState.Closed)
