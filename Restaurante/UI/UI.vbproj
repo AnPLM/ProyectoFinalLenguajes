@@ -148,7 +148,7 @@
     <Content Include="Cliente\Cliente.js" />
     <Content Include="Cliente\ClienteMenu.html" />
     <Content Include="Estilos\EstilosPlatos.css" />
-    <Content Include="OrdenesUI.aspx" />
+    <Content Include="OrdenUI.aspx" />
     <Content Include="PruebaLogin.aspx" />
     <Content Include="RegistrarCliente.aspx" />
     <Content Include="RegistroCliente.aspx" />
@@ -191,11 +191,11 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="OrdenesUI.aspx.designer.vb">
-      <DependentUpon>OrdenesUI.aspx</DependentUpon>
+    <Compile Include="OrdenUI.aspx.designer.vb">
+      <DependentUpon>OrdenUI.aspx</DependentUpon>
     </Compile>
-    <Compile Include="OrdenesUI.aspx.vb">
-      <DependentUpon>OrdenesUI.aspx</DependentUpon>
+    <Compile Include="OrdenUI.aspx.vb">
+      <DependentUpon>OrdenUI.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="PruebaLogin.aspx.designer.vb">
