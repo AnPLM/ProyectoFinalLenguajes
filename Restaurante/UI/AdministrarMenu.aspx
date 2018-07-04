@@ -2,8 +2,16 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="encabezado" runat="server">
 </asp:Content>
 
+
 <asp:Content ID="Content2" ContentPlaceHolderID="cuerpo" runat="server">
-        <form id="form1" runat="server" class="form-group-lg">
+
+      <script>
+        function myFunction() {
+           Session("Hola") = document.getElementById("thCodigo")
+        }
+      </script>
+    
+ <form id="form1" runat="server" class="form-group-lg">
  <%Dim lista As ArrayList = Session("ListaPlatos") %>
     <div class=" panel panel-default col-sm-12" style="background-color:firebrick">
         
@@ -40,13 +48,13 @@
          </div>
              <div class="container col-sm-8 margin-up-panel margin-botton-panel margin-left"  style="background-color:#f7f7f7">
                  <h1 class="margin-up-panel text-center">Lista Platos</h1>
-                         <div id="table" class="table-editable">
-            <span class="table-add float-right mb-3 mr-2"><a href="#!" class="text-success"><i class="fa fa-plus fa-2x" aria-hidden="true"></i></a></span>
+            <div id="table" class="table-editable">
+
             <table class="table table-bordered table-responsive-md table-striped text-center">
 
                 <thead>
                     <tr>
-                        <th class="text-center">Código</th>
+                        <th id="thCodigo" class="text-center">Código</th>
                         <th class="text-center">Nombre</th>
                         <th class="text-center">Descripción</th>
                         <th class="text-center">Precio</th>
@@ -72,8 +80,9 @@
                          </div>
                     </td>
                     <td>
-                        <asp:Button ID="btnElminar" CssClass="btn btn-danger" runat="server" Text="Elminar" />
-                       
+                        
+                        <asp:Button ID="btnEliminar2" CssClass="btn btn-danger" runat="server" Text="Elminar" onclick="myFunction()"/>
+                      
                     </td>
                      <td>
                          <input type="submit" class="btn btn-info" value="Modificar"/>
@@ -81,13 +90,11 @@
                 </tr>  
                 <%Next%>
             </table>
-        </div>
-
-             </div>
-   
+          </div>
+         </div>
        </div>
     </div>       
-    </form>
+  </form>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="pie" runat="server">
 </asp:Content>
