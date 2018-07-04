@@ -1,5 +1,4 @@
 ﻿function cargarPlatosTabla() {
-    document.getElementById("prueba").innerHTML = sessionStorage.getItem("NombreUsuario");
     var req = $.ajax({
         url: "http://angielopez-001-site1.ctempurl.com/WSRest/WSCliente.svc/platosActivos",
         timeout: 10000,
@@ -13,6 +12,16 @@
     req.fail(function(){
         alert("¡Servicio no disponible, disculpe las molestias! Si desea emitir un reporte, puede hacerlo a nuestros teléfonos");
     });
+}
+
+function inicioPagina() {
+    cargarPlatosTabla()
+    cargarUsuarioDrop()
+}
+
+function cargarUsuarioDrop() {
+    document.getElementById("drpUsuario").innerHTML = sessionStorage.getItem("NombreUsuario");
+    document.getElementById("drpUsuario").innerHTML += '<span class="caret"></span><!--flecha para dropdown-->'
 }
  
 setInterval(cargarPlatosTabla, 60000);
@@ -54,15 +63,25 @@ setInterval(cargarPlatosTabla, 60000);
 
     function generarTablaDetallePlato(datos) {
         var bodyTablaDetallePlato = document.getElementById('bodyTablaDetallePlato');
+        var headListaPlatos = document.getElementById("headListaPlatos")
         bodyTablaDetallePlato.innerHTML = "";
+        headListaPlatos.innerHTML = "";
         $.each(datos, function () {
             var tr = document.createElement("tr");
-            tr.innerHTML += '<td class="text-center">' + this.Codigo + "</td>";
-            tr.innerHTML += '<td class="text-center">' + this.Nombre + "</td>";
-            tr.innerHTML += '<td class="text-center">' + this.Precio + "</td>";
-            tr.innerHTML += '<td class="text-center">' + this.Descripcion + "</td>";
-            tr.innerHTML += '<td class="text-center">' + this.Fotografia + "</td>";
-            bodyTablaDetallePlato.append(tr);
+            tr.innerHTML = '<th>Codigo</th>'
+            tr.innerHTML += '<th>Nombre</th>'
+            tr.innerHTML += '<th>Precio</th>'
+            tr.innerHTML += '<th>Descripcion</th>'
+            tr.innerHTML += '<th>Foto del plato</th>'
+            headListaPlatos.append(tr)
+            
+            var tr2 = document.createElement("tr");
+            tr2.innerHTML = '<td class="text-center">' + this.Codigo + "</td>";
+            tr2.innerHTML += '<td class="text-center">' + this.Nombre + "</td>";
+            tr2.innerHTML += '<td class="text-center">' + this.Precio + "</td>";
+            tr2.innerHTML += '<td class="text-center">' + this.Descripcion + "</td>";
+            tr2.innerHTML += '<td class="text-center">' + this.Fotografia + "</td>";
+            bodyTablaDetallePlato.append(tr2);
         });
     }
 
@@ -121,5 +140,6 @@ setInterval(cargarPlatosTabla, 60000);
         });
     }
 
-
-   
+    function pruebaAlert() {
+        alert("La prueba ha funcionado. :)")
+    }
