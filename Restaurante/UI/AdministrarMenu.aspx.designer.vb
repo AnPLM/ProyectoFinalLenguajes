@@ -131,11 +131,11 @@ Partial Public Class AdministrarMenu
     Protected WithEvents btnEliminar As Global.System.Web.UI.WebControls.Button
     
     '''<summary>
-    '''btnElminar control.
+    '''btnEliminar2 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents btnElminar As Global.System.Web.UI.WebControls.Button
+    Protected WithEvents btnEliminar2 As Global.System.Web.UI.WebControls.Button
 End Class
