@@ -133,9 +133,9 @@ namespace DAO
         }
         public TOCliente autenticacionCliente(TOCliente cliente) //tiene que ser boolean
         {
-            SqlCommand sentencia = new SqlCommand("select * from Cliente where Correo=@corr and contrasenna=@contr", conexion);
-            sentencia.Parameters.AddWithValue("@corr", cliente.Correo);
+            SqlCommand sentencia = new SqlCommand("select * from Cliente where Correo=@corr and Contrasenna=@contr", conexion);
             sentencia.Parameters.AddWithValue("@contr", cliente.Contrasenna);
+            sentencia.Parameters.AddWithValue("@corr", cliente.Correo);
             SqlDataAdapter adapter = new SqlDataAdapter();
             adapter.SelectCommand = sentencia;
             DataTable tabla = new DataTable();
@@ -147,8 +147,16 @@ namespace DAO
                 {
                     foreach (DataRow item in tabla.Rows)
                     {
-
                         cliente.NombreUsuario = cliente.NombreUsuario = item["Nombre_Usuario"].ToString();
+                        cliente.Direccion = cliente.Direccion = item["Direccion"].ToString();
+                        cliente.Nombre = cliente.Nombre = item["Nombre"].ToString();
+                        if (item["Habilitado"].ToString() == "1")
+                        {
+                            cliente.Habilitado = true;
+                        } else
+                        {
+                            cliente.Habilitado = false;
+                        }
                     }
 
                     return cliente;

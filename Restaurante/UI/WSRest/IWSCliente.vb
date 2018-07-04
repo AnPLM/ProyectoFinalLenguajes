@@ -25,7 +25,7 @@ Public Interface IWSCliente
 
     <OperationContract()>
     <WebGet(RequestFormat:=WebMessageFormat.Json, ResponseFormat:=WebMessageFormat.Json)>
-    Sub iniciarSesionCliente(Email As String, Contrasenna As String)
+    Function iniciarSesionCliente(Email As String, Contrasenna As String) As List(Of Cliente)
 
 
 End Interface

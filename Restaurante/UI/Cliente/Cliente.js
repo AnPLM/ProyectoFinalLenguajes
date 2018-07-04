@@ -1,4 +1,5 @@
 ﻿function cargarPlatosTabla() {
+    document.getElementById("prueba").innerHTML = sessionStorage.getItem("NombreUsuario");
     var req = $.ajax({
         url: "http://angielopez-001-site1.ctempurl.com/WSRest/WSCliente.svc/platosActivos",
         timeout: 10000,
@@ -13,7 +14,7 @@
         alert("¡Servicio no disponible, disculpe las molestias! Si desea emitir un reporte, puede hacerlo a nuestros teléfonos");
     });
 }
-
+ 
 setInterval(cargarPlatosTabla, 60000);
 
     function generarTablaPlatos(datos) {
@@ -86,19 +87,37 @@ setInterval(cargarPlatosTabla, 60000);
     }
 
     function IniciarSesion() {
-        var txtEmail = document.getElementById("txtEmail");
-        var txtContrasenna = document.getElementById("txtContrasenna");
-        var req = $.ajax({
-            url: "http://angielopez-001-site1.ctempurl.com/WSRest/WSCliente.svc/iniciarSesionCliente?Email=" + txtEmail + "&" + "Contrasenna=" + txtContrasenna,
-            //timeout: 10000,
-            dataType: "jsonp"
-        }); 
+        var txtEmail = document.getElementById("txtEmail").value;
+        var txtContrasenna = document.getElementById("txtContrasenna").value;
+        if (txtContrasenna != null && txtEmail != null) {
+            if (txtContrasenna.toString().trim() == "" || txtEmail.toString().trim() == "") {
+                alert("¡Rellene los campos obligatorios, campos vacíos!")
+            } else {
+                var req = $.ajax({
+                    url: "http://angielopez-001-site1.ctempurl.com/WSRest/WSCliente.svc/iniciarSesionCliente" + "?Email=" + txtEmail + "&" + "Contrasenna=" + txtContrasenna,
+                    timeout: 10000,
+                    dataType: "jsonp"
+                });
 
-        req.done(function (datos) {
-            autenticarCliente(datos);
-        })
-        req.fail(function () {
-            alert("¡Servicio no disponible, disculpe las molestias! Si desea emitir un reporte, puede hacerlo a nuestros teléfonos");
+                req.done(function (datos) {
+                    autenticarCliente(datos);
+                })
+                req.fail(function () {
+                    alert("¡Servicio no disponible, disculpe las molestias! Si desea emitir un reporte, puede hacerlo a nuestros teléfonos");
+                });
+            }
+        } else {
+            alert("¡Rellene los campos obligatorios!")
+        }
+    }
+
+    function autenticarCliente(datos) {
+        $.each(datos, function () {
+            window.sessionStorage.setItem("Nombre", this.Nombre)
+            window.sessionStorage.setItem("Correo", this.Correo)
+            window.sessionStorage.setItem("NombreUsuario", this.NombreUsuario)
+            window.sessionStorage.setItem("Direccion", this.Direccion)
+            document.location.href = document.location.href.replace("InicioSesionCliente.html", "ClienteMenu.html");
         });
     }
 

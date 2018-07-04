@@ -51,6 +51,7 @@
             <div>
                 <asp:Label ID="Label1" runat="server" Text="Prueba de que aqui esta el label" BackColor="White"></asp:Label>
             </div>
+         </div>
     </form>
 </body>
 </html>

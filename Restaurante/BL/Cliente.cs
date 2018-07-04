@@ -77,6 +77,9 @@ namespace BL
             DAOCliente daoCliente = new DAOCliente();
             daoCliente.autenticacionCliente(cliente);
             this.NombreUsuario = cliente.NombreUsuario;
+            this.Direccion = cliente.Direccion;
+            this.Nombre = cliente.Nombre;
+            this.Habilitado = cliente.Habilitado;
         }
 
     }

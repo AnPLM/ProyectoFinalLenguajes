@@ -33,9 +33,9 @@ namespace DAO
 
         public TOPlato buscarPlato(TOPlato plato)
         {
-            String consulta = "Select * From Plato Where Codigo = @cod" ;
+            String consulta = "Select * From Plato Where Nombre = @nombre" ;//NO LO CAMBIEN
             SqlCommand sentencia = new SqlCommand(consulta, conexion);
-            sentencia.Parameters.AddWithValue("@cod", plato.Codigo);
+            sentencia.Parameters.AddWithValue("@nombre", plato.Nombre);//NO LO CAMBIEN
 
             //String codigo = "";
             //String nombre = "" ;

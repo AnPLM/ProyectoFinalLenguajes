@@ -21,7 +21,7 @@
     End Sub
 
     Sub New(correo As String, contrasenna As String)
-        Me.Correo = Nombre
+        Me.Correo = correo
         Me.Contrasenna = contrasenna
     End Sub
 

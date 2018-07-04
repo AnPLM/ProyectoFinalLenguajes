@@ -64,7 +64,7 @@ namespace BL
         }
 
         public void buscarPlato() {
-            TOPlato plato = new TOPlato(this.Codigo, 1);
+            TOPlato plato = new TOPlato(this.Nombre);//NO LO CAMBIEN
             DaoPlato daoPlato = new DaoPlato();
             plato = daoPlato.buscarPlato(plato);
             this.Codigo = plato.Codigo;
