@@ -55,6 +55,7 @@
     <Compile Include="ManejadorListaPedido.cs" />
     <Compile Include="ManejadorOrdenes.cs" />
     <Compile Include="ManejadorPlato.cs" />
+    <Compile Include="ManejadorUsuario.cs" />
     <Compile Include="Plato.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
