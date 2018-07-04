@@ -31,5 +31,9 @@
         Me.Nombre = nombre
     End Sub
 
+    Sub New(codigo As String, a As Integer)
+        Me.Codigo = codigo
+    End Sub
+
 
 End Class

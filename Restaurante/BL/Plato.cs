@@ -42,13 +42,13 @@ namespace BL
         }
 
         public void modificarPlato() {
-            TOPlato toPlato = new TOPlato(this.Nombre, this.Descripcion, this.Precio, this.Fotografia, this.Habilitado);
+            TOPlato toPlato = new TOPlato(this.Codigo, this.Nombre, this.Descripcion, this.Precio, this.Fotografia, this.Habilitado);
             DaoPlato daoPlato = new DaoPlato();
             daoPlato.modificarPlato(toPlato);
         }
 
         public void eliminarPlato() {
-            TOPlato plato = new TOPlato(this.Nombre);
+            TOPlato plato = new TOPlato(this.Codigo, 1);
             DaoPlato daoPlato = new DaoPlato();
             daoPlato.eleminarPlato(plato);
         }
@@ -64,7 +64,7 @@ namespace BL
         }
 
         public void buscarPlato() {
-            TOPlato plato = new TOPlato(this.Nombre);
+            TOPlato plato = new TOPlato(this.Codigo, 1);
             DaoPlato daoPlato = new DaoPlato();
             plato = daoPlato.buscarPlato(plato);
             this.Descripcion = plato.Descripcion;

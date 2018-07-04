@@ -33,19 +33,19 @@ namespace DAO
 
         public TOPlato buscarPlato(TOPlato plato)
         {
-            String consulta = "Select * From Plato Where Nombre = @nom" ;
+            String consulta = "Select * From Plato Where Codigo = @cod" ;
             SqlCommand sentencia = new SqlCommand(consulta, conexion);
-            sentencia.Parameters.AddWithValue("@nom", plato.Nombre);
+            sentencia.Parameters.AddWithValue("@cod", plato.Codigo);
 
-            String codigo = "";
-            String nombre = "" ;
-            String descripcion = "";
-            Double precio = 0;
-            String fotografia = "";
-            int habilitado = 0;
+            //String codigo = "";
+            //String nombre = "" ;
+            //String descripcion = "";
+            //Double precio = 0;
+            //String fotografia = "";
+            //int habilitado = 0;
 
             SqlDataReader lector;
-           
+            TOPlato platoEncontrado = new TOPlato();
             abrirConexion();
             lector = sentencia.ExecuteReader();
 
@@ -53,16 +53,21 @@ namespace DAO
             {
                 while (lector.Read())
                 {
-                    codigo = lector.GetValue(0).ToString();
-                    nombre = lector.GetValue(1).ToString();
-                    descripcion = lector.GetValue(2).ToString();
-                    precio = Double.Parse(lector.GetValue(3).ToString());
-                    fotografia = lector.GetValue(4).ToString();
-                    habilitado = Int32.Parse(lector.GetValue(5).ToString());
+                    platoEncontrado = new TOPlato(lector.GetValue(0).ToString(), lector.GetValue(1).ToString(), 
+                        lector.GetValue(2).ToString(), Double.Parse(lector.GetValue(3).ToString()),
+                        lector.GetValue(4).ToString(), Int32.Parse(lector.GetValue(5).ToString()));
+
+                    //codigo = lector.GetValue(0).ToString();
+                    //nombre = lector.GetValue(1).ToString();
+                    //descripcion = lector.GetValue(2).ToString();
+                    //precio = Double.Parse(lector.GetValue(3).ToString());
+                    //fotografia = lector.GetValue(4).ToString();
+                    //habilitado = Int32.Parse(lector.GetValue(5).ToString());
                 }
             }
             cerrarConexion();
-            return new TOPlato(codigo ,nombre, descripcion, precio, fotografia, habilitado);
+            return platoEncontrado;
+            //return new TOPlato(codigo ,nombre, descripcion, precio, fotografia, habilitado);
         }
 
         public void eleminarPlato(TOPlato plato)
