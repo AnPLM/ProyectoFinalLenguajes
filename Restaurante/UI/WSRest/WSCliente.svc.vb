@@ -13,6 +13,15 @@ Public Class WSCliente
         cliente.agregarCliente()
     End Sub
 
+    Public Function buscarPlatoPorNombre(Nombre As String) As List(Of Plato) Implements IWSCliente.buscarPlatoPorNombre
+        Dim plato As New Plato()
+        plato.Nombre = Nombre
+        plato.buscarPlato()
+        Dim list As New List(Of Plato)
+        list.Add(plato)
+        Return list
+    End Function
+
     Public Function obtenerPedidosPorUsuario(nombre_usuario As String) As List(Of BLListaPedido) Implements IWSCliente.obtenerPedidosPorUsuario
         Return listaPedidoBL.obtenerListaPedidosPorUsuario(nombre_usuario) 'Si manda conflicto convervar esta'
     End Function

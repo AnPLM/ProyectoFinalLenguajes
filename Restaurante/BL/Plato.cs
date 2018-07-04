@@ -67,6 +67,7 @@ namespace BL
             TOPlato plato = new TOPlato(this.Nombre);
             DaoPlato daoPlato = new DaoPlato();
             plato = daoPlato.buscarPlato(plato);
+            this.Codigo = plato.Codigo;
             this.Descripcion = plato.Descripcion;
             this.Precio = plato.Precio;
             this.Fotografia = plato.Fotografia;
