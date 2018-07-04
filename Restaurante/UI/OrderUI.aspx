@@ -4,7 +4,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="cuerpo" runat="server">
     <form id="ordenes" runat="server" class="form-group-lg">
     <%      Dim list As ArrayList = Session("ListaOrdenes") %>
-    <div class="conatiner col-lg-1 col-sm-8 margin-up-panel margin-botton-panel margin-left" style="background-color:#00ff21">
+    <div class="conatiner col-sm-8 margin-up-panel margin-botton-panel margin-left" style="background-color:#00ff21">
         <h1 class="margin-up-panel text-center">Lista Ordenes</h1>
         <div id="table" class="table-editable table-responsive">
             <span class="table-add float-right mb-3 mr-2"><a href="#!" class="text-succes"><i class="fade fa-plus fa-2x" aria-hidden="true"></i></a></span>
@@ -19,7 +19,7 @@
                </thead>
                 <%For Each o As BL.BLOrden In list %>
                 <tr>
-                    <td class="col1" contenteditable="true"><%=o.nombreUsuario %></td>
+                    <td class="col1" contenteditable="true"><%=o.nombreUsuario %> <asp:Button type="submit" Cssclass="btn btn-success btn-responsive margin-botton-panel" ID="btnEntregar" runat="server" Text="Entregar" /></td>
                     <td class="col1" contenteditable="true"><%=o.Fecha %></td>
                     <td class="col1" contenteditable="true"><%=o.Estado %></td>
                     <td class="col1" contenteditable="true"><%=o.Identificador %></td>
