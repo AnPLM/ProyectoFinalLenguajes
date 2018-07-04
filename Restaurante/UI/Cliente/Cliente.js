@@ -29,7 +29,7 @@ setInterval(cargarPlatosTabla, 60000);
                 bodyTablaPlatos.append(tr);
                 var nombreAux = this.Nombre;
                 $('#' + nombreAux).bind("click", function () {
-                    mostrarDetallesPlato(nombreAux);
+                    mostrarDetallesPlato(nombreAux);//Aquí no se usa this porque se referiría al botón.
                     });
 
         });
@@ -63,5 +63,25 @@ setInterval(cargarPlatosTabla, 60000);
             tr.innerHTML += '<td class="text-center">' + this.Fotografia + "</td>";
             bodyTablaDetallePlato.append(tr);
         });
+    }
+
+    function buscarPorNombre() {
+            var txtBuscarPlato = document.getElementById("txtBuscarPlato");
+            txtBuscarPlato = txtBuscarPlato.value.toUpperCase();
+            var td;
+            var filas;
+            
+            table = document.getElementById("tablaPlatos");
+            filas = table.getElementsByTagName("tr");
+            for (i = 0; i < filas.length; i++) {
+                td = filas[i].getElementsByTagName("td")[1];//Nombre del plato
+                if (td) {
+                    if (td.innerHTML.toUpperCase().indexOf(txtBuscarPlato) > -1) {
+                        filas[i].style.display = "";
+                    } else {
+                        filas[i].style.display = "none";
+                    }
+                }
+        }
     }
    
