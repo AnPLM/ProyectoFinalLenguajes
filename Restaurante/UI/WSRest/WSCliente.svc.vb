@@ -18,6 +18,7 @@ Public Class WSCliente
     End Function
 
     Public Function platosActivos() As List(Of Plato) Implements IWSCliente.platosActivos
-        Throw New NotImplementedException()
+        Dim plato As New Plato()
+        Return plato.listarPlatosCliente()
     End Function
 End Class
