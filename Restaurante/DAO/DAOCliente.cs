@@ -10,34 +10,34 @@ namespace DAO
 {
     public class DAOCliente
     {
-        SqlConnection connection = new SqlConnection(Properties.Settings.Default.Conn);
+        SqlConnection conexion = new SqlConnection(Properties.Settings.Default.Conn);
 
         public void insertarCliente(TOCliente toCliente) {
             try
             {
-                SqlCommand command = new SqlCommand("insert into Cliente values (@nombre," +
-                "@correo, @nombreUsuario, @contr, @habilitado, @dir)", connection);
-                command.Parameters.AddWithValue("@nombre", toCliente.Nombre);
-                command.Parameters.AddWithValue("@correo", toCliente.Correo);
-                command.Parameters.AddWithValue("@nombreUsuario", toCliente.NombreUsuario);
-                command.Parameters.AddWithValue("@contr", toCliente.Contrasenna);
+                SqlCommand sentencia = new SqlCommand("insert into Cliente values (@nombre," +
+                "@correo, @nombreUsuario, @contr, @habilitado, @dir)", conexion);
+                sentencia.Parameters.AddWithValue("@nombre", toCliente.Nombre);
+                sentencia.Parameters.AddWithValue("@correo", toCliente.Correo);
+                sentencia.Parameters.AddWithValue("@nombreUsuario", toCliente.NombreUsuario);
+                sentencia.Parameters.AddWithValue("@contr", toCliente.Contrasenna);
                 if (toCliente.Habilitado)
                 {
-                    command.Parameters.AddWithValue("@habilitado", "1");
+                    sentencia.Parameters.AddWithValue("@habilitado", "1");
                 }
                 else
                 {
-                    command.Parameters.AddWithValue("@habilitado", "0");
+                    sentencia.Parameters.AddWithValue("@habilitado", "0");
                 }
                 
-                command.Parameters.AddWithValue("@dir", toCliente.Direccion);
+                sentencia.Parameters.AddWithValue("@dir", toCliente.Direccion);
 
-                if (connection.State != ConnectionState.Open)
+                if (conexion.State != ConnectionState.Open)
                 {
-                    connection.Open();
+                    conexion.Open();
                 }
 
-                command.ExecuteNonQuery();
+                sentencia.ExecuteNonQuery();
             }
             catch (Exception)
             {
@@ -46,9 +46,9 @@ namespace DAO
             }
             finally
             {
-                if (connection.State != ConnectionState.Closed)
+                if (conexion.State != ConnectionState.Closed)
                 {
-                    connection.Close();
+                    conexion.Close();
                 }
             }          
         }
@@ -56,19 +56,19 @@ namespace DAO
         public void actualizarDatosCliente(TOCliente clienteTO)
         {
             try {
-                SqlCommand command = new SqlCommand("update Cliente set Nombre=@nom, " +
-                    "Contrasenna=@contr, Direccion=@dir where Nombre_Usuario=@usuar", connection);
-                command.Parameters.AddWithValue("@nom", clienteTO.Nombre);
-                command.Parameters.AddWithValue("@contr", clienteTO.Contrasenna);
-                command.Parameters.AddWithValue("@dir", clienteTO.Direccion);
-                command.Parameters.AddWithValue("@usuar", clienteTO.NombreUsuario);
+                SqlCommand sentencia = new SqlCommand("update Cliente set Nombre=@nom, " +
+                    "Contrasenna=@contr, Direccion=@dir where Nombre_Usuario=@usuar", conexion);
+                sentencia.Parameters.AddWithValue("@nom", clienteTO.Nombre);
+                sentencia.Parameters.AddWithValue("@contr", clienteTO.Contrasenna);
+                sentencia.Parameters.AddWithValue("@dir", clienteTO.Direccion);
+                sentencia.Parameters.AddWithValue("@usuar", clienteTO.NombreUsuario);
 
-                if (connection.State != ConnectionState.Open)
+                if (conexion.State != ConnectionState.Open)
                 {
-                    connection.Open();
+                    conexion.Open();
                 }
 
-                command.ExecuteNonQuery();
+                sentencia.ExecuteNonQuery();
             }
             catch(Exception)
             {
@@ -76,9 +76,9 @@ namespace DAO
             }
             finally
             {
-                if (connection.State != ConnectionState.Closed)
+                if (conexion.State != ConnectionState.Closed)
                 {
-                    connection.Close();
+                    conexion.Close();
                 }
             }
 
@@ -87,37 +87,37 @@ namespace DAO
         public void habilitarCliente(TOCliente toCliente) {
             try
             {
-                SqlCommand command = new SqlCommand("update Cliente set Habilitado='1' where Nombre_Usuario=@nomUsuar", connection);
-                command.Parameters.AddWithValue("@nomUsuar", toCliente.NombreUsuario);
+                SqlCommand sentencia = new SqlCommand("update Cliente set Habilitado='1' where Nombre_Usuario=@nomUsuar", conexion);
+                sentencia.Parameters.AddWithValue("@nomUsuar", toCliente.NombreUsuario);
 
-                if (connection.State != ConnectionState.Open)
+                if (conexion.State != ConnectionState.Open)
                 {
-                    connection.Open();
+                    conexion.Open();
                 }
-                command.ExecuteNonQuery();
+                sentencia.ExecuteNonQuery();
             }
             catch (Exception)
             {
                 throw new Exception("Ocurrió un error al habilitar el cliente");
             } finally
             {
-                if (connection.State != ConnectionState.Closed)
+                if (conexion.State != ConnectionState.Closed)
                 {
-                    connection.Close();
+                    conexion.Close();
                 }
             }
         }
         public void deshabilitarCliente(TOCliente toCliente) {
             try
             {
-                SqlCommand command = new SqlCommand("update Cliente set Habilitado='0' where Nombre_Usuario=@nomUsuar", connection);
-                command.Parameters.AddWithValue("@nomUsuar", toCliente.NombreUsuario);
+                SqlCommand sentencia = new SqlCommand("update Cliente set Habilitado='0' where Nombre_Usuario=@nomUsuar", conexion);
+                sentencia.Parameters.AddWithValue("@nomUsuar", toCliente.NombreUsuario);
 
-                if (connection.State != ConnectionState.Open)
+                if (conexion.State != ConnectionState.Open)
                 {
-                    connection.Open();
+                    conexion.Open();
                 }
-                command.ExecuteNonQuery();
+                sentencia.ExecuteNonQuery();
             }
             catch (Exception)
             {
@@ -125,9 +125,9 @@ namespace DAO
             }
             finally
             {
-                if (connection.State != ConnectionState.Closed)
+                if (conexion.State != ConnectionState.Closed)
                 {
-                    connection.Close();
+                    conexion.Close();
                 }
             }
         }

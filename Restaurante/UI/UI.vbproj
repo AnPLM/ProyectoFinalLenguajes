@@ -148,7 +148,8 @@
     <Content Include="Cliente\Cliente.js" />
     <Content Include="Cliente\ClienteMenu.html" />
     <Content Include="Estilos\EstilosPlatos.css" />
-    <Content Include="OrdenUI.aspx" />
+    <Content Include="InicioSesion.aspx" />
+    <Content Include="OrdenesUI.aspx" />
     <Content Include="PruebaLogin.aspx" />
     <Content Include="RegistrarCliente.aspx" />
     <Content Include="RegistroCliente.aspx" />
@@ -163,6 +164,13 @@
     </Compile>
     <Compile Include="AdministrarMenu.aspx.vb">
       <DependentUpon>AdministrarMenu.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="InicioSesion.aspx.designer.vb">
+      <DependentUpon>InicioSesion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="InicioSesion.aspx.vb">
+      <DependentUpon>InicioSesion.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="MasterRestaurante.Master.designer.vb">
@@ -191,11 +199,11 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="OrdenUI.aspx.designer.vb">
-      <DependentUpon>OrdenUI.aspx</DependentUpon>
+    <Compile Include="OrdenesUI.aspx.designer.vb">
+      <DependentUpon>OrdenesUI.aspx</DependentUpon>
     </Compile>
-    <Compile Include="OrdenUI.aspx.vb">
-      <DependentUpon>OrdenUI.aspx</DependentUpon>
+    <Compile Include="OrdenesUI.aspx.vb">
+      <DependentUpon>OrdenesUI.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="PruebaLogin.aspx.designer.vb">

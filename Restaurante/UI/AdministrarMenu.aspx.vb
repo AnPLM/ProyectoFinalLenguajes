@@ -70,4 +70,8 @@ Public Class AdministrarMenu
         plato.modificarPlato()
     End Sub
 
+    Protected Sub btnEliminar2_Click(sender As Object, e As EventArgs) Handles btnEliminar2.Click
+        Dim elminar = Session("Hola")
+
+    End Sub
 End Class

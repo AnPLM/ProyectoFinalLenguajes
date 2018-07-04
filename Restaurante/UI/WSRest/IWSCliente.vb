@@ -19,4 +19,8 @@ Public Interface IWSCliente
     <WebGet(RequestFormat:=WebMessageFormat.Json, ResponseFormat:=WebMessageFormat.Json)>
     Function platosActivos() As List(Of Plato)
 
+    <OperationContract()>
+    <WebGet(RequestFormat:=WebMessageFormat.Json, ResponseFormat:=WebMessageFormat.Json)>
+    Function buscarPlatoPorNombre(Nombre As String) As List(Of Plato)
+
 End Interface
