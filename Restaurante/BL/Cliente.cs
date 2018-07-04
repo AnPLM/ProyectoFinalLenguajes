@@ -28,6 +28,11 @@ namespace BL
             this.Habilitado = habilitado;
             this.Direccion = direccion;
         }
+        public Cliente(String nombre, String nombreUsuario)
+        {
+            this.Nombre = nombre;
+            this.NombreUsuario = nombreUsuario;
+        }
         public void agregarCliente() {
             DAOCliente daoCliente = new DAOCliente();
             daoCliente.insertarCliente(new TOCliente(this.Nombre, this.Correo,
@@ -65,5 +70,14 @@ namespace BL
             DAOCliente daoCliente = new DAOCliente();
             daoCliente.actualizarDatosCliente(clienteTo);
         }
+
+        public void autenticarCliente()
+        {
+            TOCliente cliente = new TOCliente(this.Correo, this.Contrasenna);
+            DAOCliente daoCliente = new DAOCliente();
+            daoCliente.autenticacionCliente(cliente);
+            this.NombreUsuario = cliente.NombreUsuario;
+        }
+
     }
 }

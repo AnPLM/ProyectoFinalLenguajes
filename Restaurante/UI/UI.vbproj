@@ -147,6 +147,8 @@
     <Content Include="AdministrarMenu.aspx" />
     <Content Include="Cliente\Cliente.js" />
     <Content Include="Cliente\ClienteMenu.html" />
+    <Content Include="Cliente\EstilosCliente.css" />
+    <Content Include="Cliente\InicioSesionCliente.html" />
     <Content Include="Estilos\EstilosPlatos.css" />
     <Content Include="InicioSesion.aspx" />
     <Content Include="OrderUI.aspx" />

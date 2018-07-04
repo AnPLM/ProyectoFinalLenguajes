@@ -31,5 +31,15 @@ Public Class WSCliente
         Return plato.listarPlatosCliente()
     End Function
 
+    Public Sub iniciarSesionCliente(Email As String, Contrasenna As String) Implements IWSCliente.iniciarSesionCliente
+        Dim cliente As New Cliente()
+        cliente.Correo = Email
+        cliente.Contrasenna = Contrasenna
+        cliente.autenticarCliente()
+        'Falta validar si posee Nombre_Usuario es porque se autentico correctamente
+        'El nombre de usuario se ocupa para tenerlo en la session para agregar los pedidos del carrito
+    End Sub
+
+
 
 End Class

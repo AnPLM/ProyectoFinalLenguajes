@@ -20,6 +20,11 @@
         Me.Direccion = direccion
     End Sub
 
+    Sub New(correo As String, contrasenna As String)
+        Me.Correo = Nombre
+        Me.Contrasenna = contrasenna
+    End Sub
+
 
 
 End Class

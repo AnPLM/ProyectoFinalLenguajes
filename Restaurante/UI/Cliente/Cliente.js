@@ -84,4 +84,23 @@ setInterval(cargarPlatosTabla, 60000);
                 }
         }
     }
+
+    function IniciarSesion() {
+        var txtEmail = document.getElementById("txtEmail");
+        var txtContrasenna = document.getElementById("txtContrasenna");
+        var req = $.ajax({
+            url: "http://angielopez-001-site1.ctempurl.com/WSRest/WSCliente.svc/iniciarSesionCliente?Email=" + txtEmail + "&" + "Contrasenna=" + txtContrasenna,
+            //timeout: 10000,
+            dataType: "jsonp"
+        }); 
+
+        req.done(function (datos) {
+            autenticarCliente(datos);
+        })
+        req.fail(function () {
+            alert("¡Servicio no disponible, disculpe las molestias! Si desea emitir un reporte, puede hacerlo a nuestros teléfonos");
+        });
+    }
+
+
    

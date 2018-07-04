@@ -131,5 +131,30 @@ namespace DAO
                 }
             }
         }
+        public TOCliente autenticacionCliente(TOCliente cliente) //tiene que ser boolean
+        {
+            SqlCommand sentencia = new SqlCommand("select * from Cliente where Correo=@corr and contrasenna=@contr", conexion);
+            sentencia.Parameters.AddWithValue("@corr", cliente.Correo);
+            sentencia.Parameters.AddWithValue("@contr", cliente.Contrasenna);
+            SqlDataAdapter adapter = new SqlDataAdapter();
+            adapter.SelectCommand = sentencia;
+            DataTable tabla = new DataTable();
+            adapter.Fill(tabla);
+            
+            if (tabla != null)
+            {
+                if (tabla.Rows.Count == 1)
+                {
+                    foreach (DataRow item in tabla.Rows)
+                    {
+
+                        cliente.NombreUsuario = cliente.NombreUsuario = item["Nombre_Usuario"].ToString();
+                    }
+
+                    return cliente;
+                }
+            }
+            return cliente;
+        }
     }
 }
