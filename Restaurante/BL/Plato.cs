@@ -73,10 +73,16 @@ namespace BL
             this.Habilitado = plato.Habilitado;
         }
 
-        public ArrayList listarPlatosCliente()
+        public List<Plato> listarPlatosCliente()
         {
             DaoPlato daoPlato = new DaoPlato();
-            return daoPlato.listarPlatosCliente();
+            List<Plato> lista = new List<Plato>();
+
+            foreach (TOPlato item in daoPlato.listarPlatosCliente())
+            {
+                lista.Add(new Plato(item.Codigo, item.Nombre, item.Descripcion, item.Precio, item.Fotografia, item.Habilitado));
+            }
+            return lista;
         }
     }
 }
