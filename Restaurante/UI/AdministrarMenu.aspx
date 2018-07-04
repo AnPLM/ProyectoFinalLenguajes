@@ -4,13 +4,7 @@
 
 
 <asp:Content ID="Content2" ContentPlaceHolderID="cuerpo" runat="server">
-
-      <script>
-        function myFunction() {
-           Session("Hola") = document.getElementById("thCodigo")
-        }
-      </script>
-    
+       
  <form id="form1" runat="server" class="form-group-lg">
  <%Dim lista As ArrayList = Session("ListaPlatos") %>
     <div class=" panel panel-default col-sm-12" style="background-color:firebrick">
@@ -47,11 +41,9 @@
             </div>
          </div>
              <div class="container col-sm-8 margin-up-panel margin-botton-panel margin-left"  style="background-color:#f7f7f7">
-                 <h1 class="margin-up-panel text-center">Lista Platos</h1>
-            <div id="table" class="table-editable">
+              <h1 class="margin-up-panel text-center">Lista Platos</h1>
 
             <table class="table table-bordered table-responsive-md table-striped text-center">
-
                 <thead>
                     <tr>
                         <th id="thCodigo" class="text-center">Código</th>
@@ -60,8 +52,6 @@
                         <th class="text-center">Precio</th>
                         <th class="text-center">Fotografía</th>
                         <th class="text-center">Habilitado</th>
-                        <th class="text-center">Remover</th>
-                        <th class="text-center">Modificar</th>
                     </tr>
                 </thead>
                
@@ -72,25 +62,22 @@
                     <td class="col3" contenteditable="true"><%=x.Descripcion%></td>
                     <td class="col4" contenteditable="true"><%=x.Precio%></td>
                     <td>
-                         <img src="pizzapepperoni0.jpg" class="img-rounded" alt="Cinque Terre" width="100" height="50"/>
+                        <% Dim imgUrl As String = "/Imagenes/" + x.Fotografia %>
+                         <img src= "<%= imgUrl %>" class="img-rounded" alt="Cinque Terre" width="100" height="50"/>
                     </td>
                      <td>
                          <div class="form-check">
-                            <input type="checkbox" class="form-check-input" id="exampleCheck1"/> 
+                             <%If x.Habilitado = 0 Then %>
+                                <input type="checkbox" class="form-check-input" id="checkHabilitados" aria-readonly="true"/>
+                             <%Else %> 
+                               <input type="checkbox" class="form-check-input" id="checkDeshabilitados" checked="" aria-readonly="false"/>
+                             <%End If %>
                          </div>
-                    </td>
-                    <td>
-                        
-                        <asp:Button ID="btnEliminar2" CssClass="btn btn-danger" runat="server" Text="Elminar" onclick="myFunction()"/>
-                      
-                    </td>
-                     <td>
-                         <input type="submit" class="btn btn-info" value="Modificar"/>
                     </td>
                 </tr>  
                 <%Next%>
             </table>
-          </div>
+                 <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
          </div>
        </div>
     </div>       

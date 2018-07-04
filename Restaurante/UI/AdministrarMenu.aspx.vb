@@ -11,7 +11,7 @@ Public Class AdministrarMenu
 
     Protected Sub btnBuscar_Click(sender As Object, e As EventArgs) Handles btnBuscar.Click
         Dim plato As New Plato
-        plato.Nombre = txtNombre.Text
+        plato.Codigo = txtCodigo.Text
         plato.buscarPlato()
         Session("Nombre") = plato.Nombre
         Session("Descripcion") = plato.Descripcion
@@ -22,12 +22,9 @@ Public Class AdministrarMenu
 
     Protected Sub btnEliminar_Click(sender As Object, e As EventArgs) Handles btnEliminar.Click
         Dim plato As New Plato
-
-        plato.Nombre = txtNombre.Text
+        plato.Codigo = txtCodigo.Text
         plato.eliminarPlato()
         Session("ListaPlatos") = plato.listarPlatos()
-        'GridView1.DataSource = plato.listarPlatos()
-        'GridView1.DataBind()
     End Sub
 
 
@@ -38,12 +35,16 @@ Public Class AdministrarMenu
         plato.Descripcion = txtDescripcion.Text
         plato.Precio = Double.Parse(txtPrecio.Text)
         plato.Fotografia = fotografia.FileName
+        Label1.Text = Server.MapPath("./Imagenes").ToString
+        'fotografia.SaveAs(Server.MapPath("../Imagenes/").ToString + fotografia.FileName)
+
         If checkHabilitado.Checked Then
             plato.Habilitado = 1
         Else
             plato.Habilitado = 0
         End If
         plato.agregarPlato()
+        Session("ListaPlatos") = plato.listarPlatos()
         'GridView1.DataSource = plato.listarPlatos()
         'GridView1.DataBind()
     End Sub
@@ -68,11 +69,11 @@ Public Class AdministrarMenu
             plato.Habilitado = 0
         End If
         plato.modificarPlato()
+        Session("ListaPlatos") = plato.listarPlatos()
     End Sub
 
-    Protected Sub btnEliminar2_Click(sender As Object, e As EventArgs) Handles btnEliminar2.Click
-        Dim elminar = Session("Hola")
+    'Protected Sub btnEliminar2_Click(sender As Object, e As EventArgs) Handles btnEliminar2.Click
+    '    Dim elminar = Session("Hola")
 
-    End Sub
-
+    'End Sub
 End Class
