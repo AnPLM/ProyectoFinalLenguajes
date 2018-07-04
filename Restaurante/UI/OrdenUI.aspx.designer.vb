@@ -11,23 +11,14 @@ Option Strict On
 Option Explicit On
 
 
-Partial Public Class OrdenesUI
+Partial Public Class OrdenUI
     
     '''<summary>
-    '''form1 control.
+    '''ordenes control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents form1 As Global.System.Web.UI.HtmlControls.HtmlForm
-    
-    '''<summary>
-    '''DataPager1 control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents DataPager1 As Global.System.Web.UI.WebControls.DataPager
+    Protected WithEvents ordenes As Global.System.Web.UI.HtmlControls.HtmlForm
 End Class
