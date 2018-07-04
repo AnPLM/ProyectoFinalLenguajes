@@ -23,9 +23,11 @@ namespace BL
 
         public ArrayList listaOrdenes() {
             ArrayList list = new ArrayList();
+            string cd = "";
             LinkedList<TOOrden> l = dao.listaOrdenes();
             foreach (TOOrden item in l) {
                 list.Add(new BLOrden(item.Nombre_Usuario,item.Fecha,item.Estado,item.Identificador));
+                cd += item.ToString();
             }
             return list;
         }

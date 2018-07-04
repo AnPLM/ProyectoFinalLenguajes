@@ -149,7 +149,7 @@
     <Content Include="Cliente\ClienteMenu.html" />
     <Content Include="Estilos\EstilosPlatos.css" />
     <Content Include="InicioSesion.aspx" />
-    <Content Include="OrdenesUI.aspx" />
+    <Content Include="OrderUI.aspx" />
     <Content Include="PruebaLogin.aspx" />
     <Content Include="RegistrarCliente.aspx" />
     <Content Include="RegistroCliente.aspx" />
@@ -199,11 +199,11 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="OrdenesUI.aspx.designer.vb">
-      <DependentUpon>OrdenesUI.aspx</DependentUpon>
+    <Compile Include="OrderUI.aspx.designer.vb">
+      <DependentUpon>OrderUI.aspx</DependentUpon>
     </Compile>
-    <Compile Include="OrdenesUI.aspx.vb">
-      <DependentUpon>OrdenesUI.aspx</DependentUpon>
+    <Compile Include="OrderUI.aspx.vb">
+      <DependentUpon>OrderUI.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="PruebaLogin.aspx.designer.vb">
