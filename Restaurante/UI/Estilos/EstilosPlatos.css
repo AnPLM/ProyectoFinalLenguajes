@@ -5,8 +5,10 @@
 
 .margin-up-panel {
     margin-top: 20px;
-    margin-left: 20px;
-    margin-right: 20px;
+}
+
+.margin-up-button {
+    margin-top: 20px;
 }
 
 .margin-botton-panel {
@@ -30,5 +32,6 @@
     opacity: 0.2;
     filter: alpha(opacity=50); /* For IE8 and earlier */
 }
+
 
 

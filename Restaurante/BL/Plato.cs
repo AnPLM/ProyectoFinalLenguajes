@@ -17,6 +17,8 @@ namespace BL
         public String Fotografia { get; set; }
         public int Habilitado { get; set; }
 
+        private DaoPlato daoPlato = new DaoPlato();
+
         public Plato() { }
 
         public Plato(String codigo, String nombre, String descripcion, Double precio, String fotografia, int habilitado)
@@ -29,38 +31,25 @@ namespace BL
             this.Habilitado = habilitado;
         }
 
-        public void agregarPlato() {
-            DaoPlato daoPlato = new DaoPlato();
-            TOPlato toPlato = new TOPlato(this.Codigo, this.Nombre, this.Descripcion, this.Precio, this.Fotografia, this.Habilitado);
-            daoPlato.insertarPlato(toPlato);
-        }
-        public void eliminar()
+        public void agregarPlatos(TOPlato plato)
         {
-            TOPlato plato = new TOPlato(this.Nombre);
-            DaoPlato daoPlato = new DaoPlato();
+            daoPlato.insertarPlato(plato);
+        }
+        public void eliminarPlatos(TOPlato plato)
+        {
             daoPlato.eleminarPlato(plato);
         }
-
-        public void modificarPlato() {
-            TOPlato toPlato = new TOPlato(this.Codigo, this.Nombre, this.Descripcion, this.Precio, this.Fotografia, this.Habilitado);
-            DaoPlato daoPlato = new DaoPlato();
-            daoPlato.modificarPlato(toPlato);
+        public void modificarPlatos(TOPlato plato)
+        {
+            daoPlato.modificarPlato(plato);
         }
-
-        public void eliminarPlato() {
-            TOPlato plato = new TOPlato(this.Codigo, 1);
-            DaoPlato daoPlato = new DaoPlato();
-            daoPlato.eleminarPlato(plato);
+        public ArrayList listarPlatosA()
+        {
+            return daoPlato.listarPlatos();
         }
-
-        public ArrayList listarPlatos() {
-            DaoPlato daoPlato = new DaoPlato();
-            ArrayList listaPlatos = new ArrayList();
-            foreach (TOPlato plato in daoPlato.listarPlatos())
-            {
-                listaPlatos.Add(new Plato(plato.Codigo, plato.Nombre, plato.Descripcion, plato.Precio, plato.Fotografia, plato.Habilitado));
-            }
-            return listaPlatos;
+        public List<TOPlato> buscarPlatoAdmin(TOPlato plato)
+        {
+            return daoPlato.buscarPlatoAdmin(plato);
         }
 
         public void buscarPlato() {

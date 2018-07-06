@@ -32,13 +32,13 @@ Partial Public Class AdministrarMenu
     Protected WithEvents txtCodigo As Global.System.Web.UI.WebControls.TextBox
     
     '''<summary>
-    '''requiereCodigo control.
+    '''requiereCodigoRegistro control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents requiereCodigo As Global.System.Web.UI.WebControls.RequiredFieldValidator
+    Protected WithEvents requiereCodigoRegistro As Global.System.Web.UI.WebControls.RequiredFieldValidator
     
     '''<summary>
     '''txtNombre control.
@@ -50,6 +50,15 @@ Partial Public Class AdministrarMenu
     Protected WithEvents txtNombre As Global.System.Web.UI.WebControls.TextBox
     
     '''<summary>
+    '''requiereNombreRegistro control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents requiereNombreRegistro As Global.System.Web.UI.WebControls.RequiredFieldValidator
+    
+    '''<summary>
     '''txtDescripcion control.
     '''</summary>
     '''<remarks>
@@ -57,6 +66,15 @@ Partial Public Class AdministrarMenu
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtDescripcion As Global.System.Web.UI.WebControls.TextBox
+    
+    '''<summary>
+    '''requiereDescripcionRegistro control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents requiereDescripcionRegistro As Global.System.Web.UI.WebControls.RequiredFieldValidator
     
     '''<summary>
     '''txtPrecio control.
@@ -75,6 +93,15 @@ Partial Public Class AdministrarMenu
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents expresionRegularPrecio As Global.System.Web.UI.WebControls.RegularExpressionValidator
+    
+    '''<summary>
+    '''requierePrecioRegistro control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents requierePrecioRegistro As Global.System.Web.UI.WebControls.RequiredFieldValidator
     
     '''<summary>
     '''fotografia control.
@@ -131,11 +158,11 @@ Partial Public Class AdministrarMenu
     Protected WithEvents btnEliminar As Global.System.Web.UI.WebControls.Button
     
     '''<summary>
-    '''Label1 control.
+    '''gridPlatosEncontrados control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents Label1 As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents gridPlatosEncontrados As Global.System.Web.UI.WebControls.GridView
 End Class
