@@ -4,6 +4,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="cuerpo" runat="server">
     <form id="ordenes" runat="server" class="form-group-lg">
     <%      Dim list As ArrayList = Session("ListaOrdenes") %>
+        <%Dim orden As BL.ManejadorOrdenes = Session("ordenes") %>
     <div class="conatiner col-sm-8 margin-up-panel margin-botton-panel margin-left" style="background-color:#00ff21">
         <h1 class="margin-up-panel text-center">Lista Ordenes</h1>
         <div id="table" class="table-editable table-responsive">
@@ -19,10 +20,14 @@
                </thead>
                 <%For Each o As BL.BLOrden In list %>
                 <tr>
-                    <td class="col1" contenteditable="true"><%=o.nombreUsuario %> <asp:Button type="submit" Cssclass="btn btn-success btn-responsive margin-botton-panel" ID="btnEntregar" runat="server" Text="Entregar" /></td>
+                    <td class="col1" contenteditable="true"><%=o.nombreUsuario %></td>
                     <td class="col1" contenteditable="true"><%=o.Fecha %></td>
                     <td class="col1" contenteditable="true"><%=o.Estado %></td>
                     <td class="col1" contenteditable="true"><%=o.Identificador %></td>
+                    <td class="col1" contenteditable="true"> <asp:Button type="submit"
+                         Cssclass="btn btn-success btn-responsive margin-botton-panel" ID="btnEntregar"
+                         OnClick="btnEntregar_Click" runat="server" Text="Entregar" /><%Session("ide") = o.Identificador %></td>
+                    
                 </tr>
                 <%Next %>
             </table>
