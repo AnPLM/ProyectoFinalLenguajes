@@ -51,7 +51,7 @@ namespace DAO
 
         public void eliminar(int id)
         {
-            string query = "delete * from Orden where Identificador = @id";
+            string query = "delete from Orden where Identificador = @id";
             string conn = Properties.Settings.Default.Conn;
             SqlCommand command = new SqlCommand(query, new SqlConnection(conn));
             try
