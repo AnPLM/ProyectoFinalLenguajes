@@ -11,7 +11,7 @@
         
         <div class="row">
         <div class="container col-sm-3 margin-up-panel margin-botton-panel margin-left" style="background-color:#f7f7f7;opacity: 0,8;">
-            <h2 class="margin-up-button text-center"  style="opacity: 0,9">Registrar Plato</h2>
+            <h3 class="margin-up-button text-center"  style="opacity: 0,9">Registrar Plato</h3>
             <div class=" form-group">
                 <asp:TextBox ID="txtCodigo" CssClass="form-control" placeholder="Codigo" runat="server"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="requiereCodigoRegistro" runat="server" ErrorMessage="Favor ingresar código" ControlToValidate="txtCodigo" validationgroup="Registrar"></asp:RequiredFieldValidator>
@@ -27,8 +27,7 @@
             <div class="form-group text-center">
                 <asp:TextBox ID="txtPrecio" Cssclass="form-control" placeholder="Precio" runat="server"></asp:TextBox>
                 <asp:RegularExpressionValidator ID="expresionRegularPrecio" runat="server" ErrorMessage="Debe ingrsar un monto numérico" ControlToValidate="txtPrecio" ValidationExpression="^[0-9]*"></asp:RegularExpressionValidator>
-                 <asp:RequiredFieldValidator ID="requierePrecioRegistro" runat="server" ErrorMessage="Favor ingresar Precio" ControlToValidate="txtPrecio" validationgroup="Registrar"></asp:RequiredFieldValidator>
-               
+                <asp:RequiredFieldValidator ID="requierePrecioRegistro" runat="server" ErrorMessage="Favor ingresar Precio" ControlToValidate="txtPrecio" validationgroup="Registrar"></asp:RequiredFieldValidator>  
             </div>
             <div class="text-center">
                 <asp:FileUpload ID="fotografia" runat="server" />
@@ -45,7 +44,7 @@
             </div>
          </div>
              <div class="container col-sm-8 margin-up-panel margin-botton-panel margin-left"  style="background-color:#f7f7f7">
-              <h2 class="margin-up-panel text-center">Lista Platos</h2>
+              <h3 class="margin-up-panel text-center">Lista Platos</h3>
 
             <table class="table table-bordered table-responsive-md table-striped text-center" id="tablaPlatos">
                 <thead>
@@ -85,8 +84,9 @@
 
             <!-- ------------------------------------------------------------------------------------- ------------------------------>
             <div class="container col-sm-8 margin-up-panel margin-botton-panel margin-left"  style="background-color:#f7f7f7">
-                <h2 class="margin-up-panel text-center">Platos Encontrados</h2>
+                <h3 class="margin-up-panel text-center">Platos Encontrados</h3>
                  <asp:GridView ID="gridPlatosEncontrados" runat="server"  CssClass= "table table-striped table-bordered table-condensed"></asp:GridView>
+                <asp:UpdatePanel ID="UpdatePanel1" runat="server"></asp:UpdatePanel>
             </div>
             <!-- ------------------------------------------------------------------------------------- ------------------------------>
 

@@ -36,6 +36,7 @@ Public Class AdministrarMenu
             gridPlatosEncontrados.DataSource = Nothing
             gridPlatosEncontrados.DataBind()
         Catch ex As Exception
+
         End Try
     End Sub
 
