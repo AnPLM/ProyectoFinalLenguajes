@@ -145,6 +145,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AdministrarMenu.aspx" />
+    <Content Include="AdministrarPedidos_Admin.aspx" />
     <Content Include="Cliente\Cliente.js" />
     <Content Include="Cliente\ClienteMenu.html" />
     <Content Include="Cliente\EstilosCliente.css" />
@@ -154,7 +155,6 @@
     <Content Include="OrderUI.aspx" />
     <Content Include="PruebaLogin.aspx" />
     <Content Include="RegistrarCliente.aspx" />
-    <Content Include="RegistroCliente.aspx" />
     <Content Include="scripts\ai.0.15.0-build58334.js" />
     <Content Include="scripts\ai.0.15.0-build58334.min.js" />
     <Content Include="scripts\Ordenes.js" />
@@ -167,6 +167,13 @@
     </Compile>
     <Compile Include="AdministrarMenu.aspx.vb">
       <DependentUpon>AdministrarMenu.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="AdministrarPedidos_Admin.aspx.designer.vb">
+      <DependentUpon>AdministrarPedidos_Admin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdministrarPedidos_Admin.aspx.vb">
+      <DependentUpon>AdministrarPedidos_Admin.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="InicioSesion.aspx.designer.vb">
