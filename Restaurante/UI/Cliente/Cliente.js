@@ -20,7 +20,9 @@ function inicioPagina() {
 }
 
 function cargarUsuarioDrop() {
-    document.getElementById("drpUsuario").innerHTML = sessionStorage.getItem("NombreUsuario");
+    var x = sessionStorage.getItem("NombreUsuario");
+    alert(x);
+    document.getElementById("drpUsuario").innerHTML = x;
     document.getElementById("drpUsuario").innerHTML += '<span class="caret"></span><!--flecha para dropdown-->'
 }
  
