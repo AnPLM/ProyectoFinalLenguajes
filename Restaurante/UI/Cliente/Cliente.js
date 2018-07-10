@@ -1,4 +1,11 @@
-﻿function cargarPlatosTabla() {
+﻿//////////////////////////////////////////
+let carrito = [];
+let total = 0;
+let $carrito = document.querySelector('#carrito');
+let $total = document.querySelector('#total');
+/////////////////////////////////////////
+
+function cargarPlatosTabla() {
     var req = $.ajax({
         url: "http://angielopez-001-site1.ctempurl.com/WSRest/WSCliente.svc/platosActivos",
         timeout: 10000,
@@ -34,17 +41,71 @@ setInterval(cargarPlatosTabla, 60000);
         $.each(datos, function() {
             var tr = document.createElement("tr");
             tr.innerHTML += '<td class="text-center">' + this.Codigo + "</td>";
-                tr.innerHTML += '<td class="text-center">' + this.Nombre + "</td>";
-                tr.innerHTML += '<td class="text-center">' + this.Precio + "</td>";
+            tr.innerHTML += '<td class="text-center">' + this.Nombre + "</td>";
+            tr.innerHTML += '<td class="text-center">' + this.Precio + "</td>";
                 tr.innerHTML += '<td class="text-center">' + '<button id="' + this.Nombre + '"'+'>Mostrar Detalles</button></td>'
-                tr.innerHTML += '<td class="text-center">' + "<button onclick=agregarPlato()>Agregar plato, no funciona aún</button></td>"
+                tr.innerHTML += '<td class="text-center">' + '<button id="' + this.Codigo + '","' + this.Nombre + + '","' + this.Precio + '"' + '>Agregar Plato</button></td>' ////////////
                 bodyTablaPlatos.append(tr);
                 var nombreAux = this.Nombre;
                 $('#' + nombreAux).bind("click", function () {
                     mostrarDetallesPlato(nombreAux);//Aquí no se usa this porque se referiría al botón.
-                    });
-
+                });
+                
+                //Crea un string con los datos de la fila seleccionada
+                var nombreAuxCOd = this.Codigo + ", " + this.Nombre + ", " + this.Precio;
+                $('#' + nombreAuxCOd).bind("click", function () {
+                    carrito.push(nombreAuxCOd) //Mete en el array "carrito" la info
+                    calcularTotal();
+                    llenarCarrito();
+                });
         });
+    }
+ 
+    function calcularTotal() {
+       var i = 0
+       total = 0;
+       var info = "";
+       var precio = 0;
+        // Se recorre el array "carrito" sacando los precios y sumandolos
+        for (let item of carrito) {
+            info = carrito[i]
+            info = info.split(",")
+            precio = parseInt(info[2])
+            total = total + precio;
+            i = i + 1;
+        }
+        document.getElementById("total").innerHTML = total + "";
+    }
+
+    function llenarCarrito() {
+        $('#carrito').empty();
+        var bodyTablaCarrito = document.getElementById('bodyTablaCarrito');
+        bodyTablaCarrito.innerHTML = "";
+        var i = 0
+        for (let item of carrito) {
+            info = carrito[i]
+            info = info.split(",")
+            var tr = document.createElement("tr");
+            tr.innerHTML += '<td class="text-center">' + info[1] + "</td>";
+            tr.innerHTML += '<td class="text-center">' + info[2] + "</td>";
+            tr.innerHTML += '<td class="text-center">' + "Hola" + "</td>";
+            tr.innerHTML += '<td class="text-center">' + '<button id="' + i + '"'+'>X</button></td>'
+            bodyTablaCarrito.append(tr);
+            var nombreA = i;
+            $('#' + nombreA).bind("click", function () {
+                borrarItemCarrito(i);
+            });
+            i = i + 1;
+        }   
+    }
+
+
+    function borrarItemCarrito(i) {
+        carrito.splice(i - 1, 1);
+        // volvemos a renderizar
+        llenarCarrito();
+        // Calcula el nuevo precio
+        calcularTotal();
     }
 
     function mostrarDetallesPlato(nombreAux) {
@@ -145,3 +206,5 @@ setInterval(cargarPlatosTabla, 60000);
     function pruebaAlert() {
         alert("La prueba ha funcionado. :)")
     }
+
+  

@@ -3,77 +3,75 @@ Public Class AdministrarMenu
     Inherits System.Web.UI.Page
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-        Dim plato As New Plato()
-        Session("ListaPlatos") = plato.listarPlatos()
-        'GridView1.DataSource = plato.listarPlatos()
-        'GridView1.DataBind()
+        Dim platoManager As New ManejadorPlato
+        Session("ListaPlatos") = platoManager.listarPlatos()
     End Sub
 
     Protected Sub btnBuscar_Click(sender As Object, e As EventArgs) Handles btnBuscar.Click
-        Dim plato As New Plato
-        plato.Codigo = txtCodigo.Text
-        plato.buscarPlato()
-        Session("Nombre") = plato.Nombre
-        Session("Descripcion") = plato.Descripcion
-        Session("Precio") = plato.Precio
-        'Label1.Text = plato.Nombre + " " + plato.Descripcion + " " + plato.Precio.ToString()
-
+        Dim platoManager As New ManejadorPlato
+        gridPlatosEncontrados.DataSource = platoManager.buscarPlatoAdmin(txtNombre.Text)
+        gridPlatosEncontrados.DataBind()
     End Sub
 
     Protected Sub btnEliminar_Click(sender As Object, e As EventArgs) Handles btnEliminar.Click
-        Dim plato As New Plato
-        plato.Codigo = txtCodigo.Text
-        plato.eliminarPlato()
-        Session("ListaPlatos") = plato.listarPlatos()
+        Dim platoManager As New ManejadorPlato
+        platoManager.eliminarPlato(txtCodigo.Text)
+        Session("ListaPlatos") = platoManager.listarPlatos()
+        gridPlatosEncontrados.DataSource = Nothing
+        gridPlatosEncontrados.DataBind()
     End Sub
 
 
     Protected Sub btnRegistrar_Click(sender As Object, e As EventArgs) Handles btnRegistrar.Click
-        Dim plato As New Plato
-        plato.Codigo = txtCodigo.Text
-        plato.Nombre = txtNombre.Text
-        plato.Descripcion = txtDescripcion.Text
-        plato.Precio = Double.Parse(txtPrecio.Text)
-        plato.Fotografia = fotografia.FileName
-        Label1.Text = Server.MapPath("./Imagenes").ToString
-        'fotografia.SaveAs(Server.MapPath("../Imagenes/").ToString + fotografia.FileName)
+        Try
+            Dim platoManager As New ManejadorPlato
+            Dim habilitado = 0
+            If checkHabilitado.Checked Then
+                habilitado = 1
+            Else
+                habilitado = 0
+            End If
+            platoManager.agregarPlato(txtCodigo.Text, txtNombre.Text, txtDescripcion.Text, Double.Parse(txtPrecio.Text), fotografia.FileName, habilitado)
+            Session("ListaPlatos") = platoManager.listarPlatos()
+            gridPlatosEncontrados.DataSource = Nothing
+            gridPlatosEncontrados.DataBind()
+        Catch ex As Exception
 
-        If checkHabilitado.Checked Then
-            plato.Habilitado = 1
-        Else
-            plato.Habilitado = 0
-        End If
-        plato.agregarPlato()
-        Session("ListaPlatos") = plato.listarPlatos()
-        'GridView1.DataSource = plato.listarPlatos()
-        'GridView1.DataBind()
+        End Try
     End Sub
 
 
     Protected Sub btnEditar_Click(sender As Object, e As EventArgs) Handles btnEditar.Click
-        Dim plato As New Plato
-        plato.Codigo = txtCodigo.Text
+        Dim platoManager As New ManejadorPlato
+        Dim codigo As String = ""
+        Dim nombre As String = ""
+        Dim descripcion As String = ""
+        Dim precio As Double
+        Dim fotografiaC As String = ""
+        Dim habilitado As Integer = 5
+        If txtCodigo.Text <> "" Then
+            codigo = txtCodigo.Text
+        End If
         If txtNombre.Text <> "" Then
-            plato.Nombre = txtNombre.Text
+            nombre = txtNombre.Text
         End If
         If txtDescripcion.Text <> "" Then
-            plato.Descripcion = txtDescripcion.Text
+            descripcion = txtDescripcion.Text
         End If
         If txtPrecio.Text <> "" Then
-            plato.Precio = Double.Parse(txtPrecio.Text)
+            precio = Double.Parse(txtPrecio.Text)
         End If
-        plato.Fotografia = "Hey"
+        If fotografia.FileName <> "" Then
+            fotografiaC = fotografia.FileName
+        End If
         If checkHabilitado.Checked Then
-            plato.Habilitado = 1
+            habilitado = 1
         Else
-            plato.Habilitado = 0
+            habilitado = 0
         End If
-        plato.modificarPlato()
-        Session("ListaPlatos") = plato.listarPlatos()
+        platoManager.modificarPlato(codigo, nombre, descripcion, precio, fotografiaC, habilitado)
+        Session("ListaPlatos") = platoManager.listarPlatos()
+        gridPlatosEncontrados.DataSource = Nothing
+        gridPlatosEncontrados.DataBind()
     End Sub
-
-    'Protected Sub btnEliminar2_Click(sender As Object, e As EventArgs) Handles btnEliminar2.Click
-    '    Dim elminar = Session("Hola")
-
-    'End Sub
 End Class

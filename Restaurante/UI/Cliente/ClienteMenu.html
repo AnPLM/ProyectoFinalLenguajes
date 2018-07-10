@@ -43,30 +43,51 @@
             </ul>
 </div>
     </nav> 
-    
-    <!--Experimento nabvar aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa-->
-    <input type="text" id="txtBuscarPlato" onkeyup="buscarPorNombre()" placeholder="Escriba bombre del plato">
-    <div class="container col-sm-8 margin-up-panel margin-botton-panel margin-left" style="background-color:#f7f7f7">
-        <table class="table table-bordered table-responsive-md table-striped text-center" id="tablaPlatos">
-            <thead>
-                <tr>
-                    <th>Codigo</th>
-                    <th>Nombre</th>
-                    <th>Precio</th>
-                    <th>Ver detalles</th>
-                    <th>Agregar plato</th>
-                </tr>
-            </thead>
-            <tbody id="bodyTablaPlatos"></tbody>
-        </table>
-    </div>
+    <div class="container">
+        <!--Experimento nabvar aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa-->
+        <div>
+            <input CssClass="form-control" type="text" id="txtBuscarPlato" onkeyup="buscarPorNombre()" placeholder="Escriba nombre del plato">
+        <br />
+        </div>
+        <div class="container col-sm-8 margin-up-panel margin-botton-panel margin-left" style="background-color:#f7f7f7">
+            <br />
+            <table class="table table-bordered table-responsive-md table-striped text-center" id="tablaPlatos">
+                <thead>
+                    <tr>
+                        <th>Codigo</th>
+                        <th>Nombre</th>
+                        <th>Precio</th>
+                        <th>Ver detalles</th>
+                        <th>Agregar plato</th>
+                    </tr>
+                </thead>
+                <tbody id="bodyTablaPlatos"></tbody>
+            </table>
+        </div>
+        <div class="container col-sm-8 margin-up-panel margin-botton-panel margin-left" style="background-color:#f7f7f7">
+            <table class="table table-bordered table-responsive-md table-striped text-center" id="tablaDetallePlato">
+                <thead id="headListaPlatos">
+                </thead>
+                <tbody id="bodyTablaDetallePlato"></tbody>
+            </table>
+        </div>
+        <br />
 
-    <div class="container col-sm-8 margin-up-panel margin-botton-panel margin-left" style="background-color:#f7f7f7">
-        <table class="table table-bordered table-responsive-md table-striped text-center" id="tablaDetallePlato">
-            <thead id="headListaPlatos">
-            </thead>
-            <tbody id="bodyTablaDetallePlato"></tbody>
-        </table>
+        <div class="container col-sm-6 margin-left">
+            <h2>Carrito de Compras</h2>
+            <table class="table table-bordered table-responsive-md table-striped text-center" id="tablaCarrito">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Descripcion</th>
+                        <th>Precio</th>
+                        <th>Eliminar Plato</th>
+                    </tr>
+                </thead>
+                <tbody id="bodyTablaCarrito"></tbody>
+            </table>
+            <p class="text-right">Total: ₡ <span id="total"></span></p>
+        </div>
     </div>
 </body>
 </html>

@@ -17,32 +17,42 @@ namespace DAO
 
         public void insertarPlato(TOPlato plato)
         {
-            String consulta = "INSERT INTO PLATO(Codigo, Nombre, Descripcion, Precio, Fotografia, Habilitado) VALUES (@cod, @nom, @des, @pre, @fot, @hab)";
-            SqlCommand sentencia = new SqlCommand(consulta, conexion);
-            sentencia.Parameters.AddWithValue("@cod", plato.Codigo);
-            sentencia.Parameters.AddWithValue("@nom", plato.Nombre);
-            sentencia.Parameters.AddWithValue("@des", plato.Descripcion);
-            sentencia.Parameters.AddWithValue("@pre", plato.Precio);
-            sentencia.Parameters.AddWithValue("@fot", plato.Fotografia);
-            sentencia.Parameters.AddWithValue("@hab", plato.Habilitado);
+            try
+            {
+                String consulta = "INSERT INTO PLATO(Codigo, Nombre, Descripcion, Precio, Fotografia, Habilitado) VALUES (@cod, @nom, @des, @pre, @fot, @hab)";
+                SqlCommand sentencia = new SqlCommand(consulta, conexion);
+                sentencia.Parameters.AddWithValue("@cod", plato.Codigo);
+                sentencia.Parameters.AddWithValue("@nom", plato.Nombre);
+                sentencia.Parameters.AddWithValue("@des", plato.Descripcion);
+                sentencia.Parameters.AddWithValue("@pre", plato.Precio);
+                sentencia.Parameters.AddWithValue("@fot", plato.Fotografia);
+                sentencia.Parameters.AddWithValue("@hab", plato.Habilitado);
 
-            abrirConexion();
-            sentencia.ExecuteNonQuery();
-            cerrarConexion();
+                abrirConexion();
+                sentencia.ExecuteNonQuery();
+            }
+            catch (SqlException)
+            {
+                throw new Exception("¡Error en la base de datos!");
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                cerrarConexion();
+            }
+
         }
 
         public TOPlato buscarPlato(TOPlato plato)
         {
+            try
+            {
             String consulta = "Select * From Plato Where Nombre = @nombre" ;//NO LO CAMBIEN
             SqlCommand sentencia = new SqlCommand(consulta, conexion);
             sentencia.Parameters.AddWithValue("@nombre", plato.Nombre);//NO LO CAMBIEN
-
-            //String codigo = "";
-            //String nombre = "" ;
-            //String descripcion = "";
-            //Double precio = 0;
-            //String fotografia = "";
-            //int habilitado = 0;
 
             SqlDataReader lector;
             TOPlato platoEncontrado = new TOPlato();
@@ -56,53 +66,74 @@ namespace DAO
                     platoEncontrado = new TOPlato(lector.GetValue(0).ToString(), lector.GetValue(1).ToString(), 
                         lector.GetValue(2).ToString(), Double.Parse(lector.GetValue(3).ToString()),
                         lector.GetValue(4).ToString(), Int32.Parse(lector.GetValue(5).ToString()));
-
-                    //codigo = lector.GetValue(0).ToString();
-                    //nombre = lector.GetValue(1).ToString();
-                    //descripcion = lector.GetValue(2).ToString();
-                    //precio = Double.Parse(lector.GetValue(3).ToString());
-                    //fotografia = lector.GetValue(4).ToString();
-                    //habilitado = Int32.Parse(lector.GetValue(5).ToString());
                 }
             }
-            cerrarConexion();
-            return platoEncontrado;
-            //return new TOPlato(codigo ,nombre, descripcion, precio, fotografia, habilitado);
+                return platoEncontrado;
+            }
+            catch (SqlException)
+            {
+                throw new Exception("¡Error en la base de datos!");
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            finally
+            {
+                cerrarConexion();
+            }
         }
 
         public void eleminarPlato(TOPlato plato)
         {
-            String consulta = "DELETE FROM PLATO WHERE Codigo = @cod";
+            try
+            {
+                String consulta = "DELETE FROM PLATO WHERE Codigo = @cod";
             SqlCommand sentencia = new SqlCommand(consulta, conexion);
             sentencia.Parameters.AddWithValue("@cod", plato.Codigo);
             abrirConexion();
             sentencia.ExecuteNonQuery();
-            cerrarConexion();
+            }
+            catch (SqlException)
+            {
+                throw new Exception("¡Error en la base de datos!");
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            finally
+            {
+                cerrarConexion();
+            }
         }
 
         public void modificarPlato(TOPlato plato)
         {
+            try
+            {
             String consulta;
             SqlCommand sentencia = new SqlCommand();
-            if (plato.Nombre != null)
+            abrirConexion();
+            if (plato.Nombre != "")
             {
                 consulta = "UPDATE Plato set Nombre = @nom WHERE Codigo = @cod";
                 sentencia = new SqlCommand(consulta, conexion);
                 sentencia.Parameters.AddWithValue("@nom", plato.Nombre);
                 sentencia.Parameters.AddWithValue("@cod", plato.Codigo);
-                abrirConexion();
+                //abrirConexion();
                 sentencia.ExecuteNonQuery();
-                cerrarConexion();
+                //cerrarConexion();
             }
-            if (plato.Descripcion != null)
+            if (plato.Descripcion != "")
             {
                 consulta = "UPDATE Plato set Descripcion = @des WHERE Codigo = @cod";
                 sentencia = new SqlCommand(consulta, conexion);
                 sentencia.Parameters.AddWithValue("@des", plato.Descripcion);
                 sentencia.Parameters.AddWithValue("@cod", plato.Codigo);
-                abrirConexion();
+                //abrirConexion();
                 sentencia.ExecuteNonQuery();
-                cerrarConexion();
+                //cerrarConexion();
             }
             if (plato.Precio != 0)
             {
@@ -110,32 +141,51 @@ namespace DAO
                 sentencia = new SqlCommand(consulta, conexion);
                 sentencia.Parameters.AddWithValue("@cod", plato.Codigo);
                 sentencia.Parameters.AddWithValue("@pre", plato.Precio);
-                abrirConexion();
+                //abrirConexion();
                 sentencia.ExecuteNonQuery();
-                cerrarConexion();
+                //cerrarConexion();
             }
-            if (plato.Fotografia != null)
+            if (plato.Fotografia != "")
             {
                 consulta = "UPDATE Plato set Fotografia = @fot WHERE Codigo = @cod";
                 sentencia = new SqlCommand(consulta, conexion);
                 sentencia.Parameters.AddWithValue("@fot", plato.Fotografia);
                 sentencia.Parameters.AddWithValue("@cod", plato.Codigo);
-                abrirConexion();
+                //abrirConexion();
                 sentencia.ExecuteNonQuery();
+                //cerrarConexion();
+            }
+                if (plato.Habilitado != 5)
+                {
+                    consulta = "UPDATE Plato set Habilitado = @hab WHERE Codigo = @cod";
+                    sentencia = new SqlCommand(consulta, conexion);
+                    sentencia.Parameters.AddWithValue("@hab", plato.Habilitado);
+                    sentencia.Parameters.AddWithValue("@cod", plato.Codigo);
+                    //abrirConexion();
+                    sentencia.ExecuteNonQuery();
+                    //cerrarConexion();
+                }
+                
+            }
+            catch (SqlException)
+            {
+                throw new Exception("¡Error en la base de datos!");
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            finally
+            {
                 cerrarConexion();
             }
-            consulta = "UPDATE Plato set Habilitado = @hab WHERE Codigo = @cod";
-            sentencia = new SqlCommand(consulta, conexion);
-            sentencia.Parameters.AddWithValue("@hab", plato.Habilitado);
-            sentencia.Parameters.AddWithValue("@cod", plato.Codigo);
-            abrirConexion();
-            sentencia.ExecuteNonQuery();
-            cerrarConexion();
         }
 
         public ArrayList listarPlatos()
         {
-            ArrayList lista = new ArrayList();
+            try
+            {
+                ArrayList lista = new ArrayList();
             DataTable tabla = new DataTable();
             String conuslta = "Select * From Plato";
             SqlCommand sentencia = new SqlCommand(conuslta, conexion);
@@ -149,26 +199,75 @@ namespace DAO
                     double.Parse(row["Precio"].ToString()), row["Fotografia"].ToString(), Int32.Parse(row["Habilitado"].ToString())));
                 contador++;
             }
-            return lista; 
+            return lista;
+            }
+            catch (SqlException)
+            {
+                throw new Exception("¡Error en la base de datos!");
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
         }
 
         public ArrayList listarPlatosCliente()
         {
-            ArrayList lista = new ArrayList();
+            try
+            {
+                ArrayList lista = new ArrayList();
+                DataTable tabla = new DataTable();
+                String conuslta = "SELECT * FROM Plato WHERE HABILITADO = 1";
+                SqlCommand sentencia = new SqlCommand(conuslta, conexion);
+                SqlDataAdapter adapter = new SqlDataAdapter();
+                adapter.SelectCommand = sentencia;
+                adapter.Fill(tabla);
+                int contador = 1;
+                foreach (DataRow row in tabla.Rows)
+                {
+                    lista.Add(new TOPlato(row["Codigo"].ToString(), row["Nombre"].ToString(), row["Descripcion"].ToString(),
+                        double.Parse(row["Precio"].ToString()), row["Fotografia"].ToString(), Int32.Parse(row["Habilitado"].ToString())));
+                    contador++;
+                }
+                return lista;
+            }
+            catch (SqlException)
+            {
+                throw new Exception("¡Error en la base de datos!");
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        public List<TOPlato> buscarPlatoAdmin(TOPlato plato)
+        {
+            try
+            {
+                List<TOPlato> lista = new List<TOPlato>();
             DataTable tabla = new DataTable();
-            String conuslta = "SELECT * FROM Plato WHERE HABILITADO = 1";
+            String conuslta = "Select * From Plato Where Nombre = @nom";
             SqlCommand sentencia = new SqlCommand(conuslta, conexion);
+            sentencia.Parameters.AddWithValue("@nom", plato.Nombre);
             SqlDataAdapter adapter = new SqlDataAdapter();
             adapter.SelectCommand = sentencia;
             adapter.Fill(tabla);
-            int contador = 1;
             foreach (DataRow row in tabla.Rows)
             {
                 lista.Add(new TOPlato(row["Codigo"].ToString(), row["Nombre"].ToString(), row["Descripcion"].ToString(),
                     double.Parse(row["Precio"].ToString()), row["Fotografia"].ToString(), Int32.Parse(row["Habilitado"].ToString())));
-                contador++;
             }
             return lista;
+            }
+            catch (SqlException)
+            {
+                throw new Exception("¡Error en la base de datos!");
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
         }
 
         public void abrirConexion()
