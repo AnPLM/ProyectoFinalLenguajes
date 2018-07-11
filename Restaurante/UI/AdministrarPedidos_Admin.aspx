@@ -38,8 +38,8 @@
             <asp:Button ID="btnEditarEstados" runat="server" Text="Cambiar Estados" />
             <br />
             <br />
-            <asp:Label ID="lblNombreUsuario" runat="server" Text="Nombre de Usuario" width="170px"></asp:Label>
-            <asp:TextBox ID="txtUsuario" runat="server" width="200px"></asp:TextBox>
+            <asp:Label ID="lblNumeroORden" runat="server" Text="Nombre de Orden" width="170px"></asp:Label>
+            <asp:TextBox ID="txtOrden" runat="server" width="200px"></asp:TextBox>
             <br />
             <br />
             <asp:Label ID="lblNuevoEstado" runat="server" Text="Nuevo valor del estado" width="170px"></asp:Label>

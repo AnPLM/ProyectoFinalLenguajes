@@ -70,7 +70,7 @@ namespace DAO
 
         public void actualizar(TOOrden o)
         {
-            string query = "update Orden set Estado = @est where Identificacion = @ide";
+            string query = "update Orden set Estado = @est where Identificador = @ide";
             //string query = "update Orden set Nombre_Usuario = @nom, Fecha = @fec, Estado = @est where Identificacion = @ide";
             string conn = Properties.Settings.Default.Conn;
             SqlCommand command = new SqlCommand(query, new SqlConnection(conn));

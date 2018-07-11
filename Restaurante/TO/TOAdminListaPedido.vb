@@ -1,4 +1,14 @@
 ﻿Public Class TOAdminListaPedido
+    Private numeroOrden As Integer
+    Public Property IDOrden() As Integer
+        Get
+            Return numeroOrden
+        End Get
+        Set(ByVal value As Integer)
+            numeroOrden = value
+        End Set
+    End Property
+
     Private nombreUsuario As String
     Public Property Cliente() As String
         Get
