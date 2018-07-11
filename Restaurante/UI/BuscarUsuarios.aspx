@@ -10,7 +10,7 @@
                 <h2 style="color:beige" class="text-center">Buscar Usuarios</h2>
                <asp:TextBox ID="txtNombre" CssClass="form-control" placeholder="Nombre del Usuario" runat="server"></asp:TextBox>
                <div class="text-center margin-up-button">
-                <asp:Button ID="btnRegistrarUsuario" Cssclass="btn btn-primary text-center" runat="server" Text="Buscar Usuario" />  
+                <asp:Button ID="btnRegistrarUsuario" Cssclass="btn btn-success text-center" runat="server" Text="Buscar Usuario" />  
          </div>
           </div>
           <div class="container col-sm-8 col-sm-offset-2 margin-up-panel margin-botton-panel"  style="background-color:#f7f7f7">

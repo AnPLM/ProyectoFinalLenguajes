@@ -23,19 +23,23 @@ function cargarPlatosTabla() {
 
 function inicioPaginaMenu() {
     cargarPlatosTabla()
-    cargarUsuarioDropMenu ()
+    cargarUsuarioDropMenu()
 }
 
 function cargarUsuarioDropMenu() {
     var usuario = sessionStorage.getItem("NombreUsuario");
-    alert("Usuario " + usuario)
     if (usuario == null) {
-        alert("entró")
         document.location.href = document.location.href.replace("ClienteMenu.html", "InicioSesionCliente.html");
         alert("Debe iniciar sesión")
     } else {
-        document.getElementById("drpUsuario").innerHTML = usuario;
-        document.getElementById("drpUsuario").innerHTML += '<span class="caret"></span><!--flecha para dropdown-->'
+        if (usuario.toString() == "null") {
+            document.location.href = document.location.href.replace("ClienteMenu.html", "InicioSesionCliente.html");
+            alert("Debe iniciar sesión")
+        } else {
+            document.getElementById("drpUsuario").innerHTML = usuario;
+            document.getElementById("drpUsuario").innerHTML += '<span class="caret"></span><!--flecha para dropdown-->'
+        }
+        
     }
 }
 
@@ -45,8 +49,14 @@ function cargarUsuarioDropCarrito() {
         document.location.href = document.location.href.replace("ClienteCarrito.html", "InicioSesionCliente.html");
         alert("Debe iniciar sesión")
     } else {
-        document.getElementById("drpUsuario").innerHTML = usuario;
-        document.getElementById("drpUsuario").innerHTML += '<span class="caret"></span><!--flecha para dropdown-->'
+        if (usuario.toString() == "null") {
+            document.location.href = document.location.href.replace("ClienteCarrito.html", "InicioSesionCliente.html");
+            alert("Debe iniciar sesión")
+        } else {
+            document.getElementById("drpUsuario").innerHTML = usuario;
+            document.getElementById("drpUsuario").innerHTML += '<span class="caret"></span><!--flecha para dropdown-->'
+        }
+
     }
 }
  
@@ -55,31 +65,60 @@ setInterval(cargarPlatosTabla, 60000);
     function generarTablaPlatos(datos) {
         var bodyTablaPlatos = document.getElementById('bodyTablaPlatos');
         bodyTablaPlatos.innerHTML = "";
-        $.each(datos, function() {
+        $.each(datos, function () {
+            var nombreAux = this.Nombre.replace(/\s/g, '');
+            var auxCodeCantidad = this.Codigo;
             var tr = document.createElement("tr");
             tr.innerHTML += '<td class="text-center">' + this.Codigo + "</td>";
             tr.innerHTML += '<td class="text-center">' + this.Nombre + "</td>";
             tr.innerHTML += '<td class="text-center">' + this.Precio + "</td>";
-            tr.innerHTML += '<td class="text-center">' + '<button type="button" class="btn btn-primary" id="' + this.Nombre + '"' + '>Mostrar Detalles</button></td>'
-            tr.innerHTML += '<td class="text-center">' + '<button type="button" class="btn btn-success" id="' + this.Codigo + '","' + this.Nombre + + '","' + this.Precio + '"' + '>Agregar Plato</button></td>' ////////////
+            tr.innerHTML += '<td class="text-center">' + '<button type="button" class="btn btn-primary" id="' + nombreAux + '"' + '>Mostrar Detalles</button></td>'
+            tr.innerHTML += '<td class="text-center">' + '<button type="button" class="btn btn-success" id="' + this.Codigo + '","' + this.Nombre + + '","' + this.Precio + '"' + '>Agregar Plato</button>\
+<input id="' + nombreAux + auxCodeCantidad + '" type="number" name="cantidadProd" step="1" min="1" max="50" style="margin-left:2.0em" value="1" required></td>' ////////////
                 bodyTablaPlatos.append(tr);
-                var nombreAux = this.Nombre;
+                
+                var nombreAux2 = this.Nombre;
                 $('#' + nombreAux).bind("click", function () {
-                    mostrarDetallesPlato(nombreAux);//Aquí no se usa this porque se referiría al botón.
+                    mostrarDetallesPlato(nombreAux2);//Aquí no se usa this porque se referiría al botón.
                 });
                 
                 //Crea un string con los datos de la fila seleccionada
                 var nombreAuxCOd = this.Codigo + ", " + this.Nombre + ", " + this.Precio;
 
-                var carrito2 = JSON.parse(sessionStorage.getItem("carrito"));
-                if (carrito2 != null) {
-                    carrito = carrito2;
-                }
                 $('#' + nombreAuxCOd).bind("click", function () {
-                    carrito.push(nombreAuxCOd) //Mete en el array "carrito" la info
+                    var carrito2 = JSON.parse(sessionStorage.getItem("carrito"));
+                    if (carrito2 != null) {
+                        var cantidad = document.getElementById(nombreAux + auxCodeCantidad).value;
+                        revisarCarrito(auxCodeCantidad, cantidad, nombreAuxCOd)
+                        alert("Producto añadido: " + nombreAux2)
+                    } else {
+                    var cantidad = document.getElementById(nombreAux + auxCodeCantidad).value;
+                    carrito.push(nombreAuxCOd + ", " + cantidad) //Mete en el array "carrito" la info
                     window.sessionStorage.setItem("carrito", JSON.stringify(carrito))
+                    alert("Producto añadido: " + nombreAux2)
+                    }
                 });
         });
+    }
+
+    function revisarCarrito(auxCodeCantidad, cantidad, nombreAuxCOd) {
+        var carrito2 = JSON.parse(sessionStorage.getItem("carrito"));
+        for (i = carrito2.length - 1; i >= 0; i--) {
+            info = carrito2[i]
+            info = info.split(",")
+            if (info[0] === auxCodeCantidad) {
+                var nuevaCantidad = parseInt(info[3]) + parseInt(cantidad)
+                var pos = carrito2[i].toString().lastIndexOf(info[3]);
+                var x = carrito2[i].toString().substring(0, pos + 1) + nuevaCantidad + carrito2[i].toString().substring(pos + 2);
+                carrito2[i] = x;
+                window.sessionStorage.setItem("carrito", JSON.stringify(carrito2))
+                break;
+            }
+            if (i == 0) {
+                carrito2.push(nombreAuxCOd + ", " + cantidad) //Mete en el array "carrito" la info
+                window.sessionStorage.setItem("carrito", JSON.stringify(carrito2))
+            }
+        }
     }
  
     function calcularTotal() {
@@ -88,12 +127,14 @@ setInterval(cargarPlatosTabla, 60000);
             var i = 0
             var info = "";
             var precio = 0;
+            var cantidad = 0;
             // Se recorre el array "carrito" sacando los precios y sumandolos
             for (let item of carrito2) {
                 info = carrito2[i]
                 info = info.split(",")
+                cantidad = parseInt(info[3]);
                 precio = parseInt(info[2])
-                total = total + precio;
+                total = total + (precio*cantidad);
                 i = i + 1;
             }
             var totalSession = sessionStorage.setItem("total", total)
@@ -110,31 +151,29 @@ setInterval(cargarPlatosTabla, 60000);
             info = carrito2[i]
             info = info.split(",")
             var tr = document.createElement("tr");
-            /*var auxCode = Math.random() * 1578;
-            auxCode += (Math.random() * 5700) / 3;
-            auxCode += Math.random() * 50;
-            var nombreA = info[0] + auxCode;*/
+            var btID = info[1].replace(/\s/g, '');
             tr.innerHTML += '<td class="text-center">' + info[1] + "</td>";
             tr.innerHTML += '<td class="text-center">' + info[2] + "</td>";
-            tr.innerHTML += '<td class="text-center">' + '<button type="button" class="btn btn-danger" id="' + info[0] + '"' + '>X</button></td>'
+            tr.innerHTML += '<td class="text-center">' + info[3] + "</td>";
+            tr.innerHTML += '<td class="text-center">' + '<button type="button" class="btn btn-danger" id="' + btID + '"' + '>X</button></td>'
             bodyTablaCarrito.append(tr);
-            
-            $('#' + nombreA).bind("click", function () {
-                borrarItemCarrito(nombreA);
+            $('#' + btID).bind("click", function () {
+                borrarItemCarrito(btID);
             });
             i = i + 1;
         });
     }
 
-    function borrarItemCarrito(nombreA) {
+    function borrarItemCarrito(btID) {
+        var btAux;
         var carrito2 = JSON.parse(sessionStorage.getItem("carrito"));
         for (i = carrito2.length - 1; i >= 0; i--) {
             info = carrito2[i]
             info = info.split(",")
-            if (info[0] === nombreA) {
-                break;
+            btAux = info[1].replace(/\s/g, '');
+            if (btAux === btID) {
                 carrito2.splice(i, 1);
-                
+                break;
             }
         }
         window.sessionStorage.setItem("carrito", JSON.stringify(carrito2))
@@ -144,9 +183,9 @@ setInterval(cargarPlatosTabla, 60000);
         calcularTotal();
     }
 
-    function mostrarDetallesPlato(nombreAux) {
+    function mostrarDetallesPlato(nombreAux2) {
         var req = $.ajax({
-            url: "http://angielopez-001-site1.ctempurl.com/WSRest/WSCliente.svc/buscarPlatoPorNombre" + "?Nombre=" + nombreAux,
+            url: "http://angielopez-001-site1.ctempurl.com/WSRest/WSCliente.svc/buscarPlatoPorNombre" + "?Nombre=" + nombreAux2,
             timeout: 10000,
             dataType: "jsonp"
         }); //Es el que permite consultar/cargar información
@@ -268,13 +307,9 @@ setInterval(cargarPlatosTabla, 60000);
             document.location.href = document.location.href.replace("ClienteMenu.html", "InicioSesionCliente.html");
     }
 
-    function moverseCarrito() {
-        document.location.href = document.location.href.replace("ClienteMenu.html", "ClienteCarrito.html");
-    }
-
     function inicioPaginaCarrito() {
+        cargarUsuarioDropCarrito()
         llenarCarrito()
         calcularTotal()
-        cargarUsuarioDropCarrito()
     }
   

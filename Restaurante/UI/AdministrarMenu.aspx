@@ -2,7 +2,6 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="encabezado" runat="server">
 </asp:Content>
 
-
 <asp:Content ID="Content2" ContentPlaceHolderID="cuerpo" runat="server">
        
  <form id="form1" runat="server" class="form-group-lg">
@@ -37,9 +36,8 @@
                 <asp:CheckBox ID="checkHabilitado" runat="server"  CssClass="margin-left" Font-Size="Medium" />
             <div class="margin-up-button text-center">
                 <asp:Button type="submit" Cssclass="btn btn-success margin-botton-panel" ID="btnRegistrar" runat="server"  validationgroup="Registrar" Text="Registrar" />
-                <asp:Button type="submit" Cssclass="btn btn-success margin-botton-panel " OnClientClick="myFunction()" ID="btnBuscar" runat="server" Text="Buscar" />
                 <asp:Button type="submit" Cssclass="btn btn-success margin-botton-panel " ID="btnEditar" runat="server" Text="Editar" />
-                <asp:Button type="submit" Cssclass="btn btn-danger margin-botton-panel " ID="btnEliminar" runat="server" Text="Eliminar" />   
+               
             </div>  
             </div>
          </div>
@@ -81,13 +79,6 @@
                 <%Next%>
             </table>
          </div>
-
-            <!-- ------------------------------------------------------------------------------------- ------------------------------>
-            <div class="container col-sm-8 margin-up-panel margin-botton-panel margin-left"  style="background-color:#f7f7f7">
-                <h3 class="margin-up-panel text-center">Platos Encontrados</h3>
-                 <asp:GridView ID="gridPlatosEncontrados" runat="server"  CssClass= "table table-striped table-bordered table-condensed"></asp:GridView>
-            </div>
-            <!-- ------------------------------------------------------------------------------------- ------------------------------>
 
        </div>
     </div>       

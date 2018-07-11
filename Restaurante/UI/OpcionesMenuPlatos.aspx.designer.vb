@@ -11,7 +11,7 @@ Option Strict On
 Option Explicit On
 
 
-Partial Public Class PaginaPrincipal
+Partial Public Class OpcionesMenuPlatos
     
     '''<summary>
     '''form1 control.
@@ -23,29 +23,38 @@ Partial Public Class PaginaPrincipal
     Protected WithEvents form1 As Global.System.Web.UI.HtmlControls.HtmlForm
     
     '''<summary>
-    '''btnAdministrarMenu control.
+    '''btnAgregar control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents btnAdministrarMenu As Global.System.Web.UI.WebControls.Button
+    Protected WithEvents btnAgregar As Global.System.Web.UI.WebControls.Button
     
     '''<summary>
-    '''btnAdministrarUsuarios control.
+    '''btnBuscar control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents btnAdministrarUsuarios As Global.System.Web.UI.WebControls.Button
+    Protected WithEvents btnBuscar As Global.System.Web.UI.WebControls.Button
     
     '''<summary>
-    '''btnAdministrarPedidos control.
+    '''btnModificar control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents btnAdministrarPedidos As Global.System.Web.UI.WebControls.Button
+    Protected WithEvents btnModificar As Global.System.Web.UI.WebControls.Button
+    
+    '''<summary>
+    '''btnElimiar control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents btnElimiar As Global.System.Web.UI.WebControls.Button
 End Class

@@ -146,6 +146,7 @@
   <ItemGroup>
     <Content Include="AdministrarMenu.aspx" />
     <Content Include="AdministrarUsuarios.aspx" />
+    <Content Include="BuscarPlato.aspx" />
     <Content Include="BuscarUsuarios.aspx" />
     <Content Include="AdministrarPedidos_Admin.aspx" />
     <Content Include="Cliente\Cliente.js" />
@@ -155,12 +156,14 @@
     <Content Include="Cliente\InicioSesionCliente.html" />
     <Content Include="Cocina\ordenes.html" />
     <Content Include="Cocina\ordenes.js" />
+    <Content Include="EliminarPlato.aspx" />
     <Content Include="EliminarUsuarios.aspx" />
     <Content Include="Estilos\EstilosPlatos.css" />
     <Content Include="InicioSesion.aspx" />
     <Content Include="ModificarContrasenna.aspx" />
     <Content Include="ModificarNombre.aspx" />
     <Content Include="ModificarUsuarios.aspx" />
+    <Content Include="OpcionesMenuPlatos.aspx" />
     <Content Include="OrderUI.aspx" />
     <Content Include="PaginaPrincipal.aspx" />
     <Content Include="Cocina\OrdenUI2.aspx" />
@@ -191,6 +194,13 @@
       <DependentUpon>AdministrarUsuarios.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
+    <Compile Include="BuscarPlato.aspx.designer.vb">
+      <DependentUpon>BuscarPlato.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BuscarPlato.aspx.vb">
+      <DependentUpon>BuscarPlato.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
     <Compile Include="BuscarUsuarios.aspx.designer.vb">
       <DependentUpon>BuscarUsuarios.aspx</DependentUpon>
     </Compile>
@@ -203,6 +213,13 @@
     </Compile>
     <Compile Include="AdministrarPedidos_Admin.aspx.vb">
       <DependentUpon>AdministrarPedidos_Admin.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="EliminarPlato.aspx.designer.vb">
+      <DependentUpon>EliminarPlato.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EliminarPlato.aspx.vb">
+      <DependentUpon>EliminarPlato.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="EliminarUsuarios.aspx.designer.vb">
@@ -278,6 +295,13 @@
     </Compile>
     <Compile Include="Cocina\OrderUI.aspx.vb">
       <DependentUpon>OrderUI.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="OpcionesMenuPlatos.aspx.designer.vb">
+      <DependentUpon>OpcionesMenuPlatos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="OpcionesMenuPlatos.aspx.vb">
+      <DependentUpon>OpcionesMenuPlatos.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="PaginaPrincipal.aspx.designer.vb">

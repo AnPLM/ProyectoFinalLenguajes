@@ -131,15 +131,6 @@ Partial Public Class AdministrarMenu
     Protected WithEvents btnRegistrar As Global.System.Web.UI.WebControls.Button
     
     '''<summary>
-    '''btnBuscar control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents btnBuscar As Global.System.Web.UI.WebControls.Button
-    
-    '''<summary>
     '''btnEditar control.
     '''</summary>
     '''<remarks>
@@ -147,22 +138,4 @@ Partial Public Class AdministrarMenu
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents btnEditar As Global.System.Web.UI.WebControls.Button
-    
-    '''<summary>
-    '''btnEliminar control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents btnEliminar As Global.System.Web.UI.WebControls.Button
-    
-    '''<summary>
-    '''gridPlatosEncontrados control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents gridPlatosEncontrados As Global.System.Web.UI.WebControls.GridView
 End Class

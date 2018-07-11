@@ -11,7 +11,7 @@ Option Strict On
 Option Explicit On
 
 
-Partial Public Class PaginaPrincipal
+Partial Public Class EliminarPlato
     
     '''<summary>
     '''form1 control.
@@ -23,29 +23,20 @@ Partial Public Class PaginaPrincipal
     Protected WithEvents form1 As Global.System.Web.UI.HtmlControls.HtmlForm
     
     '''<summary>
-    '''btnAdministrarMenu control.
+    '''txtCodigo control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents btnAdministrarMenu As Global.System.Web.UI.WebControls.Button
+    Protected WithEvents txtCodigo As Global.System.Web.UI.WebControls.TextBox
     
     '''<summary>
-    '''btnAdministrarUsuarios control.
+    '''btnEliminarPlato control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents btnAdministrarUsuarios As Global.System.Web.UI.WebControls.Button
-    
-    '''<summary>
-    '''btnAdministrarPedidos control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents btnAdministrarPedidos As Global.System.Web.UI.WebControls.Button
+    Protected WithEvents btnEliminarPlato As Global.System.Web.UI.WebControls.Button
 End Class

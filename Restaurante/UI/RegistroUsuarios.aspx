@@ -3,7 +3,8 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cuerpo" runat="server">
 
-        <div class="panel panel-default col-md-4 col-md-offset-4 margin-up" style="background-color:firebrick"">
+
+        <div class="panel panel-default col-md-4 col-md-offset-4" style="background-color:firebrick"">
         <h1 class="text-center" style="color:beige;">Registrar Usuarios</h1>
 
         <form id="form1" runat="server" class="form-group-lg">
@@ -21,13 +22,14 @@
                 <asp:RadioButton id="radioCocinero" GroupName="RegularMenu" Text="Cocinero"  ForeColor="#FFFFCC" runat="server" Font-Size="Medium"/>
                </div>
                 <div class="text-center margin-up-button">
-                <asp:Button ID="btnRegistrarUsuario" Cssclass="btn btn-primary text-center" runat="server" Text="Registrar Usuario" />  
+                <asp:Button ID="btnRegistrarUsuario" Cssclass="btn btn-success text-center" runat="server" Text="Registrar Usuario" />  
                 </div>
                 <br />
                 <asp:Label ID="lblMensaje" runat="server"></asp:Label>
             </div>
         </form>
     </div>
+
 
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="pie" runat="server">
