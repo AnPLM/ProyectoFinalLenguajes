@@ -20,29 +20,50 @@ function Insertar(){}
 
 function lista() {
 	var req  = $.ajax({
-	    url: "http://localhost:47332/WSRest/WSRestCoc.svc/ListaActiva",
+	    url: "http://angielopez-001-site1.ctempurl.com/WSRest/WSRestCoc.svc/ListaActiva",
 		timeout: 10000,
     dataType: "jsonp"
 	});
 	req.done(function (datos) {
              cargarLista(datos);
          })
-	req.fail(function(datos){
-		alert("No hay ordenes solicitadas");
-	})
+	req.fail(function (datos) {
+	    alert("No hay ordenes solicitadas");
+	});
 }
 
 function cargarLista(datos){
 
-	var table = document.getElementById('tableOrden');
+	var table = document.getElementById('table');
 	$.each(datos, function () {
 	    var tr = document.createElement("tr");
 	    tr.innerHTML += '<td class="text-center">' + this.nombreUsuario + "</td>";
 	    tr.innerHTML += '<td class="text-center">' + this.Fecha + "</td>";
 	    tr.innerHTML += '<td class="text-center">' + this.Estado + "</td>";
 	    tr.innerHTML += '<td class="text-center">' + this.Identificador + "</td>";
-	    tr.innerHTML += '<td class="text-center">' + '<button id="' + this.Nombre + '"' + '>Entregar</button></td>'
+	    tr.innerHTML += '<td class="text-center">' + '<button id="' + this.Identificador + '"' + '>Entregar</button></td>'
+	    var btnID = this.Identificador;
+	    $('#' + btnID).bind("click", function () {
+	        entregar(btnID);
+	    });
+	    table.append(tr)
 	});
+}
+
+function entregar(btnId) {
+    var req = $.ajax({
+        url: "http://angielopez-001-site1.ctempurl.com/WSRest/WSRestCoc.svc/actualizar?" + "estado=entregado" + "&"+"ide="+ btnId,
+        timeout: 10000,
+        dataType: "jsonp"
+    });
+
+    req.done(function (datos) {
+        alert("llego a renovar la lista");
+        lista();
+    })
+    req.fail(function () {
+        alert("no logro renovar la lista");
+    });
 
 }
 

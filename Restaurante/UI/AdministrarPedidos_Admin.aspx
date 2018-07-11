@@ -18,18 +18,36 @@
             <br />
             <br />
             <asp:label runat="server" text="Desde" width="170px" id="lblFechaInicio"></asp:label>
-            <asp:textbox type="date" runat="server" id="txtFechaInicio" width="200px"></asp:textbox>
+            <asp:textbox type="date" runat="server" id="txtFechaInicio" width="200px" value=""></asp:textbox>
             <br />
             <br />
             <asp:label runat="server" text="Hasta" width="170px" id="lblFechaFin"></asp:label>
-            <asp:textbox type="date" runat="server" id="txtFechaFin" width="200px"></asp:textbox>
+            <asp:textbox type="date" runat="server" id="txtFechaFin" width="200px" value=""></asp:textbox>
             <br />
             <br />
             <asp:button runat="server" text="Consultar" id="btnConsultar" />
+            <br />
+            <br />
+            <asp:Label ID="lblError" runat="server"></asp:Label>
+            <br />
+        <br />
+            <asp:GridView ID="grdPedidos" runat="server">
+            </asp:GridView>
+            <br />
+            <br />
+            <asp:Button ID="btnEditarEstados" runat="server" Text="Cambiar Estados" />
+            <br />
+            <br />
+            <asp:Label ID="lblNombreUsuario" runat="server" Text="Nombre de Usuario" width="170px"></asp:Label>
+            <asp:TextBox ID="txtUsuario" runat="server" width="200px"></asp:TextBox>
+            <br />
+            <br />
+            <asp:Label ID="lblNuevoEstado" runat="server" Text="Nuevo valor del estado" width="170px"></asp:Label>
+            <asp:TextBox ID="txtNuevoEstado" runat="server" width="200px"></asp:TextBox>
+            <br />
+            <br />
+            <asp:Button ID="btnCambiarEstado" runat="server" Text="Cambiar Estado" />
         </form>
-
-        <br />
-        <br />
     </div>
     <div class="col-sm-3" style="background-color: lavender;"></div>
 </asp:Content>

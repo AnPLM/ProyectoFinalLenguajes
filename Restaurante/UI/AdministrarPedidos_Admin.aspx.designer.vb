@@ -102,4 +102,76 @@ Partial Public Class AdministrarPedidos_Admin
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents btnConsultar As Global.System.Web.UI.WebControls.Button
+    
+    '''<summary>
+    '''lblError control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lblError As Global.System.Web.UI.WebControls.Label
+    
+    '''<summary>
+    '''grdPedidos control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents grdPedidos As Global.System.Web.UI.WebControls.GridView
+    
+    '''<summary>
+    '''btnEditarEstados control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents btnEditarEstados As Global.System.Web.UI.WebControls.Button
+    
+    '''<summary>
+    '''lblNombreUsuario control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lblNombreUsuario As Global.System.Web.UI.WebControls.Label
+    
+    '''<summary>
+    '''txtUsuario control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtUsuario As Global.System.Web.UI.WebControls.TextBox
+    
+    '''<summary>
+    '''lblNuevoEstado control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lblNuevoEstado As Global.System.Web.UI.WebControls.Label
+    
+    '''<summary>
+    '''txtNuevoEstado control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtNuevoEstado As Global.System.Web.UI.WebControls.TextBox
+    
+    '''<summary>
+    '''btnCambiarEstado control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents btnCambiarEstado As Global.System.Web.UI.WebControls.Button
 End Class

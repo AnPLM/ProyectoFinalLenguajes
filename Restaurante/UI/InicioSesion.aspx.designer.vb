@@ -23,15 +23,6 @@ Partial Public Class InicioSesion
     Protected WithEvents form1 As Global.System.Web.UI.HtmlControls.HtmlForm
     
     '''<summary>
-    '''lblNombreUsuario control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents lblNombreUsuario As Global.System.Web.UI.WebControls.Label
-    
-    '''<summary>
     '''txtNombreUsuario control.
     '''</summary>
     '''<remarks>
@@ -39,15 +30,6 @@ Partial Public Class InicioSesion
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtNombreUsuario As Global.System.Web.UI.WebControls.TextBox
-    
-    '''<summary>
-    '''lblContrasenna control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents lblContrasenna As Global.System.Web.UI.WebControls.Label
     
     '''<summary>
     '''txtContrasenna control.

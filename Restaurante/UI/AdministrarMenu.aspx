@@ -2,7 +2,6 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="encabezado" runat="server">
 </asp:Content>
 
-
 <asp:Content ID="Content2" ContentPlaceHolderID="cuerpo" runat="server">
        
  <form id="form1" runat="server" class="form-group-lg">
@@ -34,12 +33,11 @@
             </div>
             <div class="margin-up-panel">
                 <p style="font-size:1.5vw; color:black">Habilitar</p>
-                <asp:CheckBox ID="checkHabilitado" runat="server"  CssClass="margin-left" />
+                <asp:CheckBox ID="checkHabilitado" runat="server"  CssClass="margin-left" Font-Size="Medium" />
             <div class="margin-up-button text-center">
-                <asp:Button type="submit" Cssclass="btn btn-success btn-responsive margin-botton-panel" ID="btnRegistrar" runat="server"  validationgroup="Registrar" Text="Registrar" />
-                <asp:Button type="submit" Cssclass="btn btn-success btn-responsive margin-botton-panel " OnClientClick="myFunction()" ID="btnBuscar" runat="server" Text="Buscar" />
-                <asp:Button type="submit" Cssclass="btn btn-success btn-responsive margin-botton-panel " ID="btnEditar" runat="server" Text="Editar" />
-                <asp:Button type="submit" Cssclass="btn btn-danger btn-responsive margin-botton-panel " ID="btnEliminar" runat="server" Text="Eliminar" />   
+                <asp:Button type="submit" Cssclass="btn btn-success margin-botton-panel" ID="btnRegistrar" runat="server"  validationgroup="Registrar" Text="Registrar" />
+                <asp:Button type="submit" Cssclass="btn btn-success margin-botton-panel " ID="btnEditar" runat="server" Text="Editar" />
+               
             </div>  
             </div>
          </div>
@@ -66,14 +64,14 @@
                     <td class="col4" contenteditable="true"><%=x.Precio%></td>
                     <td>
                         <% Dim imgUrl As String = "/Imagenes/" + x.Fotografia %>
-                         <img src= "<%= imgUrl %>" class="img-rounded" alt="Cinque Terre" width="100" height="50"/>
+                         <img src='"'+ <%= imgUrl %> + '"' class="img-rounded" alt="Cinque Terre" width="100" height="50"/>
                     </td>
                      <td>
                          <div class="form-check">
                              <%If x.Habilitado = 0 Then %>
-                                <input type="checkbox" class="form-check-input" id="checkHabilitados"/>
+                                <input type="checkbox" class="form-check-input" id="checkHabilitados" onclick="return false;"/>
                              <%Else %> 
-                               <input type="checkbox" class="form-check-input" id="checkDeshabilitados" checked=""/>
+                               <input type="checkbox" class="form-check-input" id="checkDeshabilitados" checked="" onclick="return false;"/>
                              <%End If %>
                          </div>
                     </td>
@@ -81,14 +79,6 @@
                 <%Next%>
             </table>
          </div>
-
-            <!-- ------------------------------------------------------------------------------------- ------------------------------>
-            <div class="container col-sm-8 margin-up-panel margin-botton-panel margin-left"  style="background-color:#f7f7f7">
-                <h3 class="margin-up-panel text-center">Platos Encontrados</h3>
-                 <asp:GridView ID="gridPlatosEncontrados" runat="server"  CssClass= "table table-striped table-bordered table-condensed"></asp:GridView>
-                <asp:UpdatePanel ID="UpdatePanel1" runat="server"></asp:UpdatePanel>
-            </div>
-            <!-- ------------------------------------------------------------------------------------- ------------------------------>
 
        </div>
     </div>       

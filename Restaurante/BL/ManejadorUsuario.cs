@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -31,6 +32,13 @@ namespace BL
             usua.modificarUsuario(usarioTO);
         }
 
+        public Usuario buscarUsuario(String nombre)
+        {
+            TOUsuario usuario = new TOUsuario();
+            usuario.NombreUsuario = nombre;
+            return usua.buscarUsuario(usuario);
+        }
+
         public Usuario autenticar(String nombreUsuario, String contrasenna)
         {
             TOUsuario usuarioTO = new TOUsuario();
@@ -44,5 +52,27 @@ namespace BL
             }
                 return null;
         }
+
+        public ArrayList listarUsuarios()
+        {
+            ArrayList listaUsuarios = new ArrayList();
+            foreach (TOUsuario usuario in usua.listarUsuarios())
+            {
+                listaUsuarios.Add(new Usuario(usuario.NombreUsuario, usuario.Contrasenna,usuario.Tipo, usuario.Habilitado));
+            }
+            return listaUsuarios;
+        }
+
+        public void modificarNombre(String nombreActual, String nombreNuevo)
+        {
+            usua.modificarNombre(nombreActual, nombreNuevo);
+        }
+
+        public void modificarContrasenna(String nombreActual, String contrasennaNueva)
+        {
+            usua.modificarContrasenna(nombreActual, contrasennaNueva);
+        }
+
+        
     }
 }

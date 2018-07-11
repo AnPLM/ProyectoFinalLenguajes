@@ -8,8 +8,8 @@ Public Class WSRestCoc
 
     Dim man As New ManejadorOrdenes
 
-    Public Sub actualizar(nombre As String, fecha As Date, estado As String, ide As Integer) Implements IWSRestCoc.actualizar
-        man.actualizar(nombre, fecha, estado, ide)
+    Public Sub actualizar(estado As String, ide As Integer) Implements IWSRestCoc.actualizar
+        man.actualizar(estado, ide)
     End Sub
 
     Public Sub Eliminar(id As String) Implements IWSRestCoc.Eliminar
@@ -28,7 +28,12 @@ Public Class WSRestCoc
         Return man.listaActiva()
     End Function
 
-    Public Function ListaOrdenes() As ArrayList Implements IWSRestCoc.ListaOrdenes
-        Return man.listaOrdenes()
+    Public Function ListaOrdenes() As List(Of BLOrden) Implements IWSRestCoc.ListaOrdenes
+        Dim list As New List(Of BLOrden)
+        For Each i As BLOrden In man.listaOrdenes
+            list.Add(i)
+        Next
+
+        Return list
     End Function
 End Class

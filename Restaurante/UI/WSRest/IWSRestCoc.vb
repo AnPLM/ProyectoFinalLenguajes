@@ -8,7 +8,7 @@ Public Interface IWSRestCoc
 
     <OperationContract()>
     <WebGet(RequestFormat:=WebMessageFormat.Json, ResponseFormat:=WebMessageFormat.Json)>
-    Function ListaOrdenes() As ArrayList
+    Function ListaOrdenes() As List(Of BLOrden)
 
     <OperationContract()>
     <WebGet(RequestFormat:=WebMessageFormat.Json, ResponseFormat:=WebMessageFormat.Json)>
@@ -20,7 +20,7 @@ Public Interface IWSRestCoc
 
     <OperationContract()>
     <WebGet(RequestFormat:=WebMessageFormat.Json, ResponseFormat:=WebMessageFormat.Json)>
-    Sub actualizar(nombre As String, fecha As DateTime, estado As String, ide As Integer)
+    Sub actualizar(estado As String, ide As Integer)
 
     <OperationContract()>
     <WebGet(RequestFormat:=WebMessageFormat.Json, ResponseFormat:=WebMessageFormat.Json)>
