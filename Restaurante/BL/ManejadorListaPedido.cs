@@ -17,7 +17,7 @@ namespace BL
             listaPedido = new BLListaPedido();
         }
 
-        public void insertarListaPedido(String codigoPlato, int identificadorOrden, int cantidad)
+        public void insertarListaPedido(String codigoPlato, String identificadorOrden, int cantidad)
         {
             try
             {
@@ -29,7 +29,7 @@ namespace BL
             }
         }
 
-        public void eliminarPlatoListaPedidos(String codigoPlato, int identificadorOrden)
+        public void eliminarPlatoListaPedidos(String codigoPlato, String identificadorOrden)
         {
             try
             {

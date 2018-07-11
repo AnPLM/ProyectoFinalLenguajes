@@ -14,10 +14,10 @@ namespace BL
         DAOListaPedido daoLista = new DAOListaPedido();
 
         public String CodigoPlato { get; set; }
-        public int IdentificadorOrden { get; set; }
+        public String IdentificadorOrden { get; set; }
         public int Cantidad { get; set; }
 
-        public BLListaPedido(String codigoPlato, int identificadorOrden, int cantidad)
+        public BLListaPedido(String codigoPlato, String identificadorOrden, int cantidad)
         {
             CodigoPlato = codigoPlato;
             IdentificadorOrden = identificadorOrden;
@@ -27,11 +27,11 @@ namespace BL
         public BLListaPedido()
         { }
 
-        public void insertarListaPedido(String codigoPlato, int identificadorOrden, int cantidad)
+        public void insertarListaPedido(String codigoPlato, String identificadorOrden, int cantidad)
         {
             try
             {
-                TOListaPedidos toListaPedidos = new TOListaPedidos(codigoPlato, identificadorOrden, cantidad);
+                TOListaPedidos toListaPedidos = new TOListaPedidos(identificadorOrden, codigoPlato, cantidad);
                 daoLista.insertarListaProducto(toListaPedidos);
             }
             catch (Exception e)
@@ -40,7 +40,7 @@ namespace BL
             }
         }
 
-        public void eliminarPlatoListaPedidos(String codigoPlato, int identificadorOrden)
+        public void eliminarPlatoListaPedidos(String codigoPlato, String identificadorOrden)
         {
             try
             {
