@@ -8,7 +8,7 @@ Public Interface IWSRestCoc
 
     <OperationContract()>
     <WebGet(RequestFormat:=WebMessageFormat.Json, ResponseFormat:=WebMessageFormat.Json)>
-    Function ListaOrdenes() As ArrayList
+    Function ListaOrdenes() As List(Of BLOrden)
 
     <OperationContract()>
     <WebGet(RequestFormat:=WebMessageFormat.Json, ResponseFormat:=WebMessageFormat.Json)>

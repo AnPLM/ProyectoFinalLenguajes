@@ -28,7 +28,12 @@ Public Class WSRestCoc
         Return man.listaActiva()
     End Function
 
-    Public Function ListaOrdenes() As ArrayList Implements IWSRestCoc.ListaOrdenes
-        Return man.listaOrdenes()
+    Public Function ListaOrdenes() As List(Of BLOrden) Implements IWSRestCoc.ListaOrdenes
+        Dim list As New List(Of BLOrden)
+        For Each i As BLOrden In man.listaOrdenes
+            list.Add(i)
+        Next
+
+        Return list
     End Function
 End Class

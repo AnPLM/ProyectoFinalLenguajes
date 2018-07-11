@@ -20,7 +20,7 @@ function Insertar(){}
 
 function lista() {
 	var req  = $.ajax({
-	    url: "http://localhost:47332/WSRest/WSRestCoc.svc/ListaActiva",
+	    url: "http://angielopez-001-site1.ctempurl.com/WSRest/WSRestCoc.svc/ListaActiva",
 		timeout: 10000,
     dataType: "jsonp"
 	});

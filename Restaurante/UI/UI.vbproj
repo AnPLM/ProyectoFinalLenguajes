@@ -269,6 +269,7 @@
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
     </None>
     <None Include="My Project\PublishProfiles\Default Settings %282%29.pubxml" />
+    <None Include="My Project\PublishProfiles\Default Settings %283%29.pubxml" />
     <None Include="My Project\PublishProfiles\Default Settings.pubxml" />
     <None Include="My Project\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
