@@ -1,6 +1,6 @@
 function listaActiva(){
 	var req = $.ajax({
-	    url: "/WSRest/WSRestCoc.svc/ListaActiva",
+	    url: "http://angielopez-001-site1.ctempurl.com/WSRest/WSRestCoc.svc/ListaActiva",
 		timeout: 10000,
     dataType:"jsonp"
 	});
@@ -8,7 +8,7 @@ function listaActiva(){
 
 function Eliminar(identificador){
 	var req = $.ajax({
-	    url: "/WSRest/WSRestCoc.svc/Eliminar?" + identificador,
+	    url: "http://angielopez-001-site1.ctempurl.com/WSRest/WSRestCoc.svc/Eliminar?" + identificador,
 		timeout: 10000,
     dataType:"jsonp",
 	});
@@ -20,7 +20,7 @@ function Insertar(){}
 
 function lista() {
 	var req  = $.ajax({
-	    url: "/WSRest/WSRestCoc.svc/ListaActiva",
+	    url: "http://angielopez-001-site1.ctempurl.com/WSRest/WSRestCoc.svc/ListaActiva",
 		timeout: 10000,
     dataType: "jsonp"
 	});
@@ -80,7 +80,7 @@ function calcularMinutos(fecha) {
 function entregar(btnId) {
    // alert("a punto de entregar")
     var req = $.ajax({
-        url: "/WSRest/WSRestCoc.svc/actualizar?" + "estado=entregado" + "&" + "ide=" + btnId,
+        url: "http://angielopez-001-site1.ctempurl.com/WSRest/WSRestCoc.svc/actualizar?" + "estado=entregado" + "&" + "ide=" + btnId,
         timeout: 10000,
         dataType: "jsonp"
     });

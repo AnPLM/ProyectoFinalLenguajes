@@ -37,7 +37,7 @@ namespace BL
             return dao.lista();
         }
 
-        public int insertar(string nombreUsuario, DateTime Fecha, string Estado, int Identificador)
+        public int insertar(string nombreUsuario, String Fecha, string Estado, int Identificador)
         {
             TOOrden o = new TOOrden(nombreUsuario, Fecha, Estado, Identificador);
             return dao.insertar(o);
