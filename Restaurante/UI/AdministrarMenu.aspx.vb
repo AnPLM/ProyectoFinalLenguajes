@@ -24,6 +24,7 @@ Public Class AdministrarMenu
             Else
                 habilitado = 0
             End If
+            'fotografia.SaveAs(Server.MapPath("../Fotos/").ToString() + fotografia.FileName)
             platoManager.agregarPlato(txtCodigo.Text, txtNombre.Text, txtDescripcion.Text, Double.Parse(txtPrecio.Text), fotografia.FileName, habilitado)
             Session("ListaPlatos") = platoManager.listarPlatos()
         Catch ex As Exception
