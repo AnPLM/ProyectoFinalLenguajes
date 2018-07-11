@@ -32,7 +32,7 @@ namespace BL
             List<AtributosDetallePedido> listaBL = new List<AtributosDetallePedido>();
             foreach (TOAtributosDetallePedido item in listaTO)
             {
-                listaBL.Add(new AtributosDetallePedido(item.NombreUsuario, item.NombrePlato,
+                listaBL.Add(new AtributosDetallePedido(item.IDORden, item.NombreUsuario, item.NombrePlato,
                     item.Estado, item.Fecha, item.Cantidad));
             }
             return listaBL;
@@ -46,7 +46,7 @@ namespace BL
             List<AtributosDetallePedido> listaBL = new List<AtributosDetallePedido>();
             foreach (TOAtributosDetallePedido item in listaTO)
             {
-                listaBL.Add(new AtributosDetallePedido(item.NombreUsuario, item.NombrePlato,
+                listaBL.Add(new AtributosDetallePedido(item.IDORden, item.NombreUsuario, item.NombrePlato,
                     item.Estado, item.Fecha, item.Cantidad));
             }
             return listaBL;
@@ -59,7 +59,7 @@ namespace BL
             List<AtributosDetallePedido> listaBL = new List<AtributosDetallePedido>();
             foreach (TOAtributosDetallePedido item in listaTO)
             {
-                listaBL.Add(new AtributosDetallePedido(item.NombreUsuario, item.NombrePlato,
+                listaBL.Add(new AtributosDetallePedido(item.IDORden, item.NombreUsuario, item.NombrePlato,
                     item.Estado, item.Fecha, item.Cantidad));
             }
             return listaBL;
@@ -75,7 +75,7 @@ namespace BL
             List<AtributosDetallePedido> listaBL = new List<AtributosDetallePedido>();
             foreach (TOAtributosDetallePedido item in listaTO)
             {
-                listaBL.Add(new AtributosDetallePedido(item.NombreUsuario, item.NombrePlato,
+                listaBL.Add(new AtributosDetallePedido(item.IDORden, item.NombreUsuario, item.NombrePlato,
                      item.Estado, item.Fecha, item.Cantidad));
             }
             return listaBL;
@@ -90,7 +90,7 @@ namespace BL
             List<AtributosDetallePedido> listaBL = new List<AtributosDetallePedido>();
             foreach (TOAtributosDetallePedido item in listaTO)
             {
-                listaBL.Add(new AtributosDetallePedido(item.NombreUsuario, item.NombrePlato,
+                listaBL.Add(new AtributosDetallePedido(item.IDORden, item.NombreUsuario, item.NombrePlato,
                     item.Estado, item.Fecha, item.Cantidad));
             }
             return listaBL;
@@ -104,7 +104,7 @@ namespace BL
             List<AtributosDetallePedido> listaBL = new List<AtributosDetallePedido>();
             foreach (TOAtributosDetallePedido item in listaTO)
             {
-                listaBL.Add(new AtributosDetallePedido(item.NombreUsuario, item.NombrePlato,
+                listaBL.Add(new AtributosDetallePedido(item.IDORden, item.NombreUsuario, item.NombrePlato,
                     item.Estado, item.Fecha, item.Cantidad));
             }
             return listaBL;
@@ -119,12 +119,34 @@ namespace BL
             List<AtributosDetallePedido> listaBL = new List<AtributosDetallePedido>();
             foreach (TOAtributosDetallePedido item in listaTO)
             {
-                listaBL.Add(new AtributosDetallePedido(item.NombreUsuario, item.NombrePlato,
+                listaBL.Add(new AtributosDetallePedido(item.IDORden, item.NombreUsuario, item.NombrePlato,
                     item.Estado, item.Fecha, item.Cantidad));
             }
             return listaBL;
         }
 
-        //public boolean verificarEnLista(List<AtributosDetallePedido> lista, String nombreUsuario)
+        public Boolean verificarEnLista(List<AtributosDetallePedido> lista, int orden)
+        {
+            Boolean estaEn = false;
+            for (int i = 0; i < lista.Count; i++)
+            {
+                if (lista[i].IDOrden == orden)
+                {
+                    estaEn = true;
+                    break;
+                }
+            }
+            return estaEn;
+        }
+
+        public void cambiarEstado(int orden, String nuevoEstado)
+        {
+            TOOrden toOrden = new TOOrden();
+            toOrden.Estado = nuevoEstado;
+            toOrden.Identificador = orden;
+
+            DaoOrden dao = new DaoOrden();
+            dao.actualizar(toOrden);
+        }
     }
 }

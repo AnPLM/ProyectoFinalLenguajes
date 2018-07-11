@@ -1,4 +1,13 @@
 ﻿Public Class TOAtributosDetallePedido
+    Private id_Orden As Integer
+    Public Property IDORden() As Integer
+        Get
+            Return id_Orden
+        End Get
+        Set(ByVal value As Integer)
+            id_Orden = value
+        End Set
+    End Property
     Private nombre_Usuario As String
     Public Property NombreUsuario() As String
         Get
@@ -59,9 +68,10 @@
         End Set
     End Property
 
-    Sub New(nombreUsuario As String, codigoPlato As String,
+    Sub New(idOrden As Integer, nombreUsuario As String, codigoPlato As String,
             nombrePlato As String, cantidad As Integer,
             estado As String, fecha As String)
+        Me.IDORden = idOrden
         Me.NombreUsuario = nombreUsuario
         Me.CodigoPlato = codigoPlato
         Me.NombrePlato = nombrePlato

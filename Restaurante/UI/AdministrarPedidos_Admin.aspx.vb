@@ -86,11 +86,36 @@ Public Class AdministrarPedidos_Admin
     End Sub
 
     Protected Sub Page_Load(sender As Object, e As EventArgs) Handles Me.Load
-        lblNombreUsuario.Visible = False
+        lblNumeroORden.Visible = False
         lblNuevoEstado.Visible = False
         txtNuevoEstado.Visible = False
-        txtUsuario.Visible = False
+        txtOrden.Visible = False
         btnCambiarEstado.Visible = False
         btnEditarEstados.Enabled = False
+    End Sub
+
+    Protected Sub btnEditarEstados_Click(sender As Object, e As EventArgs) Handles btnEditarEstados.Click
+        lblNumeroORden.Visible = True
+        lblNuevoEstado.Visible = True
+        txtNuevoEstado.Visible = True
+        txtOrden.Visible = True
+        btnCambiarEstado.Visible = True
+    End Sub
+
+    Protected Sub btnCambiarEstado_Click(sender As Object, e As EventArgs) Handles btnCambiarEstado.Click
+        Try
+            Dim orden As Integer = Integer.Parse(txtOrden.Text.Trim())
+            Dim nuevoEstado As String = txtNuevoEstado.Text.Trim()
+
+            Dim admin As New AdminListaPedido()
+            If admin.verificarEnLista(ViewState("DatosGrid"), orden) Then
+                admin.cambiarEstado(orden, nuevoEstado)
+            Else
+                lblError.Text = "El numero de orden no se encontraba en el resultado de la consulta"
+            End If
+
+        Catch ex As Exception
+            lblError.Text = ex.Message
+        End Try
     End Sub
 End Class
