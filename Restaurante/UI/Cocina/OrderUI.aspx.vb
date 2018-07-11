@@ -10,7 +10,7 @@ Public Class OrderUI
 
     Protected Sub btnEntregar_Click(sender As Object, e As EventArgs)
         Dim ide = Session("ide")
-        orden.eliminar(ide)
+        orden.actualizar("Entregado", ide)
         Response.Redirect("OrderUI.aspx")
     End Sub
 

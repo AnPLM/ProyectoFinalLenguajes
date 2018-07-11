@@ -23,5 +23,8 @@ Public Interface IWSCliente
     <WebGet(RequestFormat:=WebMessageFormat.Json, ResponseFormat:=WebMessageFormat.Json)>
     Function iniciarSesionCliente(Email As String, Contrasenna As String) As List(Of Cliente)
 
+    <OperationContract()>
+    <WebGet(RequestFormat:=WebMessageFormat.Json, ResponseFormat:=WebMessageFormat.Json)>
+    Function finalizarCompraCarrito(Carrito As String) As String
 
 End Interface

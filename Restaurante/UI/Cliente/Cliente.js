@@ -56,7 +56,6 @@ function cargarUsuarioDropCarrito() {
             document.getElementById("drpUsuario").innerHTML = usuario;
             document.getElementById("drpUsuario").innerHTML += '<span class="caret"></span><!--flecha para dropdown-->'
         }
-
     }
 }
  
@@ -74,7 +73,7 @@ setInterval(cargarPlatosTabla, 60000);
             tr.innerHTML += '<td class="text-center">' + this.Precio + "</td>";
             tr.innerHTML += '<td class="text-center">' + '<button type="button" class="btn btn-primary" id="' + nombreAux + '"' + '>Mostrar Detalles</button></td>'
             tr.innerHTML += '<td class="text-center">' + '<button type="button" class="btn btn-success" id="' + this.Codigo + '","' + this.Nombre + + '","' + this.Precio + '"' + '>Agregar Plato</button>\
-<input id="' + nombreAux + auxCodeCantidad + '" type="number" name="cantidadProd" step="1" min="1" max="50" style="margin-left:2.0em" value="1" required></td>' ////////////
+<input id="' + nombreAux + auxCodeCantidad + 'cantidad" type="number" name="cantidadProd" step="1" min="1" max="50" style="margin-left:2.0em" value="1" required></td>' ////////////
                 bodyTablaPlatos.append(tr);
                 
                 var nombreAux2 = this.Nombre;
@@ -85,18 +84,26 @@ setInterval(cargarPlatosTabla, 60000);
                 //Crea un string con los datos de la fila seleccionada
                 var nombreAuxCOd = this.Codigo + ", " + this.Nombre + ", " + this.Precio;
 
+                var auxString = "cantidad";
                 $('#' + nombreAuxCOd).bind("click", function () {
                     var carrito2 = JSON.parse(sessionStorage.getItem("carrito"));
                     if (carrito2 != null) {
-                        var cantidad = document.getElementById(nombreAux + auxCodeCantidad).value;
+                        var cantidad = document.getElementById(nombreAux + auxCodeCantidad + auxString).value;
                         revisarCarrito(auxCodeCantidad, cantidad, nombreAuxCOd)
                         alert("Producto añadido: " + nombreAux2)
                     } else {
-                    var cantidad = document.getElementById(nombreAux + auxCodeCantidad).value;
+                        var a = nombreAux + auxCodeCantidad + auxString;
+                        var cantidad = document.getElementById(nombreAux + auxCodeCantidad + auxString).value;
                     carrito.push(nombreAuxCOd + ", " + cantidad) //Mete en el array "carrito" la info
                     window.sessionStorage.setItem("carrito", JSON.stringify(carrito))
                     alert("Producto añadido: " + nombreAux2)
                     }
+                });
+
+            //Prohibir que los input de cantidad sean editables sin flecha
+                $('[id="' + nombreAux + auxCodeCantidad + 'cantidad"]').keypress(function (evt) {
+                    evt.preventDefault();
+                    alert("¡Use las flechas por favor!")
                 });
         });
     }
@@ -304,7 +311,26 @@ setInterval(cargarPlatosTabla, 60000);
 
     function cerrarSesion() {
         var user = sessionStorage.removeItem("NombreUsuario");
+        session.removeItem("carrito");
             document.location.href = document.location.href.replace("ClienteMenu.html", "InicioSesionCliente.html");
+    }
+
+    function finalizarCompra() {
+        var carrito2 = JSON.parse(sessionStorage.getItem("carrito"));
+        alert("Antes del WS " +carrito2)
+        var req = $.ajax({
+            url: "/WSRest/WSCliente.svc/finalizarCompraCarrito?Carrito=" + carrito2,
+            timeout: 10000,
+            dataType: "jsonp"
+        }); //Es el que permite consultar/cargar información
+        //de una URL sin hacer postback
+
+        req.done(function (datos) {
+            alert(datos)
+        })
+        req.fail(function () {
+            alert("¡Servicio no disponible, disculpe las molestias! Si desea emitir un reporte, puede hacerlo a nuestros teléfonos");
+        });
     }
 
     function inicioPaginaCarrito() {
