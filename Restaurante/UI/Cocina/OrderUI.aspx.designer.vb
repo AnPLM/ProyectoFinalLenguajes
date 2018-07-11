@@ -23,15 +23,6 @@ Partial Public Class OrderUI
     Protected WithEvents ordenes As Global.System.Web.UI.HtmlControls.HtmlForm
     
     '''<summary>
-    '''btnEntregar control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents btnEntregar As Global.System.Web.UI.WebControls.Button
-    
-    '''<summary>
     '''btnDeshacer control.
     '''</summary>
     '''<remarks>
