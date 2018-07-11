@@ -1,22 +1,21 @@
-﻿<%@ Page Title="" Language="vb" AutoEventWireup="false" MasterPageFile="~/MasterRestaurante.Master" CodeBehind="BuscarUsuarios.aspx.vb" Inherits="UI.BuscarUsuarios" %>
+﻿<%@ Page Title="" Language="vb" AutoEventWireup="false" MasterPageFile="~/MasterRestaurante.Master" CodeBehind="EliminarUsuarios.aspx.vb" Inherits="UI.EliminarUsuarios" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="encabezado" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cuerpo" runat="server">
-     
      <form id="form1" runat="server" class="form-group-lg">
-     <%Dim lista As ArrayList = Session("Usuario") %>
+     <%Dim lista As ArrayList = Session("Usuarios") %>
      <div class="container col-sm-8 col-md-offset-2"  style="background-color:firebrick">
           <div class="container col-md-4 col-sm-offset-4"  style="background-color:firebrick">
-                <h2 style="color:beige" class="text-center">Buscar Usuarios</h2>
+                <h3 style="color:beige" class="text-center">Eliminar Usuarios</h3>
                <asp:TextBox ID="txtNombre" CssClass="form-control" placeholder="Nombre del Usuario" runat="server"></asp:TextBox>
                <div class="text-center margin-up-button">
-                <asp:Button ID="btnRegistrarUsuario" Cssclass="btn btn-primary text-center" runat="server" Text="Buscar Usuario" />  
+                <asp:Button ID="btnRegistrarUsuario" Cssclass="btn btn-primary text-center" runat="server" Text="Eliminar Usuario" />  
          </div>
           </div>
           <div class="container col-sm-8 col-sm-offset-2 margin-up-panel margin-botton-panel"  style="background-color:#f7f7f7">
-                <h3 class="margin-up-panel text-center" style="color:beige">Usuario Encontrado</h3>
+                <h2 class="margin-up-panel text-center" style="color:beige">Lista de Usuarios</h2>
 
-               <table class="table table-bordered table-responsive-md table-striped text-center" id="tablaPlatos">
+               <table class="table table-bordered table-responsive-md table-striped text-center" id="tablaUsuarios">
                 <thead>
                     <tr>
                         <th class="text-center">Nombre Usuario</th>
@@ -41,10 +40,9 @@
                    <%Next %>
               </table>
            </div>
-         
-         <asp:Table ID="tableUsuarios" runat="server"></asp:Table>
      </div>
          </form>
+
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="pie" runat="server">
 </asp:Content>

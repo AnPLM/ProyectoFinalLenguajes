@@ -1,22 +1,23 @@
-﻿<%@ Page Title="" Language="vb" AutoEventWireup="false" MasterPageFile="~/MasterRestaurante.Master" CodeBehind="BuscarUsuarios.aspx.vb" Inherits="UI.BuscarUsuarios" %>
+﻿<%@ Page Title="" Language="vb" AutoEventWireup="false" MasterPageFile="~/MasterRestaurante.Master" CodeBehind="ModificarUsuarios.aspx.vb" Inherits="UI.ModificarUsuarios" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="encabezado" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cuerpo" runat="server">
-     
      <form id="form1" runat="server" class="form-group-lg">
      <%Dim lista As ArrayList = Session("Usuario") %>
      <div class="container col-sm-8 col-md-offset-2"  style="background-color:firebrick">
           <div class="container col-md-4 col-sm-offset-4"  style="background-color:firebrick">
-                <h2 style="color:beige" class="text-center">Buscar Usuarios</h2>
-               <asp:TextBox ID="txtNombre" CssClass="form-control" placeholder="Nombre del Usuario" runat="server"></asp:TextBox>
-               <div class="text-center margin-up-button">
-                <asp:Button ID="btnRegistrarUsuario" Cssclass="btn btn-primary text-center" runat="server" Text="Buscar Usuario" />  
-         </div>
+             <h3 style="color:beige" class="text-center">Modificar Usuarios</h3>
+                              
+            <div class="panel panel-default col-sm-12" style="background-color:firebrick">
+                <asp:Button type="submit" Cssclass="btn btn-success btn-block inputBoton margin-up-button margin-botton-panel" ID="btnModificarNombre" runat="server" Text="Modificar Nombre Usuario" />
+                <asp:Button type="submit" Cssclass="btn btn-success btn-block inputBoton margin-botton-panel" ID="btnModificarContrasenna" runat="server" Text="Modificar Contraseña" />
+                <asp:Button type="submit" Cssclass="btn btn-success btn-block inputBoton margin-botton-panel" ID="btnHabilitar" runat="server" Text="Habilitar/Deshabilitar" />
+            </div>
           </div>
           <div class="container col-sm-8 col-sm-offset-2 margin-up-panel margin-botton-panel"  style="background-color:#f7f7f7">
-                <h3 class="margin-up-panel text-center" style="color:beige">Usuario Encontrado</h3>
+                <h3 class="margin-up-panel text-center" style="color:beige">Datos de Usuarios</h3>
 
-               <table class="table table-bordered table-responsive-md table-striped text-center" id="tablaPlatos">
+               <table class="table table-bordered table-responsive-md table-striped text-center" id="tablaUsuarios">
                 <thead>
                     <tr>
                         <th class="text-center">Nombre Usuario</th>
@@ -40,11 +41,11 @@
                 </tr>  
                    <%Next %>
               </table>
+
            </div>
          
-         <asp:Table ID="tableUsuarios" runat="server"></asp:Table>
      </div>
-         </form>
+  </form>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="pie" runat="server">
 </asp:Content>

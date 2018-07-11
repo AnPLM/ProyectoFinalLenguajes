@@ -56,7 +56,7 @@ namespace DAO
         {
             try
             {
-                SqlCommand sentencia = new SqlCommand("update usuario set habilitado = 0 where nombre_usuario=@nomUsuar", conexion);
+                SqlCommand sentencia = new SqlCommand("Delete usuario WHERE Nombre_Usuario=@nomUsuar", conexion);
                 sentencia.Parameters.AddWithValue("@nomUsuar", usuario.NombreUsuario);
 
 
@@ -148,8 +148,8 @@ namespace DAO
 
         public void buscarUsuario(TOUsuario usuario)
         {
-            //try
-            //{
+            try
+            {
                 DataTable tabla = new DataTable();
                 String conuslta = "Select * From Usuario Where Nombre_Usuario = @nom";
                 SqlCommand sentencia = new SqlCommand(conuslta, conexion);
@@ -171,15 +171,108 @@ namespace DAO
                     }     
                 }
             }
-            //catch (SqlException)
-            //{
-            //    throw new Exception("¡Error en la base de datos!");
-            //}
-            //catch (Exception e)
-            //{
-            //    throw e;
-            //}
-        //}
+            catch (SqlException)
+            {
+                throw new Exception("¡Error en la base de datos!");
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
 
+        public List<TOUsuario> listarUsuarios()
+        {
+            try
+            {
+                List<TOUsuario> list = new List<TOUsuario>();
+                DataTable tabla = new DataTable();
+                String conuslta = "Select * From Usuario";
+                SqlCommand sentencia = new SqlCommand(conuslta, conexion);
+                SqlDataAdapter adapter = new SqlDataAdapter();
+                adapter.SelectCommand = sentencia;
+                adapter.Fill(tabla);
+                Boolean hablitado;
+                foreach (DataRow row in tabla.Rows)
+                {
+                    int i = int.Parse(row["Habilitado"].ToString());
+                    if (i == 0)
+                    {
+                        hablitado = false;
+                    }
+                    else
+                    {
+                        hablitado = true;
+                    }
+
+                        list.Add(new TOUsuario(row["Nombre_Usuario"].ToString(), row["Contrasenna"].ToString(), row["Tipo"].ToString(), hablitado));
+                }
+                    return list;
+            }
+            catch (SqlException)
+            {
+                throw new Exception("¡Error en la base de datos!");
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        public void modificarNomobre(String nombreActual, String nombreNuevo)
+        {
+            try
+            {
+                SqlCommand sentencia = new SqlCommand("update usuario set nombre_usuario= @nomNuev where nombre_usuario=@nomUsuar",
+                    conexion);
+                sentencia.Parameters.AddWithValue("@nomUsuar", nombreActual);
+                sentencia.Parameters.AddWithValue("@nomNuev", nombreNuevo);
+
+                if (conexion.State != ConnectionState.Open)
+                {
+                    conexion.Open();
+                }
+                sentencia.ExecuteNonQuery();
+            }
+            catch (Exception)
+            {
+                throw new Exception("Ocurrio un error al modificar un usuario");
+            }
+            finally
+            {
+                if (conexion.State != ConnectionState.Closed)
+                {
+                    conexion.Close();
+                }
+            }
+        }
+
+        public void modificarContrasenna(String nombreActual, String contrasennaNueva)
+        {
+            try
+            {
+                SqlCommand sentencia = new SqlCommand("update usuario set Contrasenna= @conNuev where nombre_usuario=@nomUsuar",
+                    conexion);
+                sentencia.Parameters.AddWithValue("@nomUsuar", nombreActual);
+                sentencia.Parameters.AddWithValue("@conNuev", contrasennaNueva);
+
+                if (conexion.State != ConnectionState.Open)
+                {
+                    conexion.Open();
+                }
+                sentencia.ExecuteNonQuery();
+            }
+            catch (Exception)
+            {
+                throw new Exception("Ocurrio un error al modificar un usuario");
+            }
+            finally
+            {
+                if (conexion.State != ConnectionState.Closed)
+                {
+                    conexion.Close();
+                }
+            }
+        }
     }
 }

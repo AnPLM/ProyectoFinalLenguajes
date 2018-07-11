@@ -11,7 +11,7 @@ Public Class RegistroUsuarios
         If (txtNombreUsuario.Text <> "" And txtContrasenna.Text <> "") Then
             Dim tipo As String
             Dim habilitado As Boolean = False
-            If (checkAdministrador.Checked) Then
+            If (radioAdministrador.Checked) Then
                 tipo = "ADMINISTRADOR"
             Else
                 tipo = "COCINERO"

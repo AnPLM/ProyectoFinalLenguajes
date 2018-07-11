@@ -44,5 +44,20 @@ namespace BL
             dao.buscarUsuario(usuario);
             return new Usuario(usuario.NombreUsuario, usuario.Contrasenna, usuario.Tipo, usuario.Habilitado);
         }
+        public List<TOUsuario> listarUsuarios()
+        {
+            return dao.listarUsuarios();
+        }
+
+        public void modificarNombre(String nombreActual, String nombreNuevo)
+        {
+            dao.modificarNomobre(nombreActual, nombreNuevo);
+        }
+
+        public void modificarContrasenna(String nombreActual, String contrasennaNueva)
+        {
+            dao.modificarContrasenna(nombreActual, contrasennaNueva);
+        }
+    
     }
 }

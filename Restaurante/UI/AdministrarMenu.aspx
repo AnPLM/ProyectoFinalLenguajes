@@ -34,7 +34,7 @@
             </div>
             <div class="margin-up-panel">
                 <p style="font-size:1.5vw; color:black">Habilitar</p>
-                <asp:CheckBox ID="checkHabilitado" runat="server"  CssClass="margin-left" />
+                <asp:CheckBox ID="checkHabilitado" runat="server"  CssClass="margin-left" Font-Size="Medium" />
             <div class="margin-up-button text-center">
                 <asp:Button type="submit" Cssclass="btn btn-success margin-botton-panel" ID="btnRegistrar" runat="server"  validationgroup="Registrar" Text="Registrar" />
                 <asp:Button type="submit" Cssclass="btn btn-success margin-botton-panel " OnClientClick="myFunction()" ID="btnBuscar" runat="server" Text="Buscar" />
@@ -71,9 +71,9 @@
                      <td>
                          <div class="form-check">
                              <%If x.Habilitado = 0 Then %>
-                                <input type="checkbox" class="form-check-input" id="checkHabilitados"/>
+                                <input type="checkbox" class="form-check-input" id="checkHabilitados" onclick="return false;"/>
                              <%Else %> 
-                               <input type="checkbox" class="form-check-input" id="checkDeshabilitados" checked=""/>
+                               <input type="checkbox" class="form-check-input" id="checkDeshabilitados" checked="" onclick="return false;"/>
                              <%End If %>
                          </div>
                     </td>

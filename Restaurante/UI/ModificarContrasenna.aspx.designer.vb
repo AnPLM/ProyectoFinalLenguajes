@@ -11,8 +11,8 @@ Option Strict On
 Option Explicit On
 
 
-Partial Public Class RegistroUsuarios
-
+Partial Public Class ModificarContrasenna
+    
     '''<summary>
     '''form1 control.
     '''</summary>
@@ -21,7 +21,7 @@ Partial Public Class RegistroUsuarios
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents form1 As Global.System.Web.UI.HtmlControls.HtmlForm
-
+    
     '''<summary>
     '''txtNombreUsuario control.
     '''</summary>
@@ -30,7 +30,7 @@ Partial Public Class RegistroUsuarios
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtNombreUsuario As Global.System.Web.UI.WebControls.TextBox
-
+    
     '''<summary>
     '''txtContrasenna control.
     '''</summary>
@@ -39,49 +39,13 @@ Partial Public Class RegistroUsuarios
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtContrasenna As Global.System.Web.UI.WebControls.TextBox
-
+    
     '''<summary>
-    '''checkHabilitado control.
+    '''btnModificarContrasenna control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents checkHabilitado As Global.System.Web.UI.WebControls.CheckBox
-
-    '''<summary>
-    '''radioAdministrador control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents radioAdministrador As Global.System.Web.UI.WebControls.RadioButton
-
-    '''<summary>
-    '''radioCocinero control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents radioCocinero As Global.System.Web.UI.WebControls.RadioButton
-
-    '''<summary>
-    '''btnRegistrarUsuario control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents btnRegistrarUsuario As Global.System.Web.UI.WebControls.Button
-
-    '''<summary>
-    '''lblMensaje control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents lblMensaje As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents btnModificarContrasenna As Global.System.Web.UI.WebControls.Button
 End Class
