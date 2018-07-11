@@ -151,9 +151,12 @@
     <Content Include="Cliente\ClienteMenu.html" />
     <Content Include="Cliente\EstilosCliente.css" />
     <Content Include="Cliente\InicioSesionCliente.html" />
+    <Content Include="Cocina\ordenes.html" />
+    <Content Include="Cocina\ordenes.js" />
     <Content Include="Estilos\EstilosPlatos.css" />
     <Content Include="InicioSesion.aspx" />
-    <Content Include="OrderUI.aspx" />
+    <Content Include="Cocina\OrdenUI2.aspx" />
+    <Content Include="Cocina\OrderUI.aspx" />
     <Content Include="PruebaLogin.aspx" />
     <Content Include="RegistrarCliente.aspx" />
     <Content Include="scripts\ai.0.15.0-build58334.js" />
@@ -161,6 +164,7 @@
     <Content Include="scripts\Ordenes.js" />
     <Content Include="Web.config" />
     <Content Include="WSRest\WSCliente.svc" />
+    <Content Include="WSRest\WSRestCoc.svc" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AdministrarMenu.aspx.designer.vb">
@@ -210,10 +214,17 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="OrderUI.aspx.designer.vb">
+    <Compile Include="Cocina\OrdenUI2.aspx.designer.vb">
+      <DependentUpon>OrdenUI2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Cocina\OrdenUI2.aspx.vb">
+      <DependentUpon>OrdenUI2.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Cocina\OrderUI.aspx.designer.vb">
       <DependentUpon>OrderUI.aspx</DependentUpon>
     </Compile>
-    <Compile Include="OrderUI.aspx.vb">
+    <Compile Include="Cocina\OrderUI.aspx.vb">
       <DependentUpon>OrderUI.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
@@ -232,8 +243,12 @@
       <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="WSRest\IWSCliente.vb" />
+    <Compile Include="WSRest\IWSRestCoc.vb" />
     <Compile Include="WSRest\WSCliente.svc.vb">
       <DependentUpon>WSCliente.svc</DependentUpon>
+    </Compile>
+    <Compile Include="WSRest\WSRestCoc.svc.vb">
+      <DependentUpon>WSRestCoc.svc</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -254,6 +269,7 @@
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
     </None>
     <None Include="My Project\PublishProfiles\Default Settings %282%29.pubxml" />
+    <None Include="My Project\PublishProfiles\Default Settings %283%29.pubxml" />
     <None Include="My Project\PublishProfiles\Default Settings.pubxml" />
     <None Include="My Project\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
