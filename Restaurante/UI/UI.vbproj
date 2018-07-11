@@ -147,7 +147,9 @@
     <Content Include="AdministrarMenu.aspx" />
     <Content Include="AdministrarUsuarios.aspx" />
     <Content Include="BuscarUsuarios.aspx" />
+    <Content Include="AdministrarPedidos_Admin.aspx" />
     <Content Include="Cliente\Cliente.js" />
+    <Content Include="Cliente\ClienteCarrito.html" />
     <Content Include="Cliente\ClienteMenu.html" />
     <Content Include="Cliente\EstilosCliente.css" />
     <Content Include="Cliente\InicioSesionCliente.html" />
@@ -185,6 +187,13 @@
     </Compile>
     <Compile Include="BuscarUsuarios.aspx.vb">
       <DependentUpon>BuscarUsuarios.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="AdministrarPedidos_Admin.aspx.designer.vb">
+      <DependentUpon>AdministrarPedidos_Admin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdministrarPedidos_Admin.aspx.vb">
+      <DependentUpon>AdministrarPedidos_Admin.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="InicioSesion.aspx.designer.vb">
