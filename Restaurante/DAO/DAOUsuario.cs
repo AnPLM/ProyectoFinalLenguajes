@@ -16,21 +16,33 @@ namespace DAO
         {
             try
             {
-                SqlCommand sentencia = new SqlCommand("insert into usuario values(@nomUsuar, @contr, @tipo, @hab", conexion);
+                SqlCommand sentencia = new SqlCommand("insert into usuario values(@nomUsuar, @contr, @tipo, @hab)", conexion);
                 sentencia.Parameters.AddWithValue("@nomUsuar", usuario.NombreUsuario);
                 sentencia.Parameters.AddWithValue("@contr", usuario.Contrasenna);
                 sentencia.Parameters.AddWithValue("@tipo", usuario.Tipo);
-                sentencia.Parameters.AddWithValue("@hab", usuario.Habilitado);
+
+                String nombre = usuario.NombreUsuario;
+                String cotra = usuario.Contrasenna;
+                String tipo = usuario.Tipo;
+               
+                if(usuario.Habilitado == true)
+                sentencia.Parameters.AddWithValue("@hab", 1);
+                if (usuario.Habilitado == false)
+                    sentencia.Parameters.AddWithValue("@hab", 0);
+
+                Boolean habilitado = usuario.Habilitado;
 
                 if (conexion.State!= ConnectionState.Open)
                 {
                     conexion.Open();
                 }
                 sentencia.ExecuteNonQuery();
-            } catch (Exception)
+            }
+            catch (Exception)
             {
                 throw new Exception("Ocurrio un error al insertar un usuario");
-            } finally
+            }
+            finally
             {
                 if (conexion.State != ConnectionState.Closed)
                 {
@@ -133,6 +145,41 @@ namespace DAO
             }
             return false;
         }
+
+        public void buscarUsuario(TOUsuario usuario)
+        {
+            //try
+            //{
+                DataTable tabla = new DataTable();
+                String conuslta = "Select * From Usuario Where Nombre_Usuario = @nom";
+                SqlCommand sentencia = new SqlCommand(conuslta, conexion);
+                sentencia.Parameters.AddWithValue("@nom", usuario.NombreUsuario);
+                SqlDataAdapter adapter = new SqlDataAdapter();
+                adapter.SelectCommand = sentencia;
+                adapter.Fill(tabla);
+                foreach (DataRow row in tabla.Rows)
+                {
+                    usuario.Tipo = row["Tipo"].ToString();
+                    int i = int.Parse(row["Habilitado"].ToString());
+                    usuario.Contrasenna = row["Contrasenna"].ToString();
+                    if (i == 0)
+                    {
+                        usuario.Habilitado = false;
+                    } else
+                    {
+                        usuario.Habilitado = true;
+                    }     
+                }
+            }
+            //catch (SqlException)
+            //{
+            //    throw new Exception("¡Error en la base de datos!");
+            //}
+            //catch (Exception e)
+            //{
+            //    throw e;
+            //}
+        //}
 
     }
 }

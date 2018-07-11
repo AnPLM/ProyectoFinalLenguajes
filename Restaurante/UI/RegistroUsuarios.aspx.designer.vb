@@ -11,7 +11,7 @@ Option Strict On
 Option Explicit On
 
 
-Partial Public Class InicioSesion
+Partial Public Class RegistroUsuarios
     
     '''<summary>
     '''form1 control.
@@ -41,13 +41,40 @@ Partial Public Class InicioSesion
     Protected WithEvents txtContrasenna As Global.System.Web.UI.WebControls.TextBox
     
     '''<summary>
-    '''btnInicioSesion control.
+    '''checkHabilitado control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents btnInicioSesion As Global.System.Web.UI.WebControls.Button
+    Protected WithEvents checkHabilitado As Global.System.Web.UI.WebControls.CheckBox
+    
+    '''<summary>
+    '''checkAdministrador control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents checkAdministrador As Global.System.Web.UI.WebControls.CheckBox
+    
+    '''<summary>
+    '''checkCocinero control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents checkCocinero As Global.System.Web.UI.WebControls.CheckBox
+    
+    '''<summary>
+    '''btnRegistrarUsuario control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents btnRegistrarUsuario As Global.System.Web.UI.WebControls.Button
     
     '''<summary>
     '''lblMensaje control.

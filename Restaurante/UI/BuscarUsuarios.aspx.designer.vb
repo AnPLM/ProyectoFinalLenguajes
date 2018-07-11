@@ -11,7 +11,7 @@ Option Strict On
 Option Explicit On
 
 
-Partial Public Class InicioSesion
+Partial Public Class BuscarUsuarios
     
     '''<summary>
     '''form1 control.
@@ -23,38 +23,29 @@ Partial Public Class InicioSesion
     Protected WithEvents form1 As Global.System.Web.UI.HtmlControls.HtmlForm
     
     '''<summary>
-    '''txtNombreUsuario control.
+    '''txtNombre control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents txtNombreUsuario As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents txtNombre As Global.System.Web.UI.WebControls.TextBox
     
     '''<summary>
-    '''txtContrasenna control.
+    '''btnRegistrarUsuario control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents txtContrasenna As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents btnRegistrarUsuario As Global.System.Web.UI.WebControls.Button
     
     '''<summary>
-    '''btnInicioSesion control.
+    '''tableUsuarios control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents btnInicioSesion As Global.System.Web.UI.WebControls.Button
-    
-    '''<summary>
-    '''lblMensaje control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents lblMensaje As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents tableUsuarios As Global.System.Web.UI.WebControls.Table
 End Class

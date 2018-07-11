@@ -39,5 +39,10 @@ namespace BL
             return dao.autenticacionUsuario(usuario);
         }
 
+        public Usuario buscarUsuario(TOUsuario usuario)
+        {
+            dao.buscarUsuario(usuario);
+            return new Usuario(usuario.NombreUsuario, usuario.Contrasenna, usuario.Tipo, usuario.Habilitado);
+        }
     }
 }

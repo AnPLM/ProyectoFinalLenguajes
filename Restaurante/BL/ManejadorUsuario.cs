@@ -31,6 +31,13 @@ namespace BL
             usua.modificarUsuario(usarioTO);
         }
 
+        public Usuario buscarUsuario(String nombre)
+        {
+            TOUsuario usuario = new TOUsuario();
+            usuario.NombreUsuario = nombre;
+            return usua.buscarUsuario(usuario);
+        }
+
         public Usuario autenticar(String nombreUsuario, String contrasenna)
         {
             TOUsuario usuarioTO = new TOUsuario();

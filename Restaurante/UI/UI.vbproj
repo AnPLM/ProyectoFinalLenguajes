@@ -145,6 +145,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AdministrarMenu.aspx" />
+    <Content Include="AdministrarUsuarios.aspx" />
+    <Content Include="BuscarUsuarios.aspx" />
     <Content Include="Cliente\Cliente.js" />
     <Content Include="Cliente\ClienteMenu.html" />
     <Content Include="Cliente\EstilosCliente.css" />
@@ -152,9 +154,11 @@
     <Content Include="Estilos\EstilosPlatos.css" />
     <Content Include="InicioSesion.aspx" />
     <Content Include="OrderUI.aspx" />
+    <Content Include="PaginaPrincipal.aspx" />
     <Content Include="PruebaLogin.aspx" />
     <Content Include="RegistrarCliente.aspx" />
     <Content Include="RegistroCliente.aspx" />
+    <Content Include="RegistroUsuarios.aspx" />
     <Content Include="scripts\ai.0.15.0-build58334.js" />
     <Content Include="scripts\ai.0.15.0-build58334.min.js" />
     <Content Include="scripts\Ordenes.js" />
@@ -167,6 +171,20 @@
     </Compile>
     <Compile Include="AdministrarMenu.aspx.vb">
       <DependentUpon>AdministrarMenu.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="AdministrarUsuarios.aspx.designer.vb">
+      <DependentUpon>AdministrarUsuarios.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdministrarUsuarios.aspx.vb">
+      <DependentUpon>AdministrarUsuarios.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="BuscarUsuarios.aspx.designer.vb">
+      <DependentUpon>BuscarUsuarios.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BuscarUsuarios.aspx.vb">
+      <DependentUpon>BuscarUsuarios.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="InicioSesion.aspx.designer.vb">
@@ -209,6 +227,13 @@
       <DependentUpon>OrderUI.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
+    <Compile Include="PaginaPrincipal.aspx.designer.vb">
+      <DependentUpon>PaginaPrincipal.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PaginaPrincipal.aspx.vb">
+      <DependentUpon>PaginaPrincipal.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
     <Compile Include="PruebaLogin.aspx.designer.vb">
       <DependentUpon>PruebaLogin.aspx</DependentUpon>
     </Compile>
@@ -221,6 +246,13 @@
     </Compile>
     <Compile Include="RegistrarCliente.aspx.vb">
       <DependentUpon>RegistrarCliente.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="RegistroUsuarios.aspx.designer.vb">
+      <DependentUpon>RegistroUsuarios.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RegistroUsuarios.aspx.vb">
+      <DependentUpon>RegistroUsuarios.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="WSRest\IWSCliente.vb" />

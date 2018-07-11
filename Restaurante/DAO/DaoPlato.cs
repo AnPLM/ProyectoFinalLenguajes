@@ -245,7 +245,7 @@ namespace DAO
         {
             try
             {
-                List<TOPlato> lista = new List<TOPlato>();
+            List<TOPlato> lista = new List<TOPlato>();
             DataTable tabla = new DataTable();
             String conuslta = "Select * From Plato Where Nombre = @nom";
             SqlCommand sentencia = new SqlCommand(conuslta, conexion);

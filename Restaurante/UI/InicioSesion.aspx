@@ -10,16 +10,16 @@
 
         <form id="form1" runat="server" class="form-group-lg">
             <div>
-                <asp:Label ID="lblNombreUsuario" runat="server" Text="Nombre Usuario" Width="150"></asp:Label>
-                <asp:TextBox ID="txtNombreUsuario" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtNombreUsuario"  placeholder="Nombre Usuario" CssClass="form-control" runat="server"></asp:TextBox>
                 <br />
                 <br />
-                <asp:Label ID="lblContrasenna" runat="server" Text="Contrasenna" Width="150"></asp:Label>
-                <asp:TextBox ID="txtContrasenna" TextMode="Password" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtContrasenna"  placeholder="Contraseña" CssClass="form-control" TextMode="Password" runat="server"></asp:TextBox>
                 <br />
                 <br />
-                <asp:Button ID="btnInicioSesion" runat="server" Text="Iniciar Sesion" />
+                <div>
+                <asp:Button ID="btnInicioSesion" Cssclass="btn btn-success text-center" runat="server" Text="Iniciar Sesion" />
                 <br />
+                </div>
                 <br />
                 <asp:Label ID="lblMensaje" runat="server"></asp:Label>
             </div>

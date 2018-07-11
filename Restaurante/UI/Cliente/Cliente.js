@@ -42,7 +42,7 @@ setInterval(cargarPlatosTabla, 60000);
             tr.innerHTML += '<td class="text-center">' + this.Nombre + "</td>";
             tr.innerHTML += '<td class="text-center">' + this.Precio + "</td>";
                 tr.innerHTML += '<td class="text-center">' + '<button id="' + this.Nombre + '"'+'>Mostrar Detalles</button></td>'
-                tr.innerHTML += '<td class="text-center">' + '<button id="' + this.Codigo + '","' + this.Nombre + + '","' + this.Precio + '"' + '>Agregar Plato</button></td>' ////////////
+                tr.innerHTML += '<td class="text-center">' + '<button id="' + this.Codigo + '","' + this.Nombre + '","' + this.Precio + '"' + '>Agregar Plato</button></td>' ////////////
                 bodyTablaPlatos.append(tr);
                 var nombreAux = this.Nombre;
                 $('#' + nombreAux).bind("click", function () {
@@ -86,25 +86,28 @@ setInterval(cargarPlatosTabla, 60000);
             var tr = document.createElement("tr");
             tr.innerHTML += '<td class="text-center">' + info[1] + "</td>";
             tr.innerHTML += '<td class="text-center">' + info[2] + "</td>";
-            tr.innerHTML += '<td class="text-center">' + "Hola" + "</td>";
+            tr.innerHTML += '<td class="text-center">' + info[2] + "</td>";
             tr.innerHTML += '<td class="text-center">' + '<button id="' + i + '"'+'>X</button></td>'
             bodyTablaCarrito.append(tr);
-            var nombreA = i;
+            var nombreA = i.toString();
             $('#' + nombreA).bind("click", function () {
-                borrarItemCarrito(i);
+                alert("Borrar");
+                borrarItemCarrito(nombreA);
             });
             i = i + 1;
         }   
     }
 
-
-    function borrarItemCarrito(i) {
+    function borrarItemCarrito(nombreA) {
+        alert("HOLAAAAAA");
+        alert(nombreA);
         carrito.splice(i - 1, 1);
         // volvemos a renderizar
         llenarCarrito();
         // Calcula el nuevo precio
         calcularTotal();
     }
+
 
     function mostrarDetallesPlato(nombreAux) {
         var req = $.ajax({
