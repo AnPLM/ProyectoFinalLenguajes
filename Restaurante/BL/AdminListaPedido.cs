@@ -125,5 +125,6 @@ namespace BL
             return listaBL;
         }
 
+        //public boolean verificarEnLista(List<AtributosDetallePedido> lista, String nombreUsuario)
     }
 }

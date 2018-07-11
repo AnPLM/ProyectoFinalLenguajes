@@ -411,5 +411,7 @@ namespace DAO
                 }
             }
         }
+
+        //public void actualizarEstadoPedidoAdmin(TOAdminListaPedido toAdmin)
     }
 }

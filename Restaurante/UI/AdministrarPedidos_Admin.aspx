@@ -28,13 +28,26 @@
             <asp:button runat="server" text="Consultar" id="btnConsultar" />
             <br />
             <br />
+            <asp:Label ID="lblError" runat="server"></asp:Label>
             <br />
         <br />
-            <asp:GridView ID="GridView1" runat="server">
+            <asp:GridView ID="grdPedidos" runat="server">
             </asp:GridView>
+            <br />
+            <br />
+            <asp:Button ID="btnEditarEstados" runat="server" Text="Cambiar Estados" />
+            <br />
+            <br />
+            <asp:Label ID="lblNombreUsuario" runat="server" Text="Nombre de Usuario" width="170px"></asp:Label>
+            <asp:TextBox ID="txtUsuario" runat="server" width="200px"></asp:TextBox>
+            <br />
+            <br />
+            <asp:Label ID="lblNuevoEstado" runat="server" Text="Nuevo valor del estado" width="170px"></asp:Label>
+            <asp:TextBox ID="txtNuevoEstado" runat="server" width="200px"></asp:TextBox>
+            <br />
+            <br />
+            <asp:Button ID="btnCambiarEstado" runat="server" Text="Cambiar Estado" />
         </form>
-
-        <br />
     </div>
     <div class="col-sm-3" style="background-color: lavender;"></div>
 </asp:Content>

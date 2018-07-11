@@ -15,4 +15,9 @@
         Me.Estado = Estado
         Me.Identificador = identificador
     End Sub
+
+    Sub New(estado As String, identificador As Int32)
+        Me.Estado = estado
+        Me.Identificador = identificador
+    End Sub
 End Class

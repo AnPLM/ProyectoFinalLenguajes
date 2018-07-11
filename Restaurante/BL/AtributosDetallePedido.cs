@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace BL
 {
+    [Serializable]
     public class AtributosDetallePedido
     {
         public String NombreUsuario { get; set; }
