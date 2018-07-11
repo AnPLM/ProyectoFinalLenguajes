@@ -70,13 +70,14 @@ namespace DAO
 
         public void actualizar(TOOrden o)
         {
-            string query = "update Orden set Nombre_Usuario = @nom, Fecha = @fec, Estado = @est where Identificacion = @ide";
+            string query = "update Orden set Estado = @est where Identificacion = @ide";
+            //string query = "update Orden set Nombre_Usuario = @nom, Fecha = @fec, Estado = @est where Identificacion = @ide";
             string conn = Properties.Settings.Default.Conn;
             SqlCommand command = new SqlCommand(query, new SqlConnection(conn));
             try
             {
-                command.Parameters.AddWithValue("@nom", o.Nombre_Usuario);
-                command.Parameters.AddWithValue("@fec", o.Fecha);
+                //command.Parameters.AddWithValue("@nom", o.Nombre_Usuario);
+               // command.Parameters.AddWithValue("@fec", o.Fecha);
                 command.Parameters.AddWithValue("@est", o.Estado);
                 command.Parameters.AddWithValue("@ide", o.Identificador);
                 if (command.Connection.State == ConnectionState.Closed) { command.Connection.Open(); }

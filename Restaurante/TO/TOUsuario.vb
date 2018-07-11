@@ -14,4 +14,5 @@
         Me.Tipo = tipo
         Me.Habilitado = habilitado
     End Sub
+
 End Class

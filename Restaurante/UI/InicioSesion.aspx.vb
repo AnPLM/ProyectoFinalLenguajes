@@ -14,11 +14,19 @@ Public Class InicioSesion
 
         Dim usuario As New Usuario()
         usuario = manejadorUsuario.autenticar(nombreUsuario, contrasenna)
+
         If usuario Is Nothing Then
             lblMensaje.Text = "null"
         Else
+            If usuario.TipoUsuario = "ADMINISTRADOR" Then
+                Response.Redirect("PaginaPrincipal.aspx")
+            End If
             lblMensaje.Text = usuario.NombreUsuario & " " & usuario.TipoUsuario
         End If
 
     End Sub
+
+    'Protected Sub btnRegistrarse_Click(sender As Object, e As EventArgs) Handles btnRegistrarse.Click
+    '    Response.Redirect("RegistroUsuarios.aspx")
+    'End Sub
 End Class

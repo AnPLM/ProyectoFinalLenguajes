@@ -8,8 +8,8 @@ Public Class WSRestCoc
 
     Dim man As New ManejadorOrdenes
 
-    Public Sub actualizar(nombre As String, fecha As Date, estado As String, ide As Integer) Implements IWSRestCoc.actualizar
-        man.actualizar(nombre, fecha, estado, ide)
+    Public Sub actualizar(estado As String, ide As Integer) Implements IWSRestCoc.actualizar
+        man.actualizar(estado, ide)
     End Sub
 
     Public Sub Eliminar(id As String) Implements IWSRestCoc.Eliminar
