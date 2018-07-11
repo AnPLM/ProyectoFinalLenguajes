@@ -21,16 +21,31 @@ function cargarPlatosTabla() {
     });
 }
 
-function inicioPagina() {
+function inicioPaginaMenu() {
     cargarPlatosTabla()
-    cargarUsuarioDrop()
+    cargarUsuarioDropMenu ()
 }
 
-function cargarUsuarioDrop() {
-    var x = sessionStorage.getItem("NombreUsuario");
-    alert(x);
-    document.getElementById("drpUsuario").innerHTML = x;
-    document.getElementById("drpUsuario").innerHTML += '<span class="caret"></span><!--flecha para dropdown-->'
+function cargarUsuarioDropMenu() {
+    var usuario = sessionStorage.getItem("NombreUsuario");
+    if (usuario == null) {
+        document.location.href = document.location.href.replace("ClienteMenu.html", "InicioSesionCliente.html");
+        alert("Debe iniciar sesión")
+    } else {
+        document.getElementById("drpUsuario").innerHTML = usuario;
+        document.getElementById("drpUsuario").innerHTML += '<span class="caret"></span><!--flecha para dropdown-->'
+    }
+}
+
+function cargarUsuarioDropCarrito() {
+    var usuario = sessionStorage.getItem("NombreUsuario");
+    if (usuario == null) {
+        document.location.href = document.location.href.replace("ClienteCarrito.html", "InicioSesionCliente.html");
+        alert("Debe iniciar sesión")
+    } else {
+        document.getElementById("drpUsuario").innerHTML = usuario;
+        document.getElementById("drpUsuario").innerHTML += '<span class="caret"></span><!--flecha para dropdown-->'
+    }
 }
  
 setInterval(cargarPlatosTabla, 60000);
@@ -43,8 +58,8 @@ setInterval(cargarPlatosTabla, 60000);
             tr.innerHTML += '<td class="text-center">' + this.Codigo + "</td>";
             tr.innerHTML += '<td class="text-center">' + this.Nombre + "</td>";
             tr.innerHTML += '<td class="text-center">' + this.Precio + "</td>";
-                tr.innerHTML += '<td class="text-center">' + '<button id="' + this.Nombre + '"'+'>Mostrar Detalles</button></td>'
-                tr.innerHTML += '<td class="text-center">' + '<button id="' + this.Codigo + '","' + this.Nombre + + '","' + this.Precio + '"' + '>Agregar Plato</button></td>' ////////////
+            tr.innerHTML += '<td class="text-center">' + '<button type="button" class="btn btn-primary" id="' + this.Nombre + '"' + '>Mostrar Detalles</button></td>'
+            tr.innerHTML += '<td class="text-center">' + '<button type="button" class="btn btn-success" id="' + this.Codigo + '","' + this.Nombre + + '","' + this.Precio + '"' + '>Agregar Plato</button></td>' ////////////
                 bodyTablaPlatos.append(tr);
                 var nombreAux = this.Nombre;
                 $('#' + nombreAux).bind("click", function () {
@@ -53,55 +68,74 @@ setInterval(cargarPlatosTabla, 60000);
                 
                 //Crea un string con los datos de la fila seleccionada
                 var nombreAuxCOd = this.Codigo + ", " + this.Nombre + ", " + this.Precio;
+
+                var carrito2 = JSON.parse(sessionStorage.getItem("carrito"));
+                if (carrito2 != null) {
+                    carrito = carrito2;
+                }
                 $('#' + nombreAuxCOd).bind("click", function () {
                     carrito.push(nombreAuxCOd) //Mete en el array "carrito" la info
-                    calcularTotal();
-                    llenarCarrito();
+                    window.sessionStorage.setItem("carrito", JSON.stringify(carrito))
                 });
         });
     }
  
     function calcularTotal() {
-       var i = 0
-       total = 0;
-       var info = "";
-       var precio = 0;
-        // Se recorre el array "carrito" sacando los precios y sumandolos
-        for (let item of carrito) {
-            info = carrito[i]
-            info = info.split(",")
-            precio = parseInt(info[2])
-            total = total + precio;
-            i = i + 1;
-        }
-        document.getElementById("total").innerHTML = total + "";
+        var carrito2 = JSON.parse(sessionStorage.getItem("carrito"));
+        total = 0;
+            var i = 0
+            var info = "";
+            var precio = 0;
+            // Se recorre el array "carrito" sacando los precios y sumandolos
+            for (let item of carrito2) {
+                info = carrito2[i]
+                info = info.split(",")
+                precio = parseInt(info[2])
+                total = total + precio;
+                i = i + 1;
+            }
+            var totalSession = sessionStorage.setItem("total", total)
+       document.getElementById("total").innerHTML = total;
     }
 
     function llenarCarrito() {
-        $('#carrito').empty();
+        var carrito2 = JSON.parse(sessionStorage.getItem("carrito"));
+        $('#carrito2').empty();
         var bodyTablaCarrito = document.getElementById('bodyTablaCarrito');
         bodyTablaCarrito.innerHTML = "";
         var i = 0
-        for (let item of carrito) {
-            info = carrito[i]
+        $.each(carrito2, function (i, item) {
+            info = carrito2[i]
             info = info.split(",")
             var tr = document.createElement("tr");
+            /*var auxCode = Math.random() * 1578;
+            auxCode += (Math.random() * 5700) / 3;
+            auxCode += Math.random() * 50;
+            var nombreA = info[0] + auxCode;*/
             tr.innerHTML += '<td class="text-center">' + info[1] + "</td>";
             tr.innerHTML += '<td class="text-center">' + info[2] + "</td>";
-            tr.innerHTML += '<td class="text-center">' + "Hola" + "</td>";
-            tr.innerHTML += '<td class="text-center">' + '<button id="' + i + '"'+'>X</button></td>'
+            tr.innerHTML += '<td class="text-center">' + '<button type="button" class="btn btn-danger" id="' + info[0] + '"' + '>X</button></td>'
             bodyTablaCarrito.append(tr);
-            var nombreA = i;
+            
             $('#' + nombreA).bind("click", function () {
-                borrarItemCarrito(i);
+                borrarItemCarrito(nombreA);
             });
             i = i + 1;
-        }   
+        });
     }
 
-
-    function borrarItemCarrito(i) {
-        carrito.splice(i - 1, 1);
+    function borrarItemCarrito(nombreA) {
+        var carrito2 = JSON.parse(sessionStorage.getItem("carrito"));
+        for (i = carrito2.length - 1; i >= 0; i--) {
+            info = carrito2[i]
+            info = info.split(",")
+            if (info[0] === nombreA) {
+                break;
+                carrito2.splice(i, 1);
+                
+            }
+        }
+        window.sessionStorage.setItem("carrito", JSON.stringify(carrito2))
         // volvemos a renderizar
         llenarCarrito();
         // Calcula el nuevo precio
@@ -148,7 +182,7 @@ setInterval(cargarPlatosTabla, 60000);
         });
     }
 
-    function buscarPorNombre() {
+    function buscarPorNombrePlatos() {
             var txtBuscarPlato = document.getElementById("txtBuscarPlato");
             txtBuscarPlato = txtBuscarPlato.value.toUpperCase();
             var td;
@@ -165,6 +199,26 @@ setInterval(cargarPlatosTabla, 60000);
                         filas[i].style.display = "none";
                     }
                 }
+        }
+    }
+
+    function buscarPorNombreCarrito() {
+        var txtBuscarPlato = document.getElementById("txtBuscarPlato");
+        txtBuscarPlato = txtBuscarPlato.value.toUpperCase();
+        var td;
+        var filas;
+
+        table = document.getElementById("tablaCarrito");
+        filas = table.getElementsByTagName("tr");
+        for (i = 0; i < filas.length; i++) {
+            td = filas[i].getElementsByTagName("td")[1];//Nombre del plato
+            if (td) {
+                if (td.innerHTML.toUpperCase().indexOf(txtBuscarPlato) > -1) {
+                    filas[i].style.display = "";
+                } else {
+                    filas[i].style.display = "none";
+                }
+            }
         }
     }
 
@@ -207,4 +261,18 @@ setInterval(cargarPlatosTabla, 60000);
         alert("La prueba ha funcionado. :)")
     }
 
+    function cerrarSesion() {
+        var user = sessionStorage.removeItem("NombreUsuario");
+            document.location.href = document.location.href.replace("ClienteMenu.html", "InicioSesionCliente.html");
+    }
+
+    function moverseCarrito() {
+        document.location.href = document.location.href.replace("ClienteMenu.html", "ClienteCarrito.html");
+    }
+
+    function inicioPaginaCarrito() {
+        llenarCarrito()
+        calcularTotal()
+        cargarUsuarioDropCarrito()
+    }
   

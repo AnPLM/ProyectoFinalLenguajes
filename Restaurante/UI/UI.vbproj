@@ -147,6 +147,7 @@
     <Content Include="AdministrarMenu.aspx" />
     <Content Include="AdministrarPedidos_Admin.aspx" />
     <Content Include="Cliente\Cliente.js" />
+    <Content Include="Cliente\ClienteCarrito.html" />
     <Content Include="Cliente\ClienteMenu.html" />
     <Content Include="Cliente\EstilosCliente.css" />
     <Content Include="Cliente\InicioSesionCliente.html" />
