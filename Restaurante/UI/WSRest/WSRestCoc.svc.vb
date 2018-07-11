@@ -25,7 +25,13 @@ Public Class WSRestCoc
     End Function
 
     Public Function ListaActiva() As List(Of BLOrden) Implements IWSRestCoc.ListaActiva
-        Return man.listaActiva()
+        Dim list = man.listaActiva()
+        Dim l As New List(Of BLOrden)
+        For Each bl As BLOrden In list
+
+            l.Add(New BLOrden(bl.nombreUsuario, bl.Fecha.ToString, bl.Estado, bl.Identificador))
+        Next
+        Return l
     End Function
 
     Public Function ListaOrdenes() As List(Of BLOrden) Implements IWSRestCoc.ListaOrdenes

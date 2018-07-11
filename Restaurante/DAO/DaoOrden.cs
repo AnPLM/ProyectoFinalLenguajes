@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.VisualBasic;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Data;
@@ -12,14 +13,14 @@ namespace DAO
     {
 
         private string Nombre_Usuario { set; get; }
-        private DateTime Fecha { set; get; }
+        private String Fecha { set; get; }
         private string Estado { set; get; }
         private int Identificador { set; get; }
 
 
         public DaoOrden() { }
 
-        public DaoOrden(String nombre, DateTime fecha, string estado, int identificador)
+        public DaoOrden(String nombre, string fecha, string estado, int identificador)
         {
             this.Nombre_Usuario = nombre;
             this.Fecha = fecha;
@@ -103,7 +104,8 @@ namespace DAO
                 if (command.Connection.State == ConnectionState.Closed) { command.Connection.Open(); }
                 SqlDataReader data = command.ExecuteReader();
                 string nombre = data.GetValue(0).ToString();
-                DateTime fecha = DateTime.Parse(data.GetValue(1).ToString());
+                String fecha = data.GetValue(1).ToString();
+                //DateTimeOffset f = new DateTimeOffset(fecha);
                 string estado = data.GetValue(2).ToString();
                 int ident = Int32.Parse(data.GetValue(3).ToString());
                 o = new TOOrden(nombre, fecha, estado, ident);
@@ -134,11 +136,18 @@ namespace DAO
                 {
                     while (data.Read())
                     {
-                        string nombre = data.GetValue(0).ToString();
-                        DateTime fecha = DateTime.Parse(data.GetValue(1).ToString());
-                        string stado = data.GetValue(2).ToString();
-                        int identificador = Int32.Parse(data.GetValue(3).ToString());
-                        o = new TOOrden(nombre, fecha, stado, identificador);
+                        string nombre = data["Nombre_Usuario"].ToString();
+                        String fecha = data["Fecha"].ToString();
+                        string stado = data["Estado"].ToString();
+                        int identificador = Int32.Parse(data["Identificador"].ToString());
+                        DateTime fecha1 = DateTime.Now;
+                        DateTime fecha2 = DateTime.Parse(fecha.ToString());
+                        //DateTime fecha2 = new DateTime(fecha);
+                        //DateInterval res 
+                        long res = DateAndTime.DateDiff(DateInterval.Minute,fecha2,fecha1);
+                        o = new TOOrden(nombre, res.ToString(), stado, identificador);
+                        //o = new TOOrden(nombre, fecha, stado, identificador);
+
                         list.AddLast(o);
                     }
                 }
