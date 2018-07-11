@@ -11,7 +11,7 @@ Option Strict On
 Option Explicit On
 
 
-Partial Public Class InicioSesion
+Partial Public Class ModificarNombre
     
     '''<summary>
     '''form1 control.
@@ -32,29 +32,20 @@ Partial Public Class InicioSesion
     Protected WithEvents txtNombreUsuario As Global.System.Web.UI.WebControls.TextBox
     
     '''<summary>
-    '''txtContrasenna control.
+    '''txtNuevoNombre control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents txtContrasenna As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents txtNuevoNombre As Global.System.Web.UI.WebControls.TextBox
     
     '''<summary>
-    '''btnInicioSesion control.
+    '''btnHabilitar control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents btnInicioSesion As Global.System.Web.UI.WebControls.Button
-    
-    '''<summary>
-    '''lblMensaje control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents lblMensaje As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents btnHabilitar As Global.System.Web.UI.WebControls.Button
 End Class

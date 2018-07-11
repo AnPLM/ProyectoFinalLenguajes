@@ -11,7 +11,7 @@ Option Strict On
 Option Explicit On
 
 
-Partial Public Class InicioSesion
+Partial Public Class AdministrarUsuarios
     
     '''<summary>
     '''form1 control.
@@ -23,38 +23,38 @@ Partial Public Class InicioSesion
     Protected WithEvents form1 As Global.System.Web.UI.HtmlControls.HtmlForm
     
     '''<summary>
-    '''txtNombreUsuario control.
+    '''btnRegistrar control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents txtNombreUsuario As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents btnRegistrar As Global.System.Web.UI.WebControls.Button
     
     '''<summary>
-    '''txtContrasenna control.
+    '''btnBuscar control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents txtContrasenna As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents btnBuscar As Global.System.Web.UI.WebControls.Button
     
     '''<summary>
-    '''btnInicioSesion control.
+    '''btnModificar control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents btnInicioSesion As Global.System.Web.UI.WebControls.Button
+    Protected WithEvents btnModificar As Global.System.Web.UI.WebControls.Button
     
     '''<summary>
-    '''lblMensaje control.
+    '''btnElimiar control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents lblMensaje As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents btnElimiar As Global.System.Web.UI.WebControls.Button
 End Class

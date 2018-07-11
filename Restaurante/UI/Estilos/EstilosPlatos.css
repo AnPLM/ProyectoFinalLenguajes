@@ -33,5 +33,15 @@
     filter: alpha(opacity=50); /* For IE8 and earlier */
 }
 
+ .nav-color {
+    background:black;
+}
+
+ .btn-block {
+    display: block;
+    width: 50%;
+}
+
+
 
 
