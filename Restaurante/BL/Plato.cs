@@ -37,7 +37,13 @@ namespace BL
         }
         public void eliminarPlatos(TOPlato plato)
         {
+        try { 
             daoPlato.eleminarPlato(plato);
+        }
+            catch (Exception e)
+        {
+             //throw new Exception(e.Message);
+        }
         }
         public void modificarPlatos(TOPlato plato)
         {

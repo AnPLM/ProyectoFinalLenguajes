@@ -7,19 +7,12 @@ Public Class AdministrarMenu
         Session("ListaPlatos") = platoManager.listarPlatos()
     End Sub
 
-    Protected Sub btnBuscar_Click(sender As Object, e As EventArgs) Handles btnBuscar.Click
-        Dim platoManager As New ManejadorPlato
-        gridPlatosEncontrados.DataSource = platoManager.buscarPlatoAdmin(txtNombre.Text)
-        gridPlatosEncontrados.DataBind()
-    End Sub
 
-    Protected Sub btnEliminar_Click(sender As Object, e As EventArgs) Handles btnEliminar.Click
-        Dim platoManager As New ManejadorPlato
-        platoManager.eliminarPlato(txtCodigo.Text)
-        Session("ListaPlatos") = platoManager.listarPlatos()
-        gridPlatosEncontrados.DataSource = Nothing
-        gridPlatosEncontrados.DataBind()
-    End Sub
+    'Protected Sub btnEliminar_Click(sender As Object, e As EventArgs) Handles btnEliminar.Click
+    '    Dim platoManager As New ManejadorPlato
+    '    platoManager.eliminarPlato(txtCodigo.Text)
+    '    Session("ListaPlatos") = platoManager.listarPlatos()
+    'End Sub
 
 
     Protected Sub btnRegistrar_Click(sender As Object, e As EventArgs) Handles btnRegistrar.Click
@@ -33,8 +26,6 @@ Public Class AdministrarMenu
             End If
             platoManager.agregarPlato(txtCodigo.Text, txtNombre.Text, txtDescripcion.Text, Double.Parse(txtPrecio.Text), fotografia.FileName, habilitado)
             Session("ListaPlatos") = platoManager.listarPlatos()
-            gridPlatosEncontrados.DataSource = Nothing
-            gridPlatosEncontrados.DataBind()
         Catch ex As Exception
 
         End Try
@@ -71,7 +62,5 @@ Public Class AdministrarMenu
         End If
         platoManager.modificarPlato(codigo, nombre, descripcion, precio, fotografiaC, habilitado)
         Session("ListaPlatos") = platoManager.listarPlatos()
-        gridPlatosEncontrados.DataSource = Nothing
-        gridPlatosEncontrados.DataBind()
     End Sub
 End Class

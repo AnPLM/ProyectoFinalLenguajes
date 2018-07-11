@@ -15,7 +15,7 @@
             </div>
           </div>
           <div class="container col-sm-8 col-sm-offset-2 margin-up-panel margin-botton-panel"  style="background-color:#f7f7f7">
-                <h3 class="margin-up-panel text-center" style="color:beige">Datos de Usuarios</h3>
+                <h3 class="margin-up-panel text-center" style="color:black">Datos de Usuarios</h3>
 
                <table class="table table-bordered table-responsive-md table-striped text-center" id="tablaUsuarios">
                 <thead>

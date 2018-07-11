@@ -11,34 +11,15 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="Estilos/EstilosPlatos.css" />
-    <asp:ContentPlaceHolder ID="encabezado" runat="server">
-</asp:ContentPlaceHolder>
+    <asp:ContentPlaceHolder ID="encabezado" runat="server"></asp:ContentPlaceHolder>
 </head>
 <body>
-
-    <!--div class="container"-->
-        <!--div class="row"-->
-            <!--div class="col"-->
-                <!--div class="page-header"-->
-                    <div style="background-image: url(https://png.pngtree.com/thumb_back/fw800/back_pic/03/59/36/2857a436979da7a.jpg);
-background-repeat: no-repeat; background-size:100% 100%;" class="jumbotron text-center col">
-                        <p style="text-align: left; font-size:5vw; color:#C0392B; font-family: Homer Simpson, cursive; font-weight: bold; background-color: rgba(0, 0, 0, 0);" class="alert-danger">Two Glasses</p>
-                        <div class="col">
-                
-
-                        </div>
-        </div>
-    <!--/div-->
-        <!--/div>
-        <!--/div-->
-    <!--/!--div-->
-           
-                <div class="col">
-    <asp:ContentPlaceHolder ID="cuerpo" runat="server">
-        </asp:ContentPlaceHolder>
-                    </div>
-    <asp:ContentPlaceHolder ID="pie" runat="server">
-        </asp:ContentPlaceHolder>
+    <div style="background-image: url(https://png.pngtree.com/thumb_back/fw800/back_pic/03/59/36/2857a436979da7a.jpg);
+         background-repeat: no-repeat; background-size:100% 100%;" class="jumbotron text-center col">
+    <p class="margin-left" style="text-align: left; font-size:5vw; color:firebrick; font-family: 'Trebuchet MS', cursive; font-weight: bold; background-color: rgba(0, 0, 0, 0);" class="alert-danger">Two Glasses</p>
+    </div>
+    <asp:ContentPlaceHolder ID="cuerpo" runat="server"></asp:ContentPlaceHolder>
+    <asp:ContentPlaceHolder ID="pie" runat="server"></asp:ContentPlaceHolder>
 </body>
 </html>
 
