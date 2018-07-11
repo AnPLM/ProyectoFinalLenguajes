@@ -20,7 +20,7 @@ Public Interface IWSRestCoc
 
     <OperationContract()>
     <WebGet(RequestFormat:=WebMessageFormat.Json, ResponseFormat:=WebMessageFormat.Json)>
-    Sub actualizar(nombre As String, fecha As DateTime, estado As String, ide As Integer)
+    Sub actualizar(estado As String, ide As Integer)
 
     <OperationContract()>
     <WebGet(RequestFormat:=WebMessageFormat.Json, ResponseFormat:=WebMessageFormat.Json)>

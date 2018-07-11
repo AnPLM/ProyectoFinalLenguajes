@@ -48,9 +48,9 @@ namespace BL
             dao.eliminar(identificador);
         }
 
-        public void actualizar(string nombreUsuario, DateTime Fecha, string Estado, int Identificador)
+        public void actualizar( string Estado, int Identificador)
         {
-            TOOrden o = new TOOrden(nombreUsuario, Fecha, Estado, Identificador);
+            TOOrden o = new TOOrden(Estado, Identificador);
             dao.actualizar(o);
         }
 
