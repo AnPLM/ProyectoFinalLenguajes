@@ -19,21 +19,26 @@ namespace DAO
 
         public void insertarListaProducto(TOListaPedidos toListaPedidos)
         {
-            try
-            {
-            consulta = "INSERT INTO LISTA_PEDIDO VALUES(@nombre, @plato, @cant)";
+         /*   try
+            {*/
+            consulta = "INSERT INTO LISTA_PEDIDO VALUES(@plato, @identificador, @cant)";
+
             comando.CommandText = consulta;
-            comando.Parameters.AddWithValue("@nombre", toListaPedidos.Identificador_Orden);
             comando.Parameters.AddWithValue("@plato", toListaPedidos.Codigo_Plato);
-                comando.Parameters.AddWithValue("@plato", toListaPedidos.Cantidad_Plato);
+            comando.Parameters.AddWithValue("@identificador", toListaPedidos.Identificador_Orden);
+            comando.Parameters.AddWithValue("@cant", toListaPedidos.Cantidad_Plato);
                 if (conexion.State != ConnectionState.Open)
             {
                 conexion.Open();
             }
             comando.Connection = conexion;
             comando.ExecuteNonQuery();
-               
-            }
+
+            comando.Parameters.RemoveAt("@plato");
+            comando.Parameters.RemoveAt("@identificador");
+            comando.Parameters.RemoveAt("@cant");
+
+            /*}
             catch (SqlException)
             {
                 throw new Exception("¡Error en la base de datos!");
@@ -43,12 +48,12 @@ namespace DAO
                 throw;
             }
             finally
-            {
-                if (conexion.State != ConnectionState.Closed)
+            {*/
+            if (conexion.State != ConnectionState.Closed)
                 {
                     conexion.Close();
                 }
-            }
+            /*}*/
         }
 
         public void eliminarPlato(TOListaPedidos toListaPedidos)
@@ -111,7 +116,7 @@ namespace DAO
                     {
                         listaPedidos.Add(
                             new TOListaPedidos(lector["Nombre_Usuario"].ToString(),
-                            int.Parse(lector["Identificador_Plato"].ToString()),
+                            lector["Identificador_Plato"].ToString(),
                             int.Parse(lector["Cantidad"].ToString())));
                     }
                 }
@@ -159,7 +164,7 @@ namespace DAO
                     {
                         listaPedidos.Add(
                             new TOListaPedidos(lector["Nombre_Usuario"].ToString(), 
-                            int.Parse(lector["Identificador_Plato"].ToString()),
+                            lector["Identificador_Plato"].ToString(),
                             int.Parse(lector["Cantidad"].ToString())));
                     }
                 }

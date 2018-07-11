@@ -28,7 +28,7 @@ namespace DAO
             this.Identificador = identificador;
         }
 
-        public void insertar(TOOrden o)
+        public int insertar(TOOrden o)
         {
             String query = "Insert INTO Orden(Nombre_Usuario, Estado) values(@nom, @est);";
             string conn = Properties.Settings.Default.Conn;
@@ -41,7 +41,17 @@ namespace DAO
                 //command.Parameters.AddWithValue("@ide", o.Identificador);
                 if (command.Connection.State == ConnectionState.Closed) { command.Connection.Open(); }
                 command.ExecuteNonQuery();
+
+                query = "SELECT IDENT_CURRENT('Orden')";
+                conn = Properties.Settings.Default.Conn;
+                command = new SqlCommand(query, new SqlConnection(conn));
+
+                    if (command.Connection.State != ConnectionState.Open) { command.Connection.Open(); }
+                    Object a = command.ExecuteScalar();
+                    String b = a.ToString();
+                    int secuencial = int.Parse(b);
                 if (command.Connection.State == ConnectionState.Open) { command.Connection.Close(); }
+                return secuencial;
             }
             catch (Exception e)
             {

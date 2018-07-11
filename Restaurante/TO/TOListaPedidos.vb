@@ -1,6 +1,6 @@
 ﻿Public Class TOListaPedidos
 
-    Public Sub New(identificador_orden As String, codigo_plato As Integer, cantidad As Integer)
+    Public Sub New(identificador_orden As String, codigo_plato As String, cantidad As Integer)
         orden = identificador_orden
         plato = codigo_plato
         Me.cantidad = cantidad
@@ -9,12 +9,12 @@
     Public Sub New()
     End Sub
 
-    Private orden As Integer
-    Public Property Identificador_Orden() As Integer
+    Private orden As String
+    Public Property Identificador_Orden() As String
         Get
             Return orden
         End Get
-        Set(ByVal value As Integer)
+        Set(ByVal value As String)
             orden = value
         End Set
     End Property
