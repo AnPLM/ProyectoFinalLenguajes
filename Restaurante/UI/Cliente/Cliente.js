@@ -28,7 +28,9 @@ function inicioPaginaMenu() {
 
 function cargarUsuarioDropMenu() {
     var usuario = sessionStorage.getItem("NombreUsuario");
+    alert("Usuario " + usuario)
     if (usuario == null) {
+        alert("entró")
         document.location.href = document.location.href.replace("ClienteMenu.html", "InicioSesionCliente.html");
         alert("Debe iniciar sesión")
     } else {

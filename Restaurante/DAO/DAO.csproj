@@ -49,6 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DAOAdminListaPedido.cs" />
     <Compile Include="DAOCliente.cs" />
     <Compile Include="DAOListaPedido.cs" />
     <Compile Include="DaoOrden.cs" />

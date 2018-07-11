@@ -135,7 +135,7 @@ namespace DAO
             }
         }
 
-             public List<TOListaPedidos> obtenerPedidosPorPlato(TOListaPedidos toListaPedidos)
+        public List<TOListaPedidos> obtenerPedidosPorPlato(TOListaPedidos toListaPedidos)
         {
             try
             {

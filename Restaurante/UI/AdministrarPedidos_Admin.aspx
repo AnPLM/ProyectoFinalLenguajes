@@ -18,17 +18,22 @@
             <br />
             <br />
             <asp:label runat="server" text="Desde" width="170px" id="lblFechaInicio"></asp:label>
-            <asp:textbox type="date" runat="server" id="txtFechaInicio" width="200px"></asp:textbox>
+            <asp:textbox type="date" runat="server" id="txtFechaInicio" width="200px" value=""></asp:textbox>
             <br />
             <br />
             <asp:label runat="server" text="Hasta" width="170px" id="lblFechaFin"></asp:label>
-            <asp:textbox type="date" runat="server" id="txtFechaFin" width="200px"></asp:textbox>
+            <asp:textbox type="date" runat="server" id="txtFechaFin" width="200px" value=""></asp:textbox>
             <br />
             <br />
             <asp:button runat="server" text="Consultar" id="btnConsultar" />
+            <br />
+            <br />
+            <br />
+        <br />
+            <asp:GridView ID="GridView1" runat="server">
+            </asp:GridView>
         </form>
 
-        <br />
         <br />
     </div>
     <div class="col-sm-3" style="background-color: lavender;"></div>
