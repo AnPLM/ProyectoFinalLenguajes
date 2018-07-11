@@ -19,6 +19,7 @@ Public Class InicioSesion
             lblMensaje.Text = "null"
         Else
             If usuario.TipoUsuario = "ADMINISTRADOR" Then
+                Session("Usuario") = nombreUsuario
                 Response.Redirect("PaginaPrincipal.aspx")
             End If
             lblMensaje.Text = usuario.NombreUsuario & " " & usuario.TipoUsuario

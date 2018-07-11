@@ -87,6 +87,9 @@ Public Class AdministrarPedidos_Admin
     End Sub
 
     Protected Sub Page_Load(sender As Object, e As EventArgs) Handles Me.Load
+        If Session("Usuario") Is Nothing Then
+            Response.Redirect("InicioSesion.aspx")
+        End If
         lblNumeroORden.Visible = False
         lblNuevoEstado.Visible = False
         txtNuevoEstado.Visible = False

@@ -167,8 +167,6 @@
     <Content Include="PaginaPrincipal.aspx" />
     <Content Include="Cocina\OrdenUI2.aspx" />
     <Content Include="Cocina\OrderUI.aspx" />
-    <Content Include="PruebaLogin.aspx" />
-    <Content Include="RegistrarCliente.aspx" />
     <Content Include="RegistroUsuarios.aspx" />
     <Content Include="scripts\ai.0.15.0-build58334.js" />
     <Content Include="scripts\ai.0.15.0-build58334.min.js" />
@@ -309,20 +307,6 @@
       <DependentUpon>PaginaPrincipal.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
-    <Compile Include="PruebaLogin.aspx.designer.vb">
-      <DependentUpon>PruebaLogin.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="PruebaLogin.aspx.vb">
-      <DependentUpon>PruebaLogin.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
-    </Compile>
-    <Compile Include="RegistrarCliente.aspx.designer.vb">
-      <DependentUpon>RegistrarCliente.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="RegistrarCliente.aspx.vb">
-      <DependentUpon>RegistrarCliente.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
-    </Compile>
     <Compile Include="RegistroUsuarios.aspx.designer.vb">
       <DependentUpon>RegistroUsuarios.aspx</DependentUpon>
     </Compile>
@@ -359,6 +343,7 @@
     <None Include="My Project\PublishProfiles\Default Settings %282%29.pubxml" />
     <None Include="My Project\PublishProfiles\Default Settings %283%29.pubxml" />
     <None Include="My Project\PublishProfiles\Default Settings %284%29.pubxml" />
+    <None Include="My Project\PublishProfiles\Default Settings %285%29.pubxml" />
     <None Include="My Project\PublishProfiles\Default Settings.pubxml" />
     <None Include="My Project\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
