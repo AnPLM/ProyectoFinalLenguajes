@@ -12,4 +12,8 @@
     Protected Sub btnAdministrarUsuarios_Click(sender As Object, e As EventArgs) Handles btnAdministrarUsuarios.Click
         Response.Redirect("AdministrarUsuarios.aspx")
     End Sub
+
+    Protected Sub btnAdministrarPedidos_Click(sender As Object, e As EventArgs) Handles btnAdministrarPedidos.Click
+        Response.Redirect("AdministrarPedidos_Admin.aspx")
+    End Sub
 End Class
