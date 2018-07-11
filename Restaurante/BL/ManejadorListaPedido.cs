@@ -17,11 +17,11 @@ namespace BL
             listaPedido = new BLListaPedido();
         }
 
-        public void insertarListaPedido(String nombre_usuario, String identificador_plato)
+        public void insertarListaPedido(String codigoPlato, int identificadorOrden, int cantidad)
         {
             try
             {
-                listaPedido.insertarListaPedido(nombre_usuario, identificador_plato);
+                listaPedido.insertarListaPedido(codigoPlato, identificadorOrden, cantidad);
             }
             catch (Exception e)
             {
@@ -29,23 +29,11 @@ namespace BL
             }
         }
 
-        public void eliminarPlatoListaPedidos(String nombre_usuario, String identificador_plato)
+        public void eliminarPlatoListaPedidos(String codigoPlato, int identificadorOrden)
         {
             try
             {
-                listaPedido.eliminarPlatoListaPedidos(nombre_usuario, identificador_plato);
-            }
-            catch (Exception e)
-            {
-                throw new Exception(e.Message);
-            }
-        }
-
-        public void eliminarListaPedidoUsuario(String nombre_usuario, String identificador_plato)
-        {
-            try
-            {
-                listaPedido.eliminarListaPedidoUsuario(nombre_usuario);
+                listaPedido.eliminarPlatoListaPedidos(codigoPlato, identificadorOrden);
             }
             catch (Exception e)
             {
@@ -59,18 +47,8 @@ namespace BL
             List<BLListaPedido> listaBL = new List<BLListaPedido>();
             foreach (TOListaPedidos item in listaTO)
             {
-                listaBL.Add(new BLListaPedido(item.Nombre_Usuario, item.Identificador_Plato));
-            }
-            return listaBL;
-        }
-
-        public List<BLListaPedido> obtenerListaPedidosPorUsuario(String nombre_usuario)
-        {
-            List<TOListaPedidos> listaTO = listaPedido.obtenerListaPedidosPorUsuario(nombre_usuario);
-            List<BLListaPedido> listaBL = new List<BLListaPedido>();
-            foreach (TOListaPedidos item in listaTO)
-            {
-                listaBL.Add(new BLListaPedido(item.Nombre_Usuario, item.Identificador_Plato));
+                listaBL.Add(new BLListaPedido(item.Codigo_Plato, 
+                    item.Identificador_Orden, item.Cantidad_Plato));
             }
             return listaBL;
         }
@@ -81,7 +59,8 @@ namespace BL
             List<BLListaPedido> listaBL = new List<BLListaPedido>();
             foreach (TOListaPedidos item in listaTO)
             {
-                listaBL.Add(new BLListaPedido(item.Nombre_Usuario, item.Identificador_Plato));
+                listaBL.Add(new BLListaPedido(item.Codigo_Plato, item.Identificador_Orden, 
+                    item.Cantidad_Plato));
             }
             return listaBL;
         }

@@ -13,23 +13,26 @@ namespace BL
 
         DAOListaPedido daoLista = new DAOListaPedido();
 
-        public String Nombre_Usuario { get; set; }
-        public int Identificador_Plato { get; set; }
+        public String CodigoPlato { get; set; }
+        public int IdentificadorOrden { get; set; }
+        public int Cantidad { get; set; }
 
-        public BLListaPedido(String nombre_usuario, int identificador_plato)
+        public BLListaPedido(String codigoPlato, int identificadorOrden, int cantidad)
         {
-            Nombre_Usuario = nombre_usuario;
-            Identificador_Plato = identificador_plato;
+            CodigoPlato = codigoPlato;
+            IdentificadorOrden = identificadorOrden;
+            Cantidad = cantidad;
         }
 
         public BLListaPedido()
         { }
 
-        public void insertarListaPedido(String nombre_usuario, String identificador_plato)
+        public void insertarListaPedido(String codigoPlato, int identificadorOrden, int cantidad)
         {
             try
             {
-                daoLista.insertarListaProducto(nombre_usuario, int.Parse(identificador_plato));
+                TOListaPedidos toListaPedidos = new TOListaPedidos(codigoPlato, identificadorOrden, cantidad);
+                daoLista.insertarListaProducto(toListaPedidos);
             }
             catch (Exception e)
             {
@@ -37,23 +40,14 @@ namespace BL
             }
         }
 
-        public void eliminarPlatoListaPedidos(String nombre_usuario, String identificador_plato)
+        public void eliminarPlatoListaPedidos(String codigoPlato, int identificadorOrden)
         {
             try
             {
-                daoLista.eliminarPlato(nombre_usuario, int.Parse(identificador_plato));
-            }
-            catch (Exception e)
-            {
-                throw new Exception(e.Message);
-            }
-        }
-
-        public void eliminarListaPedidoUsuario(String nombre_usuario)
-        {
-            try
-            {
-                daoLista.eliminarPedidoUsuario(nombre_usuario);
+                TOListaPedidos toListaPedido = new TOListaPedidos();
+                toListaPedido.Codigo_Plato = codigoPlato;
+                toListaPedido.Identificador_Orden = identificadorOrden;
+                daoLista.eliminarPlato(toListaPedido);
             }
             catch (Exception e)
             {
@@ -73,23 +67,13 @@ namespace BL
             }
         }
 
-        public List<TOListaPedidos> obtenerListaPedidosPorUsuario(String nombre_usuario)
-        {
-            try
-            {
-                return daoLista.obtenerPedidosPorUsuario(nombre_usuario);
-            }
-            catch (Exception e)
-            {
-                throw new Exception(e.Message);
-            }
-        }
-
         public List<TOListaPedidos> obtenerListaPedidosPorPlato(String identificador_plato)
         {
             try
             {
-                return daoLista.obtenerPedidosPorPlato(int.Parse(identificador_plato));
+                TOListaPedidos toListaPedidos = new TOListaPedidos();
+                toListaPedidos.Codigo_Plato = identificador_plato;
+                return daoLista.obtenerPedidosPorPlato(toListaPedidos);
             }
             catch (Exception e)
             {
