@@ -320,7 +320,7 @@ setInterval(cargarPlatosTabla, 60000);
         var usuario = sessionStorage.getItem("NombreUsuario");
         var carrito2 = JSON.parse(sessionStorage.getItem("carrito"));
         var req = $.ajax({
-            url: "/WSRest/WSCliente.svc/finalizarCompraCarrito?Carrito=" + carrito2 + "&nombreUsuario=" + usuario.toString(),
+            url: "http://angielopez-001-site1.ctempurl.com/WSRest/WSCliente.svc/finalizarCompraCarrito?Carrito=" + carrito2 + "&nombreUsuario=" + usuario.toString(),
             timeout: 10000,
             dataType: "jsonp"
         }); //Es el que permite consultar/cargar información
