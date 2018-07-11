@@ -38,4 +38,17 @@ Public Class WSCliente
         'Falta validar si posee Nombre_Usuario es porque se autentico correctamente
         'El nombre de usuario se ocupa para tenerlo en la session para agregar los pedidos del carrito
     End Function
+
+    Public Function finalizarCompraCarrito(Carrito As String) As String Implements IWSCliente.finalizarCompraCarrito
+        ''Return Carrito
+        Dim carritoArray = Carrito.Split(",")
+        Dim prueba = "Prueba: "
+        For index = 0 To carritoArray.Length Step 4
+            If index >= carritoArray.Length Then
+                Exit For
+            End If
+            prueba += carritoArray(index)
+        Next
+        Return prueba
+    End Function
 End Class
