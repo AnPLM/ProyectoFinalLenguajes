@@ -64,7 +64,7 @@
                     <td class="col4" contenteditable="true"><%=x.Precio%></td>
                     <td>
                         <% Dim imgUrl As String = "/Imagenes/" + x.Fotografia %>
-                         <img src='"'+ <%= imgUrl %> + '"' class="img-rounded" alt="Cinque Terre" width="100" height="50"/>
+                         <img src="/Imagenes/" + <%=imgUrl %> + "" class="img-rounded" alt="Cinque Terre" width="100" height="50"/>
                     </td>
                      <td>
                          <div class="form-check">

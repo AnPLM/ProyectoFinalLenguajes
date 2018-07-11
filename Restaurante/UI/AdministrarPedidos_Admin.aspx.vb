@@ -4,6 +4,7 @@ Public Class AdministrarPedidos_Admin
 
     Protected Sub btnConsultar_Click(sender As Object, e As EventArgs) Handles btnConsultar.Click
         Try
+            lblError.Text = ""
             Dim cliente As String = txtCliente.Text.Trim()
             Dim estado As String = txtEstado.Text.Trim()
             Dim fechaInicio As String = txtFechaInicio.Text.Trim()
@@ -86,6 +87,9 @@ Public Class AdministrarPedidos_Admin
     End Sub
 
     Protected Sub Page_Load(sender As Object, e As EventArgs) Handles Me.Load
+        If Session("Usuario") Is Nothing Then
+            Response.Redirect("InicioSesion.aspx")
+        End If
         lblNumeroORden.Visible = False
         lblNuevoEstado.Visible = False
         txtNuevoEstado.Visible = False
@@ -95,6 +99,7 @@ Public Class AdministrarPedidos_Admin
     End Sub
 
     Protected Sub btnEditarEstados_Click(sender As Object, e As EventArgs) Handles btnEditarEstados.Click
+        lblError.Text = ""
         lblNumeroORden.Visible = True
         lblNuevoEstado.Visible = True
         txtNuevoEstado.Visible = True
@@ -104,6 +109,7 @@ Public Class AdministrarPedidos_Admin
 
     Protected Sub btnCambiarEstado_Click(sender As Object, e As EventArgs) Handles btnCambiarEstado.Click
         Try
+            lblError.Text = ""
             Dim orden As Integer = Integer.Parse(txtOrden.Text.Trim())
             Dim nuevoEstado As String = txtNuevoEstado.Text.Trim()
 
