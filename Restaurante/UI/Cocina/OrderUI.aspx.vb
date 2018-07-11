@@ -10,11 +10,11 @@ Public Class OrderUI
 
     Protected Sub btnEntregar_Click(sender As Object, e As EventArgs)
         Dim ide = Session("ide")
-        orden.eliminar(ide)
+        orden.actualizar("Entregado", ide)
         Response.Redirect("OrderUI.aspx")
     End Sub
 
-    Protected Sub btnDeshacer_Click(sender As Object, e As EventArgs)
+    Protected Sub btnDeshacer_Click(sender As Object, e As EventArgs) Handles btnDeshacer.Click
         Dim o As BLOrden = Session("des")
         orden.insertar(o.nombreUsuario, o.Fecha, o.Estado, o.Identificador)
         Response.Redirect("OrderUI.aspx")

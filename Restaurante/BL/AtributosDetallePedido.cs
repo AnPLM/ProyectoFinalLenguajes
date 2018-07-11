@@ -9,6 +9,7 @@ namespace BL
     [Serializable]
     public class AtributosDetallePedido
     {
+        public int IDOrden { get; set; }
         public String NombreUsuario { get; set; }
         public String NombrePlato { get; set; }
         public int Cantidad { get; set; }
@@ -16,9 +17,10 @@ namespace BL
         public String Fecha { get; set; }
 
 
-        public AtributosDetallePedido(String nombreUsuario,
+        public AtributosDetallePedido(int idOrden, String nombreUsuario,
             String nombrePlato, String estado, String fecha, int cantidad)
         {
+            this.IDOrden = idOrden;
             this.NombrePlato = nombrePlato;
             this.NombreUsuario = nombreUsuario;
             this.Cantidad = cantidad;

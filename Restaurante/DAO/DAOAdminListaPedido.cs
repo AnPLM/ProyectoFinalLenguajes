@@ -18,8 +18,8 @@ namespace DAO
             try
             {
 
-                String consulta = "select * from (select lo.Nombre_Usuario, p.nombre, lo.cantidad, " +
-                "lo.estado, lo.fecha from plato p, (select l.cantidad, o.Nombre_Usuario,  " + 
+                String consulta = "select * from (select lo.Identificador as ID_Orden, lo.Nombre_Usuario, p.nombre, lo.cantidad, " +
+                "lo.estado, lo.fecha from plato p, (select o.Identificador, l.cantidad, o.Nombre_Usuario,  " + 
                 "o.estado, o.fecha, l.Codigo_Plato from lista_Pedido l, orden o where " + 
                 "l.Identificador_Orden=o.Identificador) lo where p.Codigo = lo.codigo_plato) " + 
                 "as d where nombre_usuario = @cl";
@@ -40,6 +40,7 @@ namespace DAO
                     while (lector.Read())
                     {
                         atributo = new TOAtributosDetallePedido();
+                        atributo.IDORden = int.Parse(lector["ID_Orden"].ToString());
                         atributo.NombreUsuario = lector["Nombre_Usuario"].ToString();
                         atributo.NombrePlato = lector["Nombre"].ToString();
                         atributo.Cantidad = int.Parse(lector["Cantidad"].ToString());
@@ -73,8 +74,8 @@ namespace DAO
             try
             {
 
-                String consulta = "select * from (select lo.Nombre_Usuario, p.nombre, lo.cantidad, " + 
-                    "lo.estado, lo.fecha from plato p, (select l.cantidad, o.Nombre_Usuario,  " + 
+                String consulta = "select * from (select lo.Identificador as ID_Orden, lo.Nombre_Usuario, p.nombre, lo.cantidad, " + 
+                    "lo.estado, lo.fecha from plato p, (select o.Identificador, l.cantidad, o.Nombre_Usuario,  " + 
                     "o.estado, o.fecha, l.Codigo_Plato from lista_Pedido l, orden o where " + 
                     "l.Identificador_Orden=o.Identificador) lo where p.Codigo = lo.codigo_plato) " +
                     "as d where d.fecha between CAST(@fi AS datetime) and CAST(@ff AS datetime);";
@@ -96,6 +97,7 @@ namespace DAO
                     while (lector.Read())
                     {
                         atributo = new TOAtributosDetallePedido();
+                        atributo.IDORden = int.Parse(lector["ID_Orden"].ToString());
                         atributo.NombreUsuario = lector["Nombre_Usuario"].ToString();
                         atributo.NombrePlato = lector["Nombre"].ToString();
                         atributo.Cantidad = int.Parse(lector["Cantidad"].ToString());
@@ -129,8 +131,8 @@ namespace DAO
             try
             {
 
-                String consulta = "select * from (select lo.Nombre_Usuario, p.nombre, lo.cantidad," + 
-                    "lo.estado, lo.fecha from plato p, (select l.cantidad, o.Nombre_Usuario,  " +
+                String consulta = "select * from (select lo.Identificador as ID_Orden, lo.Nombre_Usuario, p.nombre, lo.cantidad," + 
+                    "lo.estado, lo.fecha from plato p, (select o.Identificador, l.cantidad, o.Nombre_Usuario,  " +
                     "o.estado, o.fecha, l.Codigo_Plato from lista_Pedido l, orden o " + 
                     "where l.Identificador_Orden=o.Identificador) lo where p.Codigo = lo.codigo_plato)" + 
                     " as d where estado = @est";
@@ -151,6 +153,7 @@ namespace DAO
                     while (lector.Read())
                     {
                         atributo = new TOAtributosDetallePedido();
+                        atributo.IDORden = int.Parse(lector["ID_Orden"].ToString());
                         atributo.NombreUsuario = lector["Nombre_Usuario"].ToString();
                         atributo.NombrePlato = lector["Nombre"].ToString();
                         atributo.Cantidad = int.Parse(lector["Cantidad"].ToString());
@@ -184,8 +187,8 @@ namespace DAO
             try
             {
 
-                String consulta = "select * from (select lo.Nombre_Usuario, p.nombre, lo.cantidad," +
-                    "lo.estado, lo.fecha from plato p, (select l.cantidad, o.Nombre_Usuario,  " +
+                String consulta = "select * from (select lo.Identificador as ID_Orden, lo.Nombre_Usuario, p.nombre, lo.cantidad," +
+                    "lo.estado, lo.fecha from plato p, (select o.Identificador, l.cantidad, o.Nombre_Usuario,  " +
                     "o.estado, o.fecha, l.Codigo_Plato from lista_Pedido l, orden o " +
                     "where l.Identificador_Orden=o.Identificador) lo where p.Codigo = lo.codigo_plato)" +
                     " as d where (d.estado = @est) and (d.nombre_usuario = @cl) and " +
@@ -210,6 +213,7 @@ namespace DAO
                     while (lector.Read())
                     {
                         atributo = new TOAtributosDetallePedido();
+                        atributo.IDORden = int.Parse(lector["ID_Orden"].ToString());
                         atributo.NombreUsuario = lector["Nombre_Usuario"].ToString();
                         atributo.NombrePlato = lector["Nombre"].ToString();
                         atributo.Cantidad = int.Parse(lector["Cantidad"].ToString());
@@ -244,8 +248,8 @@ namespace DAO
             try
             {
 
-                String consulta = "select * from (select lo.Nombre_Usuario, p.nombre, lo.cantidad," +
-                    "lo.estado, lo.fecha from plato p, (select l.cantidad, o.Nombre_Usuario,  " +
+                String consulta = "select * from (select lo.Identificador as ID_Orden, lo.Nombre_Usuario, p.nombre, lo.cantidad," +
+                    "lo.estado, lo.fecha from plato p, (select o.Identificador, l.cantidad, o.Nombre_Usuario,  " +
                     "o.estado, o.fecha, l.Codigo_Plato from lista_Pedido l, orden o " +
                     "where l.Identificador_Orden=o.Identificador) lo where p.Codigo = lo.codigo_plato)" +
                     " as d where (d.nombre_usuario = @cl) and " +
@@ -269,6 +273,7 @@ namespace DAO
                     while (lector.Read())
                     {
                         atributo = new TOAtributosDetallePedido();
+                        atributo.IDORden = int.Parse(lector["ID_Orden"].ToString());
                         atributo.NombreUsuario = lector["Nombre_Usuario"].ToString();
                         atributo.NombrePlato = lector["Nombre"].ToString();
                         atributo.Cantidad = int.Parse(lector["Cantidad"].ToString());
@@ -302,8 +307,8 @@ namespace DAO
             try
             {
 
-                String consulta = "select * from (select lo.Nombre_Usuario, p.nombre, lo.cantidad," +
-                    "lo.estado, lo.fecha from plato p, (select l.cantidad, o.Nombre_Usuario,  " +
+                String consulta = "select * from (select lo.Identificador as ID_Orden, lo.Nombre_Usuario, p.nombre, lo.cantidad," +
+                    "lo.estado, lo.fecha from plato p, (select o.Identificador, l.cantidad, o.Nombre_Usuario,  " +
                     "o.estado, o.fecha, l.Codigo_Plato from lista_Pedido l, orden o " +
                     "where l.Identificador_Orden=o.Identificador) lo where p.Codigo = lo.codigo_plato)" +
                     " as d where (d.estado = @est) and (d.nombre_usuario = @cl)";
@@ -325,6 +330,7 @@ namespace DAO
                     while (lector.Read())
                     {
                         atributo = new TOAtributosDetallePedido();
+                        atributo.IDORden = int.Parse(lector["ID_Orden"].ToString());
                         atributo.NombreUsuario = lector["Nombre_Usuario"].ToString();
                         atributo.NombrePlato = lector["Nombre"].ToString();
                         atributo.Cantidad = int.Parse(lector["Cantidad"].ToString());
@@ -358,8 +364,8 @@ namespace DAO
             try
             {
 
-                String consulta = "select * from (select lo.Nombre_Usuario, p.nombre, lo.cantidad," +
-                    "lo.estado, lo.fecha from plato p, (select l.cantidad, o.Nombre_Usuario,  " +
+                String consulta = "select * from (select lo.identificados as ID_Orden, lo.Nombre_Usuario, p.nombre, lo.cantidad," +
+                    "lo.estado, lo.fecha from plato p, (select o.identificador, l.cantidad, o.Nombre_Usuario,  " +
                     "o.estado, o.fecha, l.Codigo_Plato from lista_Pedido l, orden o " +
                     "where l.Identificador_Orden=o.Identificador) lo where p.Codigo = lo.codigo_plato)" +
                     " as d where (d.estado = @est) and " +
@@ -383,6 +389,7 @@ namespace DAO
                     while (lector.Read())
                     {
                         atributo = new TOAtributosDetallePedido();
+                        atributo.IDORden = int.Parse(lector["ID_Orden"].ToString());
                         atributo.NombreUsuario = lector["Nombre_Usuario"].ToString();
                         atributo.NombrePlato = lector["Nombre"].ToString();
                         atributo.Cantidad = int.Parse(lector["Cantidad"].ToString());
@@ -411,7 +418,5 @@ namespace DAO
                 }
             }
         }
-
-        //public void actualizarEstadoPedidoAdmin(TOAdminListaPedido toAdmin)
     }
 }

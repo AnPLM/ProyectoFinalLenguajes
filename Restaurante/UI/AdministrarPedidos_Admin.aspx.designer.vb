@@ -131,22 +131,22 @@ Partial Public Class AdministrarPedidos_Admin
     Protected WithEvents btnEditarEstados As Global.System.Web.UI.WebControls.Button
     
     '''<summary>
-    '''lblNombreUsuario control.
+    '''lblNumeroORden control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents lblNombreUsuario As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents lblNumeroORden As Global.System.Web.UI.WebControls.Label
     
     '''<summary>
-    '''txtUsuario control.
+    '''txtOrden control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents txtUsuario As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents txtOrden As Global.System.Web.UI.WebControls.TextBox
     
     '''<summary>
     '''lblNuevoEstado control.

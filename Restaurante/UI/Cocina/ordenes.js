@@ -32,27 +32,41 @@ function lista() {
 	});
 }
 
+
+setInterval(function () { lista(); }, 3000);
+
 function cargarLista(datos){
 
-	var table = document.getElementById('table');
+    var table = document.getElementById('table');
+    table.innerHTML = "";
 	$.each(datos, function () {
 	    var tr = document.createElement("tr");
 	    tr.innerHTML += '<td class="text-center">' + this.nombreUsuario + "</td>";
-	    tr.innerHTML += '<td class="text-center">' + this.Fecha + "</td>";
+	    tr.innerHTML += '<td class="text-center">' + Date.parse(this.Fecha) + "</td>";
 	    tr.innerHTML += '<td class="text-center">' + this.Estado + "</td>";
 	    tr.innerHTML += '<td class="text-center">' + this.Identificador + "</td>";
-	    tr.innerHTML += '<td class="text-center">' + '<button id="' + this.Identificador + '"' + '>Entregar</button></td>'
+	    tr.innerHTML += '<td class="text-center">' + '<button onclick="entregar('+ this.Identificador +')"'
+	    + '"id="' + this.Identificador + '"' + '>Entregar</button></td>'
 	    var btnID = this.Identificador;
-	    $('#' + btnID).bind("click", function () {
+       // alert(btnID)
+	    /*$('#' + btnID).bind("click", function () {
+            alert("dentro del click")
 	        entregar(btnID);
-	    });
+	    });*/
 	    table.append(tr)
 	});
 }
 
+function cargarPrimeraVez() {
+    lista();
+}
+
+
+
 function entregar(btnId) {
+   // alert("a punto de entregar")
     var req = $.ajax({
-        url: "http://angielopez-001-site1.ctempurl.com/WSRest/WSRestCoc.svc/actualizar?" + "estado=entregado" + "&"+"ide="+ btnId,
+        url: "/WSRest/WSRestCoc.svc/actualizar?" + "estado=entregado" + "&" + "ide=" + btnId,
         timeout: 10000,
         dataType: "jsonp"
     });
