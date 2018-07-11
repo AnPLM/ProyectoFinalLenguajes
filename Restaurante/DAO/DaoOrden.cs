@@ -29,24 +29,24 @@ namespace DAO
 
         public void insertar(TOOrden o)
         {
-            String query = "insert into Orden values(@nom, @fec, @est, @ide);";
+            String query = "Insert INTO Orden(Nombre_Usuario, Estado) values(@nom, @est);";
             string conn = Properties.Settings.Default.Conn;
             SqlCommand command = new SqlCommand(query, new SqlConnection(conn));
             try
             {
                 command.Parameters.AddWithValue("@nom", o.Nombre_Usuario);
-                command.Parameters.AddWithValue("@fec", o.Fecha);
+               // command.Parameters.AddWithValue("@fec", o.Fecha);
                 command.Parameters.AddWithValue("@est", o.Estado);
-                command.Parameters.AddWithValue("@ide", o.Identificador);
+                //command.Parameters.AddWithValue("@ide", o.Identificador);
                 if (command.Connection.State == ConnectionState.Closed) { command.Connection.Open(); }
                 command.ExecuteNonQuery();
-          //      if (command.Connection.State == ConnectionState.Open) { command.Connection.Close(); }
+                if (command.Connection.State == ConnectionState.Open) { command.Connection.Close(); }
             }
             catch (Exception e)
             {
                 throw e;
             }
-         //   finally { if (command.Connection.State == ConnectionState.Open) { command.Connection.Close(); } }
+            finally { if (command.Connection.State == ConnectionState.Open) { command.Connection.Close(); } }
         }
 
         public void eliminar(int id)
@@ -59,13 +59,13 @@ namespace DAO
                 command.Parameters.AddWithValue("@id", id);
                 if (command.Connection.State == ConnectionState.Closed) { command.Connection.Open(); }
                 command.ExecuteNonQuery();
-            //    if (command.Connection.State == ConnectionState.Open) { command.Connection.Close(); }
+                if (command.Connection.State == ConnectionState.Open) { command.Connection.Close(); }
             }
             catch (Exception e)
             {
                 throw e;
             }
-         //   finally { if (command.Connection.State == ConnectionState.Open) { command.Connection.Close(); } }
+            finally { if (command.Connection.State == ConnectionState.Open) { command.Connection.Close(); } }
         }
 
         public void actualizar(TOOrden o)
@@ -81,13 +81,13 @@ namespace DAO
                 command.Parameters.AddWithValue("@ide", o.Identificador);
                 if (command.Connection.State == ConnectionState.Closed) { command.Connection.Open(); }
                 command.ExecuteNonQuery();
-           //     if (command.Connection.State == ConnectionState.Open) { command.Connection.Close(); }
+                if (command.Connection.State == ConnectionState.Open) { command.Connection.Close(); }
             }
             catch (Exception e)
             {
                 throw e;
             }
-         //   finally { if (command.Connection.State == ConnectionState.Open) { command.Connection.Close(); } }
+            finally { if (command.Connection.State == ConnectionState.Open) { command.Connection.Close(); } }
         }
 
         public TOOrden Buscar(int identificador)
@@ -106,14 +106,14 @@ namespace DAO
                 string estado = data.GetValue(2).ToString();
                 int ident = Int32.Parse(data.GetValue(3).ToString());
                 o = new TOOrden(nombre, fecha, estado, ident);
-             //   if (command.Connection.State == ConnectionState.Open) { command.Connection.Close(); }
+                if (command.Connection.State == ConnectionState.Open) { command.Connection.Close(); }
             }
             catch (Exception e)
             {
 
                 throw e;
             }
-          //  finally { if (command.Connection.State == ConnectionState.Open) { command.Connection.Close(); } }
+            finally { if (command.Connection.State == ConnectionState.Open) { command.Connection.Close(); } }
             return o;
         }
 
@@ -141,7 +141,7 @@ namespace DAO
                         list.AddLast(o);
                     }
                 }
-               // if (command.Connection.State == ConnectionState.Open) { command.Connection.Close(); }
+                if (command.Connection.State == ConnectionState.Open) { command.Connection.Close(); }
             }
             catch (Exception e)
             {
@@ -149,7 +149,7 @@ namespace DAO
             }
             finally
             {
-             //   if (command.Connection.State == ConnectionState.Open) { command.Connection.Close(); }
+                if (command.Connection.State == ConnectionState.Open) { command.Connection.Close(); }
             }
             return list;
         }
@@ -167,7 +167,7 @@ namespace DAO
                 if (command.Connection.State == ConnectionState.Closed) { command.Connection.Open(); }
                 data = command.ExecuteReader();
 
-                //if (command.Connection.State == ConnectionState.Open) { command.Connection.Close(); }
+                if (command.Connection.State == ConnectionState.Open) { command.Connection.Close(); }
             }
             catch (Exception e)
             {
@@ -175,7 +175,7 @@ namespace DAO
             }
             finally
             {
-                //if (command.Connection.State == ConnectionState.Open) { command.Connection.Close(); }
+                if (command.Connection.State == ConnectionState.Open) { command.Connection.Close(); }
             }
             return data;
         }

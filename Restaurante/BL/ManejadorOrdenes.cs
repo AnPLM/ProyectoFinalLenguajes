@@ -54,6 +54,23 @@ namespace BL
             dao.actualizar(o);
         }
 
+        public List<BLOrden> listaActiva() {
+            LinkedList<TOOrden> array = dao.listaOrdenes();
+            List<BLOrden> list = new List<BLOrden>();
+            for (int i = 0; i < dao.listaOrdenes().Count; i++)
+            {
+                if (array.ElementAt<TOOrden>(i).Estado.Equals("activo")) {
+
+                list.Add(new BLOrden(array.ElementAt<TOOrden>(i).Nombre_Usuario,
+                    array.ElementAt<TOOrden>(i).Fecha,
+                    array.ElementAt<TOOrden>(i).Estado,
+                    array.ElementAt<TOOrden>(i).Identificador));
+                }
+
+            }
+            return list;
+        }
+
         public BLOrden Buscar(int identificador)
         {
             TOOrden o = dao.Buscar(identificador);
