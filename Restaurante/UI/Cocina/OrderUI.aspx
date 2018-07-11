@@ -35,9 +35,8 @@
                     <%Dim orde As BL.BLOrden = o %>
                     <td class="col1" contenteditable="true"> <asp:Button type="submit"
                          Cssclass="btn btn-success btn-responsive margin-botton-panel" 
-                        ID="btnEntregar" OnClick="btnEntregar_Click" runat="server"
-                         Text="Entregar"/> <%Session("des") = o %> <%Session("ide") =
-o.Identificador %>  </td>
+                        ID="btnEntregar"+<%=o.Identificador %> OnClick="btnEntregar_Click" runat="server"
+                         Text="Entregar"/> <%Session("des") = o %> <%Session("ide" & o.Identificador) = o.Identificador %>  </td>
                     <!-- <% 'dim i As String = "ide" + count'%>-->
                 </tr>            
                 <%Next %>
