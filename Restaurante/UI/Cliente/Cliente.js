@@ -424,7 +424,6 @@ setInterval(cargarPlatosTabla, 60000);
 
     function actualizarDatosCliente() {
 
-        alert("En actualizar")
         var usuario = sessionStorage.getItem("NombreUsuario");
         
         var txtContrasenna = document.getElementById("txtContrasenna").value;
@@ -439,13 +438,10 @@ setInterval(cargarPlatosTabla, 60000);
                 if (txtContrasenna.toString() != txtContrasennaDos.toString()) {
                     alert("Las contraseñas no coinciden")
                 } else {
-
-                    alert("/WSRest/WSCliente.svc/actualizarDatosCliente" + "?nombre=" + txtNombre + "&nombreUsuario=" + usuario.toString() +
-                        "&direccion=" + txtDireccion + "&contrasenna=" + txtContrasenna)
                     var req = $.ajax({
                         url: "http://angielopez-001-site1.ctempurl.com/WSRest/WSCliente.svc/actualizarDatosCliente" + "?nombre=" + txtNombre + "&nombreUsuario=" + usuario.toString() +
                         "&direccion=" + txtDireccion + "&contrasenna=" + txtContrasenna,
-                        timeout: 1000000,
+                        timeout: 10000,
                         dataType: "jsonp"
                     }); //Es el que permite consultar/cargar información
                     //de una URL sin hacer postback
