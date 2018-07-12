@@ -364,7 +364,7 @@ namespace DAO
             try
             {
 
-                String consulta = "select * from (select lo.identificados as ID_Orden, lo.Nombre_Usuario, p.nombre, lo.cantidad," +
+                String consulta = "select * from (select lo.identificador as ID_Orden, lo.Nombre_Usuario, p.nombre, lo.cantidad," +
                     "lo.estado, lo.fecha from plato p, (select o.identificador, l.cantidad, o.Nombre_Usuario,  " +
                     "o.estado, o.fecha, l.Codigo_Plato from lista_Pedido l, orden o " +
                     "where l.Identificador_Orden=o.Identificador) lo where p.Codigo = lo.codigo_plato)" +
