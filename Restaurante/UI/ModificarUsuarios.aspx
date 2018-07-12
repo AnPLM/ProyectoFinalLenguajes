@@ -3,7 +3,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cuerpo" runat="server">
      <form id="form1" runat="server" class="form-group-lg">
-     <%Dim lista As ArrayList = Session("Usuario") %>
+     <%Dim lista As ArrayList = Session("Usuario1") %>
      <div class="container col-sm-8 col-md-offset-2"  style="background-color:firebrick">
           <div class="container col-md-4 col-sm-offset-4"  style="background-color:firebrick">
              <h3 style="color:beige" class="text-center">Modificar Usuarios</h3>
@@ -11,7 +11,6 @@
             <div class="panel panel-default col-sm-12" style="background-color:firebrick">
                 <asp:Button type="submit" Cssclass="btn btn-success btn-block inputBoton margin-up-button margin-botton-panel" ID="btnModificarNombre" runat="server" Text="Modificar Nombre Usuario" />
                 <asp:Button type="submit" Cssclass="btn btn-success btn-block inputBoton margin-botton-panel" ID="btnModificarContrasenna" runat="server" Text="Modificar Contraseña" />
-                <asp:Button type="submit" Cssclass="btn btn-success btn-block inputBoton margin-botton-panel" ID="btnHabilitar" runat="server" Text="Habilitar/Deshabilitar" />
                 <asp:Button ID="Regresar" Cssclass="btn btn-primary btn-block inputBoton margin-botton-panel" runat="server" Text="Regresar" />
 
             </div>
