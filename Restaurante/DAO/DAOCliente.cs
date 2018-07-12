@@ -55,12 +55,12 @@ namespace DAO
 
         public void actualizarDatosCliente(TOCliente clienteTO)
         {
-            //try
-            //{
+            try
+            {
                 SqlCommand sentencia = new SqlCommand("update Cliente set Nombre=@nom, " +
                     "Contrasenna=@contr, Direccion=@dir, Correo=@cor where Nombre_Usuario=@usuar", conexion);
-            
-            sentencia.Parameters.AddWithValue("@nom", clienteTO.Nombre);
+
+                sentencia.Parameters.AddWithValue("@nom", clienteTO.Nombre);
                 sentencia.Parameters.AddWithValue("@contr", clienteTO.Contrasenna);
                 sentencia.Parameters.AddWithValue("@dir", clienteTO.Direccion);
                 sentencia.Parameters.AddWithValue("@usuar", clienteTO.NombreUsuario);
@@ -72,24 +72,24 @@ namespace DAO
                 }
 
                 sentencia.ExecuteNonQuery();
-            sentencia.Parameters.RemoveAt("@nom");
-            sentencia.Parameters.RemoveAt("@contr");
-            sentencia.Parameters.RemoveAt("@dir");
-            sentencia.Parameters.RemoveAt("@usuar");
-            sentencia.Parameters.RemoveAt("@cor");
+                //sentencia.Parameters.RemoveAt("@nom");
+                //sentencia.Parameters.RemoveAt("@contr");
+                //sentencia.Parameters.RemoveAt("@dir");
+                //sentencia.Parameters.RemoveAt("@usuar");
+                //sentencia.Parameters.RemoveAt("@cor");
 
-            //}
-            //catch (Exception)
-            //{
-            //    throw new Exception("Ocurrió un error al actualizar los datos");
-            //}
-            //finally
-            //{
-            //    if (conexion.State != ConnectionState.Closed)
-            //    {
-            //        conexion.Close();
-            //    }
-            //}
+            }
+            catch (Exception)
+            {
+                throw new Exception("Ocurrió un error al actualizar los datos");
+            }
+            finally
+            {
+                if (conexion.State != ConnectionState.Closed)
+                {
+                    conexion.Close();
+                }
+            }
 
         }
 

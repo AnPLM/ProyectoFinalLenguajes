@@ -19,8 +19,8 @@ namespace DAO
 
         public void insertarListaProducto(TOListaPedidos toListaPedidos)
         {
-         /*   try
-            {*/
+            try
+            {
             consulta = "INSERT INTO LISTA_PEDIDO VALUES(@plato, @identificador, @cant)";
 
             comando.CommandText = consulta;
@@ -38,7 +38,7 @@ namespace DAO
             comando.Parameters.RemoveAt("@identificador");
             comando.Parameters.RemoveAt("@cant");
 
-            /*}
+            }
             catch (SqlException)
             {
                 throw new Exception("¡Error en la base de datos!");
@@ -48,12 +48,12 @@ namespace DAO
                 throw;
             }
             finally
-            {*/
+            {
             if (conexion.State != ConnectionState.Closed)
                 {
                     conexion.Close();
                 }
-            /*}*/
+            }
         }
 
         public void eliminarPlato(TOListaPedidos toListaPedidos)
