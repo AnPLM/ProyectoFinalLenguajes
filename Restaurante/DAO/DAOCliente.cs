@@ -53,45 +53,70 @@ namespace DAO
             }          
         }
 
-        public void actualizarDatosCliente(TOCliente clienteTO)
-        {
-            //try
-            //{
-                SqlCommand sentencia = new SqlCommand("update Cliente set Nombre=@nom, " +
-                    "Contrasenna=@contr, Direccion=@dir, Correo=@cor where Nombre_Usuario=@usuar", conexion);
-            
-            sentencia.Parameters.AddWithValue("@nom", clienteTO.Nombre);
-                sentencia.Parameters.AddWithValue("@contr", clienteTO.Contrasenna);
-                sentencia.Parameters.AddWithValue("@dir", clienteTO.Direccion);
-                sentencia.Parameters.AddWithValue("@usuar", clienteTO.NombreUsuario);
-                sentencia.Parameters.AddWithValue("@cor", clienteTO.Correo);
 
-                if (conexion.State != ConnectionState.Open)
+
+        public void abrirConexion()
+        {
+            if (conexion.State == ConnectionState.Closed)
+            {
+                conexion.Open();
+            }
+
+        }
+
+        public void actualizarDatosCliente(TOCliente toCliente)
+        {
+            try
+            {
+                String consulta;
+                SqlCommand sentencia = new SqlCommand();
+                abrirConexion();
+                if (toCliente.Nombre != "")
                 {
-                    conexion.Open();
+                    consulta = "UPDATE Cliente set Nombre = @nom WHERE Nombre_Usuario = @nomUsu";
+                    sentencia = new SqlCommand(consulta, conexion);
+                    sentencia.Parameters.AddWithValue("@nom", toCliente.Nombre);
+                    sentencia.Parameters.AddWithValue("@nomUsu", toCliente.NombreUsuario);
+                    sentencia.ExecuteNonQuery();
+                }
+                if (toCliente.Direccion != "")
+                {
+                    consulta = "UPDATE Cliente set Direccion = @dir WHERE Nombre_Usuario = @nomUsu";
+                    sentencia = new SqlCommand(consulta, conexion);
+                    sentencia.Parameters.AddWithValue("@dir", toCliente.Direccion);
+                    sentencia.Parameters.AddWithValue("@nomUsu", toCliente.NombreUsuario);
+                    sentencia.ExecuteNonQuery();
+                }
+                if (toCliente.Contrasenna != "")
+                {
+                    consulta = "UPDATE Cliente set Contrasenna = @con WHERE Nombre_Usuario = @nomUsu";
+                    sentencia = new SqlCommand(consulta, conexion);
+                    sentencia.Parameters.AddWithValue("@con", toCliente.Contrasenna);
+                    sentencia.Parameters.AddWithValue("@nomUsu", toCliente.NombreUsuario);
+                    sentencia.ExecuteNonQuery();
                 }
 
                 sentencia.ExecuteNonQuery();
-            sentencia.Parameters.RemoveAt("@nom");
-            sentencia.Parameters.RemoveAt("@contr");
-            sentencia.Parameters.RemoveAt("@dir");
-            sentencia.Parameters.RemoveAt("@usuar");
-            sentencia.Parameters.RemoveAt("@cor");
+            }
+            catch (Exception)
+            {
 
-            //}
-            //catch (Exception)
-            //{
-            //    throw new Exception("Ocurrió un error al actualizar los datos");
-            //}
-            //finally
-            //{
-            //    if (conexion.State != ConnectionState.Closed)
-            //    {
-            //        conexion.Close();
-            //    }
-            //}
-
+                throw new Exception("Ocurrió un error al insertar");
+            }
+            finally
+            {
+                cerrarConexion();
+            }
         }
+
+        public void cerrarConexion()
+        {
+            if (conexion.State == ConnectionState.Open)
+            {
+                conexion.Close();
+            }
+        }
+
 
         public void habilitarCliente(TOCliente toCliente) {
             try

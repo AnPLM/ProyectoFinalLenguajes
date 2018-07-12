@@ -29,10 +29,10 @@ Public Interface IWSCliente
 
     <OperationContract()>
     <WebGet(RequestFormat:=WebMessageFormat.Json, ResponseFormat:=WebMessageFormat.Json)>
-    Function buscarCliente(nombreUsuario As String) As Cliente
+    Function buscarCliente(nombreUsuario As String) As List(Of Cliente)
 
     <OperationContract>
     <WebGet(RequestFormat:=WebMessageFormat.Json, ResponseFormat:=WebMessageFormat.Json)>
-    Sub actualizarDatosCliente(nombre As String, nombreUsuario As String, correo As String, direccion As String,
+    Sub actualizarDatosCliente(nombre As String, nombreUsuario As String, direccion As String,
                          contrasenna As String)
 End Interface

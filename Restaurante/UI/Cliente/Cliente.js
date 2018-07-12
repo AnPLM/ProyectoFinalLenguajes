@@ -7,6 +7,7 @@ let $total = document.querySelector('#total');
 /////////////////////////////////////////
 
 function cargarPlatosTabla() {
+    if (document.location.href.includes("ClienteMenu.html")) {
     var req = $.ajax({
         url: "http://angielopez-001-site1.ctempurl.com/WSRest/WSCliente.svc/platosActivos",
         timeout: 10000,
@@ -20,6 +21,7 @@ function cargarPlatosTabla() {
     req.fail(function(){
         alert("¡Servicio no disponible, disculpe las molestias! Si desea emitir un reporte, puede hacerlo a nuestros teléfonos");
     });
+    }
 }
 
 function inicioPaginaMenu() {
@@ -42,6 +44,28 @@ function cargarUsuarioDropMenu() {
         }
         
     }
+}
+
+function cargarUsuarioDropActualizar() {
+    var usuario = sessionStorage.getItem("NombreUsuario");
+    if (usuario == null) {
+        document.location.href = document.location.href.replace("ActualizarDatosCliente.html", "InicioSesionCliente.html");
+        alert("Debe iniciar sesión")
+    } else {
+        if (usuario.toString() == "null") {
+            document.location.href = document.location.href.replace("ActualizarDatosCliente.html", "InicioSesionCliente.html");
+            alert("Debe iniciar sesión")
+        } else {
+            document.getElementById("drpUsuario").innerHTML = usuario;
+            document.getElementById("drpUsuario").innerHTML += '<span class="caret"></span><!--flecha para dropdown-->'
+        }
+
+    }
+}
+
+function inicioActualizar() {
+    buscarClienteActualizar();
+    cargarUsuarioDropActualizar();
 }
 
 function cargarUsuarioDropCarrito() {
@@ -341,7 +365,7 @@ setInterval(cargarPlatosTabla, 60000);
             } else {
 
                 var req = $.ajax({
-                    url: "/WSRest/WSCliente.svc/registrarCliente" + "?nombre=" + txtNombre + "&nombreUsuario=" + txtNombreUsuario +
+                    url: "http://angielopez-001-site1.ctempurl.com/WSRest/WSCliente.svc/registrarCliente" + "?nombre=" + txtNombre + "&nombreUsuario=" + txtNombreUsuario +
                     "&correo=" +txtEmail+ "&direccion=" + txtDireccion + "&contrasenna=" + txtContrasenna,
                     timeout: 10000,
                     dataType: "jsonp"
@@ -373,7 +397,7 @@ setInterval(cargarPlatosTabla, 60000);
                 alert("Debe iniciar sesión")
             } else {
                 var req = $.ajax({
-                    url: "http://angielopez-001-site1.ctempurl.com/WSRest/WSCliente.svc/buscarCliente" + "?NombreUsuario=" + usuario.toString(),
+                    url: "http://angielopez-001-site1.ctempurl.com/WSRest/WSCliente.svc/buscarCliente" + "?nombreUsuario=" + usuario.toString(),
                     timeout: 10000,
                     dataType: "jsonp"
                 }); //Es el que permite consultar/cargar información
@@ -387,27 +411,22 @@ setInterval(cargarPlatosTabla, 60000);
                 });
             }
         }
+    }
 
     function llenarTXTActualizar(datos) {
         $.each(datos, function () {
-            
-            document.getElementById('txtDireccion').innerHTML = this.Direccion
-            document.getElementById('txtNombre').innerHTML = this.Nombre
-            document.getElementById('txtContrasenna').innerHTML = this.Contrasenna
-            document.getElementById('txtContrasennaDos').innerHTML = this.Contrasenna
-
-            /*window.sessionStorage.setItem("Nombre", this.Nombre)
-            window.sessionStorage.setItem("Correo", this.Correo)
-            window.sessionStorage.setItem("NombreUsuario", this.NombreUsuario)
-            window.sessionStorage.setItem("Direccion", this.Direccion)
-            if (document.location.href.includes("InicioSesionCliente.html")) {
-                alert("¡Datos Actualizados!")
-                document.location.href = document.location.href.replace("InicioSesionCliente.html", "ClienteMenu.html");
-            }*/
+            document.getElementById('txtDireccion').value = this.Direccion
+            document.getElementById('txtNombre').value = this.Nombre
+            document.getElementById('txtContrasenna').value = this.Contrasenna
+            document.getElementById('txtContrasennaDos').value = this.Contrasenna
         });
     }
 
     function actualizarDatosCliente() {
+
+        alert("En actualizar")
+        var usuario = sessionStorage.getItem("NombreUsuario");
+        
         var txtContrasenna = document.getElementById("txtContrasenna").value;
         var txtContrasennaDos = document.getElementById("txtContrasennaDos").value;
         var txtNombre = document.getElementById("txtNombre").value;
@@ -421,9 +440,12 @@ setInterval(cargarPlatosTabla, 60000);
                     alert("Las contraseñas no coinciden")
                 } else {
 
+                    alert("/WSRest/WSCliente.svc/actualizarDatosCliente" + "?nombre=" + txtNombre + "&nombreUsuario=" + usuario.toString() +
+                        "&direccion=" + txtDireccion + "&contrasenna=" + txtContrasenna)
                     var req = $.ajax({
-                        url: "http://angielopez-001-site1.ctempurl.com/WSRest/WSCliente.svc/actualizarDatosCliente" + "?NombreUsuario=" + usuario.toString(),
-                        timeout: 10000,
+                        url: "http://angielopez-001-site1.ctempurl.com/WSRest/WSCliente.svc/actualizarDatosCliente" + "?nombre=" + txtNombre + "&nombreUsuario=" + usuario.toString() +
+                        "&direccion=" + txtDireccion + "&contrasenna=" + txtContrasenna,
+                        timeout: 1000000,
                         dataType: "jsonp"
                     }); //Es el que permite consultar/cargar información
                     //de una URL sin hacer postback
@@ -432,6 +454,7 @@ setInterval(cargarPlatosTabla, 60000);
                         window.sessionStorage.setItem("Nombre", txtNombre)
                         window.sessionStorage.setItem("Contrasenna", txtContrasenna)
                         window.sessionStorage.setItem("Direccion", txtDireccion)
+                        alert("¡Datos actualizados!")
                         document.location.href = document.location.href.replace("ActualizarDatosCliente.html", "ClienteMenu.html");
                     })
 

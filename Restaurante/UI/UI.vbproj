@@ -149,6 +149,7 @@
     <Content Include="BuscarPlato.aspx" />
     <Content Include="BuscarUsuarios.aspx" />
     <Content Include="AdministrarPedidos_Admin.aspx" />
+    <Content Include="Cliente\ActualizarDatosCliente.html" />
     <Content Include="Cliente\Cliente.js" />
     <Content Include="Cliente\ClienteCarrito.html" />
     <Content Include="Cliente\ClienteMenu.html" />

@@ -57,13 +57,26 @@ Public Class WSCliente
         Return list
     End Function
 
-    Public Function buscarCliente(nombreUsuario As String) As Cliente Implements IWSCliente.buscarCliente
-        Dim blCliente As New Cliente()
-        Return blCliente.buscarCliente(nombreUsuario)
-    End Function
-
-    Public Sub actualizarDatosCliente(nombre As String, nombreUsuario As String, correo As String, direccion As String, contrasenna As String) Implements IWSCliente.actualizarDatosCliente
+    Public Sub actualizarDatosCliente(nombre As String, nombreUsuario As String, direccion As String, contrasenna As String) Implements IWSCliente.actualizarDatosCliente
         Dim cliente As New Cliente()
-        cliente.actualizarDatosCliente(nombreUsuario, direccion, nombre, contrasenna, correo)
+        cliente = cliente.buscarCliente(nombreUsuario)
+        If String.Compare(cliente.Nombre, nombre) = 0 Then
+            nombre = ""
+        End If
+        If String.Compare(cliente.Direccion, direccion) = 0 Then
+            direccion = ""
+        End If
+        If String.Compare(cliente.Contrasenna, contrasenna) = 0 Then
+            contrasenna = ""
+        End If
+        cliente.actualizarDatosCliente(nombreUsuario, direccion, nombre, contrasenna)
     End Sub
+
+    Public Function buscarCliente(nombreUsuario As String) As List(Of Cliente) Implements IWSCliente.buscarCliente
+        Dim blCliente As New Cliente()
+        blCliente = blCliente.buscarCliente(nombreUsuario)
+        Dim list As New List(Of Cliente)
+        list.Add(blCliente)
+        Return list
+    End Function
 End Class
