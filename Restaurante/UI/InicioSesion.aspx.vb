@@ -21,6 +21,9 @@ Public Class InicioSesion
             If usuario.TipoUsuario = "ADMINISTRADOR" Then
                 Session("Usuario") = nombreUsuario
                 Response.Redirect("PaginaPrincipal.aspx")
+            Else
+                Session("Usuario") = nombreUsuario
+                Response.Redirect("/Cocina/ordenes.html")
             End If
             lblMensaje.Text = usuario.NombreUsuario & " " & usuario.TipoUsuario
         End If
