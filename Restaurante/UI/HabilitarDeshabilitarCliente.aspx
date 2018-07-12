@@ -6,7 +6,7 @@
      <%Dim lista As List(Of BL.ClienteSerializable) = (Session("Cliente")) %>
      <div class="container col-sm-8 col-md-offset-2"  style="background-color:firebrick">
           <div class="container col-md-4 col-sm-offset-4"  style="background-color:firebrick">
-                <h2 style="color:beige" class="text-center">Habilitar / Deshabilitar Usuarios</h2>
+                <h2 style="color:beige" class="text-center">Habilitar / Deshabilitar Clientes</h2>
                <asp:TextBox ID="txtNombre" CssClass="form-control" placeholder="Nombre del Usuario" runat="server"></asp:TextBox>
                <div class="text-center margin-up-button">
                 <asp:Button ID="btnRegistrarUsuario" Cssclass="btn btn-success text-center" runat="server" Text="Buscar Usuario" />  
