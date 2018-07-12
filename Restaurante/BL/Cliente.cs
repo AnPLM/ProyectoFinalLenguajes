@@ -6,7 +6,7 @@ using TO;
 using DAO;
 
 namespace BL
-{
+{[Serializable]
     public class Cliente
     {
         public String Nombre { get; set; }
@@ -54,18 +54,20 @@ namespace BL
         }
 
         public void actualizarDatosCliente(String nombreUsuario, String direccion, String nombre, 
-            String contrasenna)
+            String contrasenna, String correo)
         {
             this.NombreUsuario = nombreUsuario;
             this.Nombre = nombre;
             this.Contrasenna = contrasenna;
             this.Direccion = direccion;
+            this.Correo = correo;
 
             TOCliente clienteTo = new TOCliente();
             clienteTo.Nombre = this.Nombre;
             clienteTo.NombreUsuario = this.NombreUsuario;
             clienteTo.Direccion = this.Direccion;
             clienteTo.Contrasenna = this.Contrasenna;
+            clienteTo.Correo = this.Correo;
 
             DAOCliente daoCliente = new DAOCliente();
             daoCliente.actualizarDatosCliente(clienteTo);
@@ -82,5 +84,15 @@ namespace BL
             this.Habilitado = cliente.Habilitado;
         }
 
+        public Cliente buscarCliente(String nombreUsuario)
+        {
+            TOCliente tocliente = new TOCliente();
+            tocliente.NombreUsuario = nombreUsuario;
+            DAOCliente dao = new DAOCliente();
+            dao.buscarCliente(tocliente);
+            return new Cliente(tocliente.Nombre, tocliente.Correo,
+                tocliente.NombreUsuario, tocliente.Contrasenna,
+                tocliente.Habilitado, tocliente.Direccion);
+        }
     }
 }

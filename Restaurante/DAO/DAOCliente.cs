@@ -55,13 +55,16 @@ namespace DAO
 
         public void actualizarDatosCliente(TOCliente clienteTO)
         {
-            try {
+            //try
+            //{
                 SqlCommand sentencia = new SqlCommand("update Cliente set Nombre=@nom, " +
-                    "Contrasenna=@contr, Direccion=@dir where Nombre_Usuario=@usuar", conexion);
-                sentencia.Parameters.AddWithValue("@nom", clienteTO.Nombre);
+                    "Contrasenna=@contr, Direccion=@dir, Correo=@cor where Nombre_Usuario=@usuar", conexion);
+            
+            sentencia.Parameters.AddWithValue("@nom", clienteTO.Nombre);
                 sentencia.Parameters.AddWithValue("@contr", clienteTO.Contrasenna);
                 sentencia.Parameters.AddWithValue("@dir", clienteTO.Direccion);
                 sentencia.Parameters.AddWithValue("@usuar", clienteTO.NombreUsuario);
+                sentencia.Parameters.AddWithValue("@cor", clienteTO.Correo);
 
                 if (conexion.State != ConnectionState.Open)
                 {
@@ -69,18 +72,24 @@ namespace DAO
                 }
 
                 sentencia.ExecuteNonQuery();
-            }
-            catch(Exception)
-            {
-                throw new Exception("Ocurrió un error al actualizar los datos");
-            }
-            finally
-            {
-                if (conexion.State != ConnectionState.Closed)
-                {
-                    conexion.Close();
-                }
-            }
+            sentencia.Parameters.RemoveAt("@nom");
+            sentencia.Parameters.RemoveAt("@contr");
+            sentencia.Parameters.RemoveAt("@dir");
+            sentencia.Parameters.RemoveAt("@usuar");
+            sentencia.Parameters.RemoveAt("@cor");
+
+            //}
+            //catch (Exception)
+            //{
+            //    throw new Exception("Ocurrió un error al actualizar los datos");
+            //}
+            //finally
+            //{
+            //    if (conexion.State != ConnectionState.Closed)
+            //    {
+            //        conexion.Close();
+            //    }
+            //}
 
         }
 
@@ -163,6 +172,44 @@ namespace DAO
                 }
             }
             return cliente;
+        }
+
+        public void buscarCliente(TOCliente toCliente)
+        {
+            //try
+            //{
+                DataTable tabla = new DataTable();
+                String conuslta = "Select * From Cliente Where Nombre_Usuario = @nom";
+                SqlCommand sentencia = new SqlCommand(conuslta, conexion);
+                sentencia.Parameters.AddWithValue("@nom", toCliente.NombreUsuario);
+                SqlDataAdapter adapter = new SqlDataAdapter();
+                adapter.SelectCommand = sentencia;
+                adapter.Fill(tabla);
+                foreach (DataRow row in tabla.Rows)
+                {
+                    toCliente.Correo = row["Correo"].ToString();
+                    toCliente.Nombre = row["Nombre"].ToString();
+                    toCliente.Direccion = row["Direccion"].ToString();
+                    int i = int.Parse(row["Habilitado"].ToString());
+                    toCliente.Contrasenna = row["Contrasenna"].ToString();
+                    if (i == 0)
+                    {
+                        toCliente.Habilitado = false;
+                    }
+                    else
+                    {
+                        toCliente.Habilitado = true;
+                    }
+                }
+            //}
+            //catch (SqlException)
+            //{
+            //    throw new Exception("¡Error en la base de datos!");
+            //}
+            //catch (Exception e)
+            //{
+            //    throw e;
+            //}
         }
     }
 }
