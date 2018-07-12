@@ -53,4 +53,9 @@ Public Class WSCliente
         Next
         Return prueba
     End Function
+
+    Public Function buscarCliente(nombreUsuario As String) As Cliente Implements IWSCliente.buscarCliente
+        Dim blCliente As New Cliente()
+        Return blCliente.buscarCliente(nombreUsuario)
+    End Function
 End Class

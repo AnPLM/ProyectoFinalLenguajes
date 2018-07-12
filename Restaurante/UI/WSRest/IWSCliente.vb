@@ -27,4 +27,7 @@ Public Interface IWSCliente
     <WebGet(RequestFormat:=WebMessageFormat.Json, ResponseFormat:=WebMessageFormat.Json)>
     Function finalizarCompraCarrito(Carrito As String, nombreUsuario As String) As String
 
+    <OperationContract()>
+    <WebGet(RequestFormat:=WebMessageFormat.Json, ResponseFormat:=WebMessageFormat.Json)>
+    Function buscarCliente(nombreUsuario As String) As Cliente
 End Interface
