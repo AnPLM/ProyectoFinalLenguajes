@@ -58,28 +58,36 @@
             <input CssClass="form-control" type="text" id="txtBuscarPlato" onkeyup="buscarPorNombrePlatos()" placeholder="Escriba nombre del plato">
             <br />
         </div>
-        <div class="container col-sm-8 margin-up-panel margin-botton-panel margin-left" style="background-color:#f7f7f7">
-            <br />
-            <table class="table table-bordered table-responsive-md table-striped text-center" id="tablaPlatos">
-                <thead>
-                    <tr>
-                        <th>Codigo</th>
-                        <th>Nombre</th>
-                        <th>Precio</th>
-                        <th>Ver detalles</th>
-                        <th>Agregar plato</th>
-                    </tr>
-                </thead>
-                <tbody id="bodyTablaPlatos"></tbody>
-            </table>
+        <div class="container" style="background-color:#f7f7f7">
+            <div class="panel-body">
+                <br />
+                <div class="table-responsive">
+                    <table class="table table-bordered table-responsive-md table-striped text-center" id="tablaPlatos">
+                        <thead>
+                            <tr>
+                                <th>Codigo</th>
+                                <th>Nombre</th>
+                                <th>Precio</th>
+                                <th>Ver detalles</th>
+                                <th>Agregar plato</th>
+                            </tr>
+                        </thead>
+                        <tbody id="bodyTablaPlatos"></tbody>
+                    </table>
+                    </div>
+                </div>
         </div>
-        <div class="container col-sm-8 margin-up-panel margin-botton-panel margin-left" style="background-color:#f7f7f7">
-            <table class="table table-bordered table-responsive-md table-striped text-center" id="tablaDetallePlato">
-                <thead id="headListaPlatos">
-                </thead>
-                <tbody id="bodyTablaDetallePlato"></tbody>
-            </table>
-        </div>
+        <div class="container" style="background-color:#f7f7f7">
+            <div class="panel-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered table-responsive-md table-striped text-center" id="tablaDetallePlato">
+                        <thead id="headListaPlatos">
+                        </thead>
+                        <tbody id="bodyTablaDetallePlato"></tbody>
+                    </table>
+                </div>
+                </div>
+            </div>
         <br />
     </div>
 </body>
