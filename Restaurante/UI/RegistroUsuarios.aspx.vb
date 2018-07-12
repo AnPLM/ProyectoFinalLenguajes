@@ -10,22 +10,26 @@ Public Class RegistroUsuarios
 
 
     Protected Sub btnRegistrarUsuario_Click(sender As Object, e As EventArgs) Handles btnRegistrarUsuario.Click
-        If (txtNombreUsuario.Text <> "" And txtContrasenna.Text <> "") Then
-            Dim tipo As String
-            Dim habilitado As Boolean = False
-            If (radioAdministrador.Checked) Then
-                tipo = "ADMINISTRADOR"
-            Else
-                tipo = "COCINERO"
+        Try
+            If (txtNombreUsuario.Text <> "" And txtContrasenna.Text <> "") Then
+                Dim tipo As String
+                Dim habilitado As Boolean = False
+                If (radioAdministrador.Checked) Then
+                    tipo = "ADMINISTRADOR"
+                Else
+                    tipo = "COCINERO"
+                End If
+                If (checkHabilitado.Checked) Then
+                    habilitado = True
+                End If
+                Dim usuario As New ManejadorUsuario
+                usuario.agregarUsuario(txtNombreUsuario.Text, txtContrasenna.Text, tipo, habilitado)
+                Response.Write("Usuario Registrado Correctamente")
+                Response.Redirect("AdministrarUsuarios.aspx")
             End If
-            If (checkHabilitado.Checked) Then
-                habilitado = True
-            End If
-            Dim usuario As New ManejadorUsuario
-            usuario.agregarUsuario(txtNombreUsuario.Text, txtContrasenna.Text, tipo, habilitado)
-            Response.Write("Usuario Registrado Correctamente")
-            Response.Redirect("AdministrarUsuarios.aspx")
-        End If
+        Catch ex As Exception
+            'lanzar un aler, como?
+        End Try
     End Sub
 
     Protected Sub Regresar_Click(sender As Object, e As EventArgs) Handles Regresar.Click

@@ -15,7 +15,13 @@ namespace BL
         private Usuario usua = new Usuario();
         public void agregarUsuario(String nombreUsuario, String contrasenna, String tipo, Boolean habilitado)
         {
-            usua.agregarUsuario(new TOUsuario(nombreUsuario, contrasenna, tipo, habilitado));
+            try
+            {
+                usua.agregarUsuario(new TOUsuario(nombreUsuario, contrasenna, tipo, habilitado));
+            }
+            catch (Exception e) {
+                throw e;
+            }
         }
 
         public void eliminarUsuario(String nombreUsuario)
