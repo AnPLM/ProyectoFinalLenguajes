@@ -24,7 +24,4 @@
         Response.Redirect("InicioSesion.aspx")
     End Sub
 
-    Protected Sub btnAdministrarClientes_Click(sender As Object, e As EventArgs) Handles btnAdministrarClientes.Click
-        Response.Redirect("HabilitarDeshabilitarCliente.aspx")
-    End Sub
 End Class
