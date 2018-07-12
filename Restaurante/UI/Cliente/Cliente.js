@@ -455,7 +455,7 @@ setInterval(cargarPlatosTabla, 60000);
                     })
 
                     req.fail(function () {
-                        alert("¡Servicio no disponible, disculpe las molestias! Si desea emitir un reporte, puede hacerlo a nuestros teléfonos");
+                        alert("Error, no ha actualizado ningún dato o el servicio no funciona. Disculpe los inconvenientes");
                     });
                 }
             }
