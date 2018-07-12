@@ -54,6 +54,7 @@
     <Compile Include="BLOrden.cs" />
     <Compile Include="Cliente.cs" />
     <Compile Include="AdminListaPedido.cs" />
+    <Compile Include="ClienteSerializable.cs" />
     <Compile Include="ManejadorListaPedido.cs" />
     <Compile Include="ManejadorOrdenes.cs" />
     <Compile Include="ManejadorPlato.cs" />

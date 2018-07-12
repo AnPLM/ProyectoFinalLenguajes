@@ -6,7 +6,7 @@ using TO;
 using DAO;
 
 namespace BL
-{[Serializable]
+{
     public class Cliente
     {
         public String Nombre { get; set; }
