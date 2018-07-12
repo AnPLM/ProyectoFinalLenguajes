@@ -164,5 +164,43 @@ namespace DAO
             }
             return cliente;
         }
+
+        public void buscarCliente(TOCliente toCliente)
+        {
+            //try
+            //{
+                DataTable tabla = new DataTable();
+                String conuslta = "Select * From Cliente Where Nombre_Usuario = @nom";
+                SqlCommand sentencia = new SqlCommand(conuslta, conexion);
+                sentencia.Parameters.AddWithValue("@nom", toCliente.NombreUsuario);
+                SqlDataAdapter adapter = new SqlDataAdapter();
+                adapter.SelectCommand = sentencia;
+                adapter.Fill(tabla);
+                foreach (DataRow row in tabla.Rows)
+                {
+                    toCliente.Correo = row["Correo"].ToString();
+                    toCliente.Nombre = row["Nombre"].ToString();
+                    toCliente.Direccion = row["Direccion"].ToString();
+                    int i = int.Parse(row["Habilitado"].ToString());
+                    toCliente.Contrasenna = row["Contrasenna"].ToString();
+                    if (i == 0)
+                    {
+                        toCliente.Habilitado = false;
+                    }
+                    else
+                    {
+                        toCliente.Habilitado = true;
+                    }
+                }
+            //}
+            //catch (SqlException)
+            //{
+            //    throw new Exception("¡Error en la base de datos!");
+            //}
+            //catch (Exception e)
+            //{
+            //    throw e;
+            //}
+        }
     }
 }

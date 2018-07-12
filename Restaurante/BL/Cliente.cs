@@ -6,7 +6,7 @@ using TO;
 using DAO;
 
 namespace BL
-{
+{[Serializable]
     public class Cliente
     {
         public String Nombre { get; set; }
@@ -82,5 +82,15 @@ namespace BL
             this.Habilitado = cliente.Habilitado;
         }
 
+        public Cliente buscarCliente(String nombreUsuario)
+        {
+            TOCliente tocliente = new TOCliente();
+            tocliente.NombreUsuario = nombreUsuario;
+            DAOCliente dao = new DAOCliente();
+            dao.buscarCliente(tocliente);
+            return new Cliente(tocliente.Nombre, tocliente.Correo,
+                tocliente.NombreUsuario, tocliente.Contrasenna,
+                tocliente.Habilitado, tocliente.Direccion);
+        }
     }
 }
