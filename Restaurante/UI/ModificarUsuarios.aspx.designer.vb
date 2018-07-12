@@ -48,4 +48,13 @@ Partial Public Class ModificarUsuarios
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents btnHabilitar As Global.System.Web.UI.WebControls.Button
+    
+    '''<summary>
+    '''Regresar control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents Regresar As Global.System.Web.UI.WebControls.Button
 End Class

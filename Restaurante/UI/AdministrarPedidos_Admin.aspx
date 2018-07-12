@@ -46,6 +46,11 @@
             <br />
             <br />
             <asp:Button ID="btnCambiarEstado" Cssclass="btn btn-success text-center margin-botton-panel" runat="server" Text="Cambiar Estado" />
+            <br/>
+            <br/>
+            <asp:Button ID="Regresar" Cssclass="btn btn-primary text-center margin-botton-panel " runat="server" Text="Regresar" />  
+            <br/>
+
         </form>
     </div>
     <div class="col-sm-3" style="background-color: lavender;"></div>

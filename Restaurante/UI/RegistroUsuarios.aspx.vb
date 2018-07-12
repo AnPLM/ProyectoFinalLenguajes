@@ -27,4 +27,8 @@ Public Class RegistroUsuarios
             Response.Redirect("AdministrarUsuarios.aspx")
         End If
     End Sub
+
+    Protected Sub Regresar_Click(sender As Object, e As EventArgs) Handles Regresar.Click
+        Response.Redirect("AdministrarUsuarios.aspx")
+    End Sub
 End Class

@@ -124,4 +124,8 @@ Public Class AdministrarPedidos_Admin
             lblError.Text = ex.Message
         End Try
     End Sub
+
+    Protected Sub Regresar_Click(sender As Object, e As EventArgs) Handles Regresar.Click
+        Response.Redirect("PaginaPrincipal.aspx")
+    End Sub
 End Class

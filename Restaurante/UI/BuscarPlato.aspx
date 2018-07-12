@@ -11,7 +11,10 @@
                <asp:TextBox ID="txtNombre" CssClass="form-control" placeholder="Nombre del Plato" runat="server"></asp:TextBox>
                <div class="text-center margin-up-button">
                 <asp:Button ID="btnBuscarPlato" Cssclass="btn btn-success text-center" runat="server" Text="Buscar Plato" />  
-                </div>
+               </div>
+              <div class="text-center margin-up-button">
+                <asp:Button ID="Regresar" Cssclass="btn btn-primary text-center margin-up-button btn-block" runat="server" Text="Regresar" />
+              </div>
           </div>
           <div class="container col-sm-8 col-sm-offset-2 margin-up-panel margin-botton-panel"  style="background-color:#f7f7f7">
                 <h3 class="margin-up-panel text-center" style="color:beige">Plato Encontrado</h3>

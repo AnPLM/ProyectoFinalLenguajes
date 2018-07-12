@@ -50,8 +50,12 @@
                 </tr>  
                 <%Next%>
             </table>
+
+              <div class="text-center margin-up-button">
+                  <asp:Button ID="Regresar" Cssclass="btn btn-primary text-center margin-up-button btn-block" runat="server" Text="Regresar" />
+              </div>
             </div>
-         <//div>
+         </div>
          </form>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="pie" runat="server">

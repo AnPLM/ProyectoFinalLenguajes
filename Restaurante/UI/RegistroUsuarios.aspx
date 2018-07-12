@@ -23,6 +23,10 @@
                </div>
                 <div class="text-center margin-up-button">
                 <asp:Button ID="btnRegistrarUsuario" Cssclass="btn btn-success text-center" runat="server" Text="Registrar Usuario" />  
+                    <br/>
+                    <br/>
+                    <asp:Button ID="Regresar" Cssclass="btn btn-primary text-center" runat="server" Text="Regresar" />
+                    <br/>
                 </div>
                 <br />
                 <asp:Label ID="lblMensaje" runat="server"></asp:Label>

@@ -79,8 +79,10 @@
                 <%Next%>
             </table>
          </div>
-
-       </div>
+            <div>
+            <asp:Button ID="Regresar" Cssclass="btn btn-primary text-center" runat="server" Text="Regresar" />
+            </div>
+            </div>
     </div>       
   </form>
 </asp:Content>
