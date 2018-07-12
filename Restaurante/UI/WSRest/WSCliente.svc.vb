@@ -9,11 +9,6 @@ Public Class WSCliente
     Dim listaPedidoBL As New ManejadorListaPedido
     Dim ordenBL As New ManejadorOrdenes
 
-    Public Sub registrarCliente(nombre As String, nombreUsuario As String, correo As String, direccion As String, contrasenna As String) Implements IWSCliente.registrarCliente
-        Dim cliente As New Cliente(nombre, correo, nombreUsuario, contrasenna, True, direccion)
-        cliente.agregarCliente()
-    End Sub
-
     Public Function buscarPlatoPorNombre(Nombre As String) As List(Of Plato) Implements IWSCliente.buscarPlatoPorNombre
         Dim plato As New Plato()
         plato.Nombre = Nombre
@@ -52,5 +47,13 @@ Public Class WSCliente
             listaPedidoBL.insertarListaPedido(carritoArray(index), secuencialOrden, carritoArray(index + 3))
         Next
         Return prueba
+    End Function
+
+    Public Function registrarCliente(nombre As String, nombreUsuario As String, correo As String, direccion As String, contrasenna As String) As List(Of Cliente) Implements IWSCliente.registrarCliente
+        Dim cliente As New Cliente(nombre, correo, nombreUsuario, contrasenna, True, direccion)
+        cliente.agregarCliente()
+        Dim list As New List(Of Cliente)
+        list.Add(cliente)
+        Return list
     End Function
 End Class

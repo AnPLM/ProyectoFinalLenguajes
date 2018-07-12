@@ -282,7 +282,12 @@ setInterval(cargarPlatosTabla, 60000);
             window.sessionStorage.setItem("Correo", this.Correo)
             window.sessionStorage.setItem("NombreUsuario", this.NombreUsuario)
             window.sessionStorage.setItem("Direccion", this.Direccion)
-            document.location.href = document.location.href.replace("InicioSesionCliente.html", "ClienteMenu.html");
+            if (document.location.href.includes("InicioSesionCliente.html")) {
+                document.location.href = document.location.href.replace("InicioSesionCliente.html", "ClienteMenu.html");
+            }
+            if (document.location.href.includes("RegistrarCliente.html")) {
+                document.location.href = document.location.href.replace("RegistrarCliente.html", "ClienteMenu.html");
+            }
         });
     }
 
@@ -321,4 +326,134 @@ setInterval(cargarPlatosTabla, 60000);
         llenarCarrito()
         calcularTotal()
     }
+
+    function registrarCliente() {
+        var txtEmail = document.getElementById("txtEmail").value;
+        var txtContrasenna = document.getElementById("txtContrasenna").value;
+        var txtNombre = document.getElementById("txtNombre").value;
+        var txtNombreUsuario = document.getElementById("txtNombreUsuario").value;
+        var txtDireccion = document.getElementById("txtDireccion").value;
+        if (txtContrasenna != null && txtEmail != null && txtNombreUsuario != null 
+            && txtNombre != null && txtDireccion != null) {
+            if (txtContrasenna.toString().trim() == "" || txtEmail.toString().trim() == "" || txtNombre.toString().trim() == ""
+                || txtNombreUsuario.toString().trim() == "" || txtDireccion.toString().trim() == "") {
+                alert("¡Rellene los campos obligatorios, campos vacíos!")
+            } else {
+
+                var req = $.ajax({
+                    url: "/WSRest/WSCliente.svc/registrarCliente" + "?nombre=" + txtNombre + "&nombreUsuario=" + txtNombreUsuario +
+                    "&correo=" +txtEmail+ "&direccion=" + txtDireccion + "&contrasenna=" + txtContrasenna,
+                    timeout: 10000,
+                    dataType: "jsonp"
+                });
+                
+                req.done(function (datos) {
+                    autenticarCliente(datos);
+                });
+
+                req.fail(function () {
+                 alert("¡Error en req.fail, servicio no disponible, disculpe las molestias! Si desea emitir un reporte, puede hacerlo a nuestros teléfonos");
+                });
+            }
+        } else {
+            alert("¡Rellene los campos obligatorios!")
+        }
+    }
+
   
+    function buscarClienteActualizar() {
+                
+        var usuario = sessionStorage.getItem("NombreUsuario");
+        if (usuario == null) {
+            document.location.href = document.location.href.replace("ActualizarDatosCliente.html", "InicioSesionCliente.html");
+            alert("Debe iniciar sesión")
+        } else {
+            if (usuario.toString() == "null") {
+                document.location.href = document.location.href.replace("ActualizarDatosCliente.html", "InicioSesionCliente.html");
+                alert("Debe iniciar sesión")
+            } else {
+                var req = $.ajax({
+                    url: "http://angielopez-001-site1.ctempurl.com/WSRest/WSCliente.svc/buscarCliente" + "?NombreUsuario=" + usuario.toString(),
+                    timeout: 10000,
+                    dataType: "jsonp"
+                }); //Es el que permite consultar/cargar información
+                //de una URL sin hacer postback
+
+                req.done(function (datos) {
+                    llenarTXTActualizar(datos);
+                })
+                req.fail(function () {
+                    alert("¡Servicio no disponible, disculpe las molestias! Si desea emitir un reporte, puede hacerlo a nuestros teléfonos");
+                });
+            }
+        }
+
+    function llenarTXTActualizar(datos) {
+        $.each(datos, function () {
+            
+            document.getElementById('txtDireccion').innerHTML = this.Direccion
+            document.getElementById('txtNombre').innerHTML = this.Nombre
+            document.getElementById('txtContrasenna').innerHTML = this.Contrasenna
+            document.getElementById('txtContrasennaDos').innerHTML = this.Contrasenna
+
+            /*window.sessionStorage.setItem("Nombre", this.Nombre)
+            window.sessionStorage.setItem("Correo", this.Correo)
+            window.sessionStorage.setItem("NombreUsuario", this.NombreUsuario)
+            window.sessionStorage.setItem("Direccion", this.Direccion)
+            if (document.location.href.includes("InicioSesionCliente.html")) {
+                alert("¡Datos Actualizados!")
+                document.location.href = document.location.href.replace("InicioSesionCliente.html", "ClienteMenu.html");
+            }*/
+        });
+    }
+
+    function actualizarDatosCliente() {
+        var txtContrasenna = document.getElementById("txtContrasenna").value;
+        var txtContrasennaDos = document.getElementById("txtContrasennaDos").value;
+        var txtNombre = document.getElementById("txtNombre").value;
+        var txtDireccion = document.getElementById("txtDireccion").value;
+        if (txtContrasenna != null && txtContrasennaDos != null && txtNombre != null && txtDireccion != null) {
+            if (txtContrasenna.toString().trim() == "" || txtContrasennaDos.toString().trim() == "" || txtNombre.toString().trim() == "" 
+                || txtDireccion.toString().trim() == "") {
+                alert("¡Rellene los campos obligatorios, campos vacíos!")
+            } else {
+                if (txtContrasenna.toString() != txtContrasennaDos.toString()) {
+                    alert("Las contraseñas no coinciden")
+                } else {
+
+                    var req = $.ajax({
+                        url: "http://angielopez-001-site1.ctempurl.com/WSRest/WSCliente.svc/actualizarDatosCliente" + "?NombreUsuario=" + usuario.toString(),
+                        timeout: 10000,
+                        dataType: "jsonp"
+                    }); //Es el que permite consultar/cargar información
+                    //de una URL sin hacer postback
+
+                    req.done(function () {
+                        window.sessionStorage.setItem("Nombre", txtNombre)
+                        window.sessionStorage.setItem("Contrasenna", txtContrasenna)
+                        window.sessionStorage.setItem("Direccion", txtDireccion)
+                        document.location.href = document.location.href.replace("ActualizarDatosCliente.html", "ClienteMenu.html");
+                    })
+
+                    req.fail(function () {
+                        alert("¡Servicio no disponible, disculpe las molestias! Si desea emitir un reporte, puede hacerlo a nuestros teléfonos");
+                    });
+                }
+            }
+        } else {
+            alert("¡Rellene los campos obligatorios, campos vacíos!")
+        }
+    }
+
+
+
+/*var txtContrasenna = document.getElementById("txtContrasenna").value;
+        var txtContrasennaDos = document.getElementById("txtContrasennaDos").value;
+        var txtNombre = document.getElementById("txtNombre").value;
+        var txtDireccion = document.getElementById("txtDireccion").value;
+        if (txtContrasenna != null && txtContrasennaDos != null && txtNombreUsuario != null
+            && txtNombre != null && txtDireccion != null) {
+            if (txtContrasenna.toString().trim() == "" || txtEmail.toString().trim() == "" || txtNombre.toString().trim() == ""
+                || txtNombreUsuario.toString().trim() == "" || txtDireccion.toString().trim() == "") {
+                alert("¡Rellene los campos obligatorios, campos vacíos!")
+            }*/

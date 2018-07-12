@@ -54,29 +54,31 @@
             </div>
         </nav>
         <!--Experimento nabvar aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa-->
-        <div>
-            <input CssClass="form-control" type="text" id="txtBuscarPlato" onkeyup="buscarPorNombrePlatos()" placeholder="Escriba nombre del plato">
-            <br />
-        </div>
+            
         <div class="container" style="background-color:#f7f7f7">
-            <div class="panel-body">
+            <div style="text-align:right">
+                <p font-size:2vw; color:firebrick; font-family: 'Trebuchet MS', cursive; font-weight: bold; >Buscar</p>
+                <input CssClass="form-control" type="text" id="txtBuscarPlato" onkeyup="buscarPorNombrePlatos()" placeholder="Escriba nombre del plato">
                 <br />
-                <div class="table-responsive">
-                    <table class="table table-bordered table-responsive-md table-striped text-center" id="tablaPlatos">
-                        <thead>
-                            <tr>
-                                <th>Codigo</th>
-                                <th>Nombre</th>
-                                <th>Precio</th>
-                                <th>Ver detalles</th>
-                                <th>Agregar plato</th>
-                            </tr>
-                        </thead>
-                        <tbody id="bodyTablaPlatos"></tbody>
-                    </table>
+                </div>
+                <div class="panel-body">
+                    <br />
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-responsive-md table-striped text-center" id="tablaPlatos">
+                            <thead>
+                                <tr>
+                                    <th>Codigo</th>
+                                    <th>Nombre</th>
+                                    <th>Precio</th>
+                                    <th>Ver detalles</th>
+                                    <th>Agregar plato</th>
+                                </tr>
+                            </thead>
+                            <tbody id="bodyTablaPlatos"></tbody>
+                        </table>
                     </div>
                 </div>
-        </div>
+            </div>
         <div class="container" style="background-color:#f7f7f7">
             <div class="panel-body">
                 <div class="table-responsive">

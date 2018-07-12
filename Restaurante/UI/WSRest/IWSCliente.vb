@@ -8,8 +8,8 @@ Public Interface IWSCliente
 
     <OperationContract()>
     <WebGet(RequestFormat:=WebMessageFormat.Json, ResponseFormat:=WebMessageFormat.Json)>
-    Sub registrarCliente(nombre As String, nombreUsuario As String, correo As String, direccion As String,
-                         contrasenna As String)
+    Function registrarCliente(nombre As String, nombreUsuario As String, correo As String, direccion As String,
+                         contrasenna As String) As List(Of Cliente)
 
     <OperationContract()>
     <WebGet(RequestFormat:=WebMessageFormat.Json, ResponseFormat:=WebMessageFormat.Json)>
