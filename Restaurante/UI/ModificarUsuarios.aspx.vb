@@ -8,7 +8,7 @@ Public Class ModificarUsuarios
         End If
         Dim manejador = New ManejadorUsuario
         Dim array As New ArrayList()
-        Session("Usuario") = manejador.listarUsuarios()
+        Session("Usuario1") = manejador.listarUsuarios()
     End Sub
 
     Protected Sub btnModificarNombre_Click(sender As Object, e As EventArgs) Handles btnModificarNombre.Click
@@ -21,12 +21,5 @@ Public Class ModificarUsuarios
 
     Protected Sub Regresar_Click(sender As Object, e As EventArgs) Handles Regresar.Click
         Response.Redirect("AdministrarUsuarios.aspx")
-    End Sub
-
-    Protected Sub btnHabilitar_Click(sender As Object, e As EventArgs) Handles btnHabilitar.Click
-        Dim Usuario = Session("Usuario")
-        Dim manejador = New ManejadorUsuario
-        Dim us = manejador.buscarUsuario(Usuario)
-        'manejador.actualizarUsuario()
     End Sub
 End Class
