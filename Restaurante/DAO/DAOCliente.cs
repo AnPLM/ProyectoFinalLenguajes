@@ -55,13 +55,16 @@ namespace DAO
 
         public void actualizarDatosCliente(TOCliente clienteTO)
         {
-            try {
+            //try
+            //{
                 SqlCommand sentencia = new SqlCommand("update Cliente set Nombre=@nom, " +
-                    "Contrasenna=@contr, Direccion=@dir where Nombre_Usuario=@usuar", conexion);
-                sentencia.Parameters.AddWithValue("@nom", clienteTO.Nombre);
+                    "Contrasenna=@contr, Direccion=@dir, Correo=@cor where Nombre_Usuario=@usuar", conexion);
+            
+            sentencia.Parameters.AddWithValue("@nom", clienteTO.Nombre);
                 sentencia.Parameters.AddWithValue("@contr", clienteTO.Contrasenna);
                 sentencia.Parameters.AddWithValue("@dir", clienteTO.Direccion);
                 sentencia.Parameters.AddWithValue("@usuar", clienteTO.NombreUsuario);
+                sentencia.Parameters.AddWithValue("@cor", clienteTO.Correo);
 
                 if (conexion.State != ConnectionState.Open)
                 {
@@ -69,18 +72,24 @@ namespace DAO
                 }
 
                 sentencia.ExecuteNonQuery();
-            }
-            catch(Exception)
-            {
-                throw new Exception("Ocurrió un error al actualizar los datos");
-            }
-            finally
-            {
-                if (conexion.State != ConnectionState.Closed)
-                {
-                    conexion.Close();
-                }
-            }
+            sentencia.Parameters.RemoveAt("@nom");
+            sentencia.Parameters.RemoveAt("@contr");
+            sentencia.Parameters.RemoveAt("@dir");
+            sentencia.Parameters.RemoveAt("@usuar");
+            sentencia.Parameters.RemoveAt("@cor");
+
+            //}
+            //catch (Exception)
+            //{
+            //    throw new Exception("Ocurrió un error al actualizar los datos");
+            //}
+            //finally
+            //{
+            //    if (conexion.State != ConnectionState.Closed)
+            //    {
+            //        conexion.Close();
+            //    }
+            //}
 
         }
 
