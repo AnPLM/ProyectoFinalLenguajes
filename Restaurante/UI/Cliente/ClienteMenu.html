@@ -16,38 +16,47 @@
 </head>
 <body onload="inicioPaginaMenu();">
 
-    <!--Experimento nabvaraaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa -->
-    <nav class="navbar navbar-inverse">
-        <div class="container-fluid">
+    <div class="panel panel-default col-md-12  margin-up" style="background-color:#f7f7f7">
+        <!--Experimento nabvaraaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa -->
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
 
-            <ul class="nav navbar-nav">
-                <li><a href="ClienteCarrito.html"><span class="glyphicon glyphicon-cutlery"></span>
-                    Carrito</a></li>
-                <li class="active"><a href="ClienteMenu.html">Inicio</a></li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right"> <!-- Nav a la derecha del logout-->
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" id="drpUsuario" href="#">
-                    </a>
-                    <ul class="dropdown-menu navbar-right">
-                        <li><a onclick="pruebaAlert()"><span class="glyphicon glyphicon-user"></span>
-                            Cuenta</a></li>
-                        <li>
-                            <a onclick="cerrarSesion()">
-                                <span class="glyphicon glyphicon-log-in"></span>
-                                Cerrar cuenta
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-</div>
-    </nav> 
-    <div class="container">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="ClienteCarrito.html">
+                            <span class="glyphicon glyphicon-cutlery"></span>
+                            Carrito
+                        </a>
+                    </li>
+                    <li class="active"><a href="ClienteMenu.html">Inicio</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <!-- Nav a la derecha del logout-->
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" id="drpUsuario" href="#">
+                        </a>
+                        <ul class="dropdown-menu navbar-right">
+                            <li>
+                                <a onclick="pruebaAlert()">
+                                    <span class="glyphicon glyphicon-user"></span>
+                                    Cuenta
+                                </a>
+                            </li>
+                            <li>
+                                <a onclick="cerrarSesion()">
+                                    <span class="glyphicon glyphicon-log-in"></span>
+                                    Cerrar cuenta
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </nav>
         <!--Experimento nabvar aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa-->
         <div>
             <input CssClass="form-control" type="text" id="txtBuscarPlato" onkeyup="buscarPorNombrePlatos()" placeholder="Escriba nombre del plato">
-        <br />
+            <br />
         </div>
         <div class="container col-sm-8 margin-up-panel margin-botton-panel margin-left" style="background-color:#f7f7f7">
             <br />
