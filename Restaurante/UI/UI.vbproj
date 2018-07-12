@@ -154,6 +154,7 @@
     <Content Include="Cliente\ClienteMenu.html" />
     <Content Include="Cliente\EstilosCliente.css" />
     <Content Include="Cliente\InicioSesionCliente.html" />
+    <Content Include="Cliente\RegistrarCliente.html" />
     <Content Include="Cocina\ordenes.html" />
     <Content Include="Cocina\ordenes.js" />
     <Content Include="EliminarPlato.aspx" />
