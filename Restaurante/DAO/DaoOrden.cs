@@ -154,8 +154,8 @@ namespace DAO
                         DateTime fecha2 = DateTime.Parse(fecha.ToString());
                         //DateTime fecha2 = new DateTime(fecha);
                         //DateInterval res 
-                        long res = DateAndTime.DateDiff(DateInterval.Minute,fecha2,fecha1);
-                        o = new TOOrden(nombre, res.ToString(), stado, identificador);
+                       // long res = DateAndTime.DateDiff(DateInterval.Minute,fecha2,fecha1);
+                        o = new TOOrden(nombre, fecha, stado, identificador);
                         //o = new TOOrden(nombre, fecha, stado, identificador);
 
                         list.AddLast(o);

@@ -73,7 +73,9 @@ function cargarPrimeraVez() {
 function calcularMinutos(fecha) {
     var fechaActual = new Date();
     var mili = Date.parse(fechaActual) - Date.parse(fecha, "dd-MM-yyyy HH:mm:ss")
-    var segundos = (mili / 1000) ;
+    var segundos = (mili / 1000) - 3600;
+   // alert(fechaActual);
+    //alert(fecha);
     return segundos;
 }
 
@@ -86,11 +88,11 @@ function entregar(btnId) {
     });
 
     req.done(function (datos) {
-        alert("llego a renovar la lista");
+       // alert("llego a renovar la lista");
         lista();
     })
     req.fail(function () {
-        alert("no logro renovar la lista");
+       // alert("no logro renovar la lista");
     });
 
 }
