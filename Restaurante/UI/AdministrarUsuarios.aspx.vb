@@ -22,4 +22,8 @@
     Protected Sub btnElimiar_Click(sender As Object, e As EventArgs) Handles btnElimiar.Click
         Response.Redirect("EliminarUsuarios.aspx")
     End Sub
+
+    Protected Sub Regresar_Click(sender As Object, e As EventArgs) Handles Regresar.Click
+        Response.Redirect("PaginaPrincipal.aspx")
+    End Sub
 End Class

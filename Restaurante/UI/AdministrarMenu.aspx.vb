@@ -67,4 +67,8 @@ Public Class AdministrarMenu
         platoManager.modificarPlato(codigo, nombre, descripcion, precio, fotografiaC, habilitado)
         Session("ListaPlatos") = platoManager.listarPlatos()
     End Sub
+
+    Protected Sub Regresar_Click(sender As Object, e As EventArgs) Handles Regresar.Click
+        Response.Redirect("OpcionesMenuPlatos.aspx")
+    End Sub
 End Class

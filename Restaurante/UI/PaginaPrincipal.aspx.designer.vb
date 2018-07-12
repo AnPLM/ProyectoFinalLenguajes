@@ -41,6 +41,15 @@ Partial Public Class PaginaPrincipal
     Protected WithEvents btnAdministrarUsuarios As Global.System.Web.UI.WebControls.Button
     
     '''<summary>
+    '''btnAdministrarClientes control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents btnAdministrarClientes As Global.System.Web.UI.WebControls.Button
+    
+    '''<summary>
     '''btnAdministrarPedidos control.
     '''</summary>
     '''<remarks>
@@ -48,4 +57,13 @@ Partial Public Class PaginaPrincipal
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents btnAdministrarPedidos As Global.System.Web.UI.WebControls.Button
+    
+    '''<summary>
+    '''Regresar control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents Regresar As Global.System.Web.UI.WebControls.Button
 End Class

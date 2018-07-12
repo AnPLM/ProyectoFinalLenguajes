@@ -18,4 +18,15 @@ Public Class ModificarUsuarios
     Protected Sub btnModificarContrasenna_Click(sender As Object, e As EventArgs) Handles btnModificarContrasenna.Click
         Response.Redirect("ModificarContrasenna.aspx")
     End Sub
+
+    Protected Sub Regresar_Click(sender As Object, e As EventArgs) Handles Regresar.Click
+        Response.Redirect("AdministrarUsuarios.aspx")
+    End Sub
+
+    Protected Sub btnHabilitar_Click(sender As Object, e As EventArgs) Handles btnHabilitar.Click
+        Dim Usuario = Session("Usuario")
+        Dim manejador = New ManejadorUsuario
+        Dim us = manejador.buscarUsuario(Usuario)
+        'manejador.actualizarUsuario()
+    End Sub
 End Class

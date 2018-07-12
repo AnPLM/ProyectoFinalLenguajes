@@ -13,4 +13,8 @@ Public Class BuscarPlato
         Dim platoManager As New ManejadorPlato
         Session("ListaPlatos") = platoManager.buscarPlatoAdmin(txtNombre.Text)
     End Sub
+
+    Protected Sub Regresar_Click(sender As Object, e As EventArgs) Handles Regresar.Click
+        Response.Redirect("OpcionesMenuPlatos.aspx")
+    End Sub
 End Class

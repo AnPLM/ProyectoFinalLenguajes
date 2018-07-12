@@ -12,6 +12,8 @@
                 <asp:Button type="submit" Cssclass="btn btn-success btn-block inputBoton margin-up-button margin-botton-panel" ID="btnModificarNombre" runat="server" Text="Modificar Nombre Usuario" />
                 <asp:Button type="submit" Cssclass="btn btn-success btn-block inputBoton margin-botton-panel" ID="btnModificarContrasenna" runat="server" Text="Modificar Contraseña" />
                 <asp:Button type="submit" Cssclass="btn btn-success btn-block inputBoton margin-botton-panel" ID="btnHabilitar" runat="server" Text="Habilitar/Deshabilitar" />
+                <asp:Button ID="Regresar" Cssclass="btn btn-primary btn-block inputBoton margin-botton-panel" runat="server" Text="Regresar" />
+
             </div>
           </div>
           <div class="container col-sm-8 col-sm-offset-2 margin-up-panel margin-botton-panel"  style="background-color:#f7f7f7">

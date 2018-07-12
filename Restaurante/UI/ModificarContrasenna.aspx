@@ -12,6 +12,8 @@
                 <asp:TextBox ID="txtNombreUsuario"  placeholder="Nombre Usuario Actual" CssClass="form-control margin-botton-panel margin-up-button" runat="server"></asp:TextBox>
                 <asp:TextBox ID="txtContrasenna"  placeholder="Contraseña Nueva" CssClass="form-control margin-botton-panel" TextMode="Password" runat="server"></asp:TextBox>
                 <asp:Button type="submit" Cssclass="btn btn-success btn-block inputBoton margin-botton-panel" ID="btnModificarContrasenna" runat="server" Text="Modificar" />
+                <asp:Button type="submit" Cssclass="btn btn-primary btn-block inputBoton margin-botton-panel" ID="btnRegresar" runat="server" Text="Regresar" />
+
             </div>
           </div>      
      </div>

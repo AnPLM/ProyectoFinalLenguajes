@@ -12,6 +12,9 @@
             <asp:Button type="submit" Cssclass="btn btn-success btn-block inputBoton margin-botton-panel" ID="btnBuscar" runat="server" Text="Buscar" />
             <asp:Button type="submit" Cssclass="btn btn-success  btn-block margin-botton-panel" ID="btnModificar" runat="server" Text="Modificar" />
             <asp:Button type="submit" Cssclass="btn btn-success  btn-block margin-botton-panel" ID="btnElimiar" runat="server" Text="Eliminar" />
+                <br/>
+            <asp:Button ID="Regresar" Cssclass="btn btn-primary text-center margin-up-button btn-block" runat="server" Text="Regresar" />  
+                <br/>
             </div>
         </div>
     </form>

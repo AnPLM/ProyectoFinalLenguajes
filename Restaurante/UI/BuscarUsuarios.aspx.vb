@@ -19,4 +19,8 @@ Public Class BuscarUsuarios
             Session("Usuario") = array
         End If
     End Sub
+
+    Protected Sub Regresar_Click(sender As Object, e As EventArgs) Handles Regresar.Click
+        Response.Redirect("AdministrarUsuarios.aspx")
+    End Sub
 End Class
