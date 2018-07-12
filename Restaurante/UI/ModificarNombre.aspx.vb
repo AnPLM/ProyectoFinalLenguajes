@@ -15,4 +15,8 @@ Public Class ModificarNombre
             Response.Redirect("ModificarUsuarios.aspx")
         End If
     End Sub
+
+    Protected Sub btnRegresar_Click(sender As Object, e As EventArgs) Handles btnRegresar.Click
+        Response.Redirect("ModificarUsuarios.aspx")
+    End Sub
 End Class

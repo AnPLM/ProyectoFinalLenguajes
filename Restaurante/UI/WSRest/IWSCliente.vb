@@ -25,6 +25,6 @@ Public Interface IWSCliente
 
     <OperationContract()>
     <WebGet(RequestFormat:=WebMessageFormat.Json, ResponseFormat:=WebMessageFormat.Json)>
-    Function finalizarCompraCarrito(Carrito As String) As String
+    Function finalizarCompraCarrito(Carrito As String, nombreUsuario As String) As String
 
 End Interface

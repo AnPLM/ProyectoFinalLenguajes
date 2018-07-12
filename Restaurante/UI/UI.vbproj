@@ -154,6 +154,7 @@
     <Content Include="Cliente\ClienteMenu.html" />
     <Content Include="Cliente\EstilosCliente.css" />
     <Content Include="Cliente\InicioSesionCliente.html" />
+    <Content Include="Cliente\RegistrarCliente.html" />
     <Content Include="Cocina\ordenes.html" />
     <Content Include="Cocina\ordenes.js" />
     <Content Include="EliminarPlato.aspx" />
@@ -166,8 +167,6 @@
     <Content Include="ModificarUsuarios.aspx" />
     <Content Include="OpcionesMenuPlatos.aspx" />
     <Content Include="PaginaPrincipal.aspx" />
-    <Content Include="Cocina\OrdenUI2.aspx" />
-    <Content Include="Cocina\OrderUI.aspx" />
     <Content Include="RegistroUsuarios.aspx" />
     <Content Include="scripts\ai.0.15.0-build58334.js" />
     <Content Include="scripts\ai.0.15.0-build58334.min.js" />
@@ -286,20 +285,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
-    </Compile>
-    <Compile Include="Cocina\OrdenUI2.aspx.designer.vb">
-      <DependentUpon>OrdenUI2.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Cocina\OrdenUI2.aspx.vb">
-      <DependentUpon>OrdenUI2.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
-    </Compile>
-    <Compile Include="Cocina\OrderUI.aspx.designer.vb">
-      <DependentUpon>OrderUI.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Cocina\OrderUI.aspx.vb">
-      <DependentUpon>OrderUI.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="OpcionesMenuPlatos.aspx.designer.vb">
       <DependentUpon>OpcionesMenuPlatos.aspx</DependentUpon>

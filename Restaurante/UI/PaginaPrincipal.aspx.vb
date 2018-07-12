@@ -18,4 +18,13 @@
     Protected Sub btnAdministrarPedidos_Click(sender As Object, e As EventArgs) Handles btnAdministrarPedidos.Click
         Response.Redirect("AdministrarPedidos_Admin.aspx")
     End Sub
+
+    Protected Sub Regresar_Click(sender As Object, e As EventArgs) Handles Regresar.Click
+        Session("Usuario") = Nothing
+        Response.Redirect("InicioSesion.aspx")
+    End Sub
+
+    Protected Sub btnAdministrarClientes_Click(sender As Object, e As EventArgs) Handles btnAdministrarClientes.Click
+        'Response.Redirect()
+    End Sub
 End Class

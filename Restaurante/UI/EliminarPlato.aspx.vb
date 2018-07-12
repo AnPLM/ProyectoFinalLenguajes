@@ -15,4 +15,8 @@ Public Class EliminarPlato
         platoManager.eliminarPlato(txtCodigo.Text)
         Session("ListaPlatos") = platoManager.listarPlatos()
     End Sub
+
+    Protected Sub Regresar_Click(sender As Object, e As EventArgs) Handles Regresar.Click
+        Response.Redirect("OpcionesMenuPlatos.aspx")
+    End Sub
 End Class

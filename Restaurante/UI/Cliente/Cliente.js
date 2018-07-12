@@ -1,5 +1,6 @@
 ﻿//////////////////////////////////////////
 let carrito = [];
+var cantidadMaxProd = "50"
 let total = 0;
 let $carrito = document.querySelector('#carrito');
 let $total = document.querySelector('#total');
@@ -73,7 +74,7 @@ setInterval(cargarPlatosTabla, 60000);
             tr.innerHTML += '<td class="text-center">' + this.Precio + "</td>";
             tr.innerHTML += '<td class="text-center">' + '<button type="button" class="btn btn-primary" id="' + nombreAux + '"' + '>Mostrar Detalles</button></td>'
             tr.innerHTML += '<td class="text-center">' + '<button type="button" class="btn btn-success" id="' + this.Codigo + '","' + this.Nombre + + '","' + this.Precio + '"' + '>Agregar Plato</button>\
-<input id="' + nombreAux + auxCodeCantidad + 'cantidad" type="number" name="cantidadProd" step="1" min="1" max="50" style="margin-left:2.0em" value="1" required></td>' ////////////
+<input id="' + nombreAux + auxCodeCantidad + 'cantidad" type="number" name="cantidadProd" step="1" min="1" max="' + cantidadMaxProd + '" style="margin-left:2.0em" value="1" required></td>' ////////////
                 bodyTablaPlatos.append(tr);
                 
                 var nombreAux2 = this.Nombre;
@@ -87,7 +88,7 @@ setInterval(cargarPlatosTabla, 60000);
                 var auxString = "cantidad";
                 $('#' + nombreAuxCOd).bind("click", function () {
                     var carrito2 = JSON.parse(sessionStorage.getItem("carrito"));
-                    if (carrito2 != null) {
+                    if (carrito2 != null && carrito2.toString().length != 0) {
                         var cantidad = document.getElementById(nombreAux + auxCodeCantidad + auxString).value;
                         revisarCarrito(auxCodeCantidad, cantidad, nombreAuxCOd)
                         alert("Producto añadido: " + nombreAux2)
@@ -101,10 +102,10 @@ setInterval(cargarPlatosTabla, 60000);
                 });
 
             //Prohibir que los input de cantidad sean editables sin flecha
-                $('[id="' + nombreAux + auxCodeCantidad + 'cantidad"]').keypress(function (evt) {
+              /*  $('[id="' + nombreAux + auxCodeCantidad + 'cantidad"]').keypress(function (evt) {
                     evt.preventDefault();
                     alert("¡Use las flechas por favor!")
-                });
+                });*/
         });
     }
 
@@ -250,26 +251,6 @@ setInterval(cargarPlatosTabla, 60000);
         }
     }
 
-    function buscarPorNombreCarrito() {
-        var txtBuscarPlato = document.getElementById("txtBuscarPlato");
-        txtBuscarPlato = txtBuscarPlato.value.toUpperCase();
-        var td;
-        var filas;
-
-        table = document.getElementById("tablaCarrito");
-        filas = table.getElementsByTagName("tr");
-        for (i = 0; i < filas.length; i++) {
-            td = filas[i].getElementsByTagName("td")[1];//Nombre del plato
-            if (td) {
-                if (td.innerHTML.toUpperCase().indexOf(txtBuscarPlato) > -1) {
-                    filas[i].style.display = "";
-                } else {
-                    filas[i].style.display = "none";
-                }
-            }
-        }
-    }
-
     function IniciarSesion() {
         var txtEmail = document.getElementById("txtEmail").value;
         var txtContrasenna = document.getElementById("txtContrasenna").value;
@@ -311,22 +292,24 @@ setInterval(cargarPlatosTabla, 60000);
 
     function cerrarSesion() {
         var user = sessionStorage.removeItem("NombreUsuario");
-        session.removeItem("carrito");
+        sessionStorage.removeItem("carrito");
             document.location.href = document.location.href.replace("ClienteMenu.html", "InicioSesionCliente.html");
     }
 
     function finalizarCompra() {
+        var usuario = sessionStorage.getItem("NombreUsuario");
         var carrito2 = JSON.parse(sessionStorage.getItem("carrito"));
-        alert("Antes del WS " +carrito2)
         var req = $.ajax({
-            url: "/WSRest/WSCliente.svc/finalizarCompraCarrito?Carrito=" + carrito2,
+            url: "http://angielopez-001-site1.ctempurl.com/WSRest/WSCliente.svc/finalizarCompraCarrito?Carrito=" + carrito2 + "&nombreUsuario=" + usuario.toString(),
             timeout: 10000,
             dataType: "jsonp"
         }); //Es el que permite consultar/cargar información
         //de una URL sin hacer postback
 
         req.done(function (datos) {
-            alert(datos)
+            sessionStorage.removeItem("carrito");
+            document.location.href = document.location.href.replace("InicioSesionCliente.html", "ClienteMenu.html");
+
         })
         req.fail(function () {
             alert("¡Servicio no disponible, disculpe las molestias! Si desea emitir un reporte, puede hacerlo a nuestros teléfonos");

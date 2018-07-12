@@ -10,7 +10,7 @@ namespace BL
     public class BLOrden
     {
         public string nombreUsuario { get; set; }
-        public DateTime Fecha { get; set; }
+        public string Fecha { get; set; }
         public string Estado { get; set; }
         public int Identificador { get; set; }
         private DaoOrden dao;
@@ -19,7 +19,7 @@ namespace BL
             dao = new DaoOrden();
         }
 
-        public BLOrden(string nombre, DateTime fecha, string estado, int identificador) {
+        public BLOrden(string nombre, string fecha, string estado, int identificador) {
             this.nombreUsuario = nombre;
             this.Fecha = fecha;
             this.Estado = estado;

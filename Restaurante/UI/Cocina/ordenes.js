@@ -1,6 +1,6 @@
 function listaActiva(){
 	var req = $.ajax({
-	    url : "http://localhost:47332/WSRest/WSRestCoc.svc/ListaActiva",
+	    url: "http://angielopez-001-site1.ctempurl.com/WSRest/WSRestCoc.svc/ListaActiva",
 		timeout: 10000,
     dataType:"jsonp"
 	});
@@ -8,7 +8,7 @@ function listaActiva(){
 
 function Eliminar(identificador){
 	var req = $.ajax({
-		url : "http://localhost:47332/WSRest/WSRestCoc.svc/Eliminar?" + identificador,
+	    url: "http://angielopez-001-site1.ctempurl.com/WSRest/WSRestCoc.svc/Eliminar?" + identificador,
 		timeout: 10000,
     dataType:"jsonp",
 	});
@@ -40,12 +40,21 @@ function cargarLista(datos){
     var table = document.getElementById('table');
     table.innerHTML = "";
 	$.each(datos, function () {
+	    var seg = calcularMinutos(this.Fecha);
+	    var color = "#24D624"; //verde
+	    if (seg > 10) {
+	        color = "#F7FA04"; //amarillo
+	    }
+	    if (seg > 20) {
+	        color = "#FF0000"; //rojo
+	    }
+
 	    var tr = document.createElement("tr");
-	    tr.innerHTML += '<td class="text-center">' + this.nombreUsuario + "</td>";
-	    tr.innerHTML += '<td class="text-center">' + Date.parse(this.Fecha) + "</td>";
-	    tr.innerHTML += '<td class="text-center">' + this.Estado + "</td>";
-	    tr.innerHTML += '<td class="text-center">' + this.Identificador + "</td>";
-	    tr.innerHTML += '<td class="text-center">' + '<button onclick="entregar('+ this.Identificador +')"'
+	    tr.innerHTML += '<td class="text-center" bgcolor="' + color + '">' + this.nombreUsuario + "</td>";
+	    tr.innerHTML += '<td class="text-center" bgcolor="' + color + '">' + this.Fecha + "</td>";
+	    tr.innerHTML += '<td class="text-center" bgcolor="' + color + '">' + this.Estado + "</td>";
+	    tr.innerHTML += '<td class="text-center" bgcolor="' + color + '">' + this.Identificador + "</td>";
+	    tr.innerHTML += '<td class="text-center" bgcolor="' + color + '">' + '<button onclick="entregar(' + this.Identificador + ')"'
 	    + '"id="' + this.Identificador + '"' + '>Entregar</button></td>'
 	    var btnID = this.Identificador;
        // alert(btnID)
@@ -61,22 +70,29 @@ function cargarPrimeraVez() {
     lista();
 }
 
-
+function calcularMinutos(fecha) {
+    var fechaActual = new Date();
+    var mili = Date.parse(fechaActual) - Date.parse(fecha, "dd-MM-yyyy HH:mm:ss")
+    var segundos = (mili / 1000) - 3600;
+   // alert(fechaActual);
+    //alert(fecha);
+    return segundos;
+}
 
 function entregar(btnId) {
    // alert("a punto de entregar")
     var req = $.ajax({
-        url: "/WSRest/WSRestCoc.svc/actualizar?" + "estado=entregado" + "&" + "ide=" + btnId,
+        url: "http://angielopez-001-site1.ctempurl.com/WSRest/WSRestCoc.svc/actualizar?" + "estado=entregado" + "&" + "ide=" + btnId,
         timeout: 10000,
         dataType: "jsonp"
     });
 
     req.done(function (datos) {
-        alert("llego a renovar la lista");
+       // alert("llego a renovar la lista");
         lista();
     })
     req.fail(function () {
-        alert("no logro renovar la lista");
+       // alert("no logro renovar la lista");
     });
 
 }

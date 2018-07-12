@@ -8,9 +8,17 @@
                 <h1 class="text-center" style="color:beige">Bienvenido</h1>
                     <asp:Button ID="btnAdministrarMenu" Cssclass="btn btn-success text-center margin-up-button btn-block" runat="server" Text="Administrar Menu" />  
                     <asp:Button ID="btnAdministrarUsuarios" Cssclass="btn btn-success text-center margin-up-button btn-block" runat="server" Text="Administrar Usuarios" />  
-                    <asp:Button ID="btnAdministrarPedidos" Cssclass="btn btn-success text-center margin-up-button margin-botton-panel btn-block" runat="server" Text="Administrar Pedidos" />  
+                    <asp:Button ID="btnAdministrarClientes" Cssclass="btn btn-success text-center margin-up-button margin-botton-panel btn-block" runat="server" Text="Administrar Clientes" />                     
+                    <asp:Button ID="btnAdministrarPedidos" Cssclass="btn btn-success text-center margin-up-button margin-botton-panel btn-block" runat="server" Text="Administrar Pedidos" /> 
+                    <br/>
+            <asp:Button ID="Regresar" Cssclass="btn btn-primary text-center margin-up-button btn-block" runat="server" Text="Regresar" />  
+                     <br/>
             </div>
         </div>
+        <br/>
+        <div class="text-center">
+                    
+        </div>   
    </form>   
     
 </asp:Content>
